@@ -1,5 +1,5 @@
 /target:library
-/out:Temp/Unity.VSCode.Editor.dll
+/out:Temp/Unity.CollabProxy.Editor.dll
 /nowarn:0169
 /nowarn:0649
 /debug:portable
@@ -7,6 +7,7 @@
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll
 /reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:Library/ScriptAssemblies/UnityEditor.TestRunner.dll
@@ -75,11 +76,11 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/log4netPlastic.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/unityplastic.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/log4netPlastic.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/unityplastic.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -294,14 +295,23 @@
 /define:ENABLE_TERRAIN
 /define:ENABLE_TILEMAP
 /define:ENABLE_TIMELINE
-/define:ENABLE_LEGACY_INPUT_MANAGER
+/define:ENABLE_INPUT_SYSTEM
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\AssemblyNameProvider.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\FileIO.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\GUIDGenerator.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\ProjectGeneration.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\ProjectGenerationFlag.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\ProjectGeneration\StringUtils.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\VSCodeDiscovery.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.ide.vscode@1.2.4\Editor\VSCodeScriptEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\AssemblyInfo.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Bootstrap.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabAnalytics.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabHistoryWindow.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabToolbarButton.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabToolbarWindow.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Presenters\CollabHistoryPresenter.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\BuildStatusButton.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryDropDown.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryDropDownItem.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryItem.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryItemFactory.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryRevisionLine.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\HistoryProgressSpinner.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\ICollabHistoryItemFactory.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\PagedListView.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\StatusView.cs

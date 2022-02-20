@@ -1,5 +1,5 @@
 /target:library
-/out:Temp/Unity.CollabProxy.Editor.dll
+/out:Temp/Unity.TextMeshPro.Editor.dll
 /nowarn:0169
 /nowarn:0649
 /debug:portable
@@ -7,7 +7,7 @@
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
 /reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:Library/ScriptAssemblies/UnityEditor.TestRunner.dll
@@ -76,11 +76,11 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/log4netPlastic.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/unityplastic.dll
-/reference:C:/Users/vantan/Desktop/G-Lab-E/G-Lab-E/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/log4netPlastic.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.collab-proxy@1.14.9/Lib/Editor/PlasticSCM/unityplastic.dll
+/reference:C:/Users/vantan/Documents/Unity/G_Lab_E/G-Lab-E/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -295,23 +295,54 @@
 /define:ENABLE_TERRAIN
 /define:ENABLE_TILEMAP
 /define:ENABLE_TIMELINE
-/define:ENABLE_LEGACY_INPUT_MANAGER
+/define:ENABLE_INPUT_SYSTEM
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\AssemblyInfo.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Bootstrap.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabAnalytics.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabHistoryWindow.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabToolbarButton.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\CollabToolbarWindow.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Presenters\CollabHistoryPresenter.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\BuildStatusButton.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryDropDown.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryDropDownItem.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryItem.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryItemFactory.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\CollabHistoryRevisionLine.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\HistoryProgressSpinner.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\ICollabHistoryItemFactory.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\PagedListView.cs
-C:\Users\vantan\Desktop\G-Lab-E\G-Lab-E\Library\PackageCache\com.unity.collab-proxy@1.14.9\Editor\Collaborate\Collab\Views\StatusView.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\DropdownOptionListDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\GlyphInfoDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\GlyphMetricsPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\GlyphRectPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_BaseEditorPanel.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_BaseShaderGUI.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_BitmapShaderGUI.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_CharacterPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_ColorGradientAssetMenu.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_ColorGradientEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_DropdownEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_EditorCoroutine.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_EditorPanel.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_EditorPanelUI.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_EditorUtility.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_FontAssetEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_FontAsset_CreationMenu.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_GlyphPairAdjustmentRecordPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_GlyphPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_InputFieldEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_MeshRendererEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_PackageUtilities.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_PostBuildProcessHandler.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_PreBuildProcessor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_ProjectTextSettings.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_ResourcesLoader.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SDFShaderGUI.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SerializedPropertyHolder.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SettingsEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SpriteAssetEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SpriteAssetImporter.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SpriteAssetMenu.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SpriteCharacterPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SpriteGlyphPropertyDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_StyleAssetMenu.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_StyleSheetEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SubMeshUI_Editor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_SubMesh_Editor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_TextAlignmentDrawer.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMP_UIStyleManager.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_ContextMenus.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_CreateObjectMenu.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_EditorShaderUtilities.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_FontAssetCreatorWindow.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_FontPlugin.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_SortingLayerHelper.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_TextContainerEditor.cs
+C:\Users\vantan\Documents\Unity\G_Lab_E\G-Lab-E\Library\PackageCache\com.unity.textmeshpro@2.1.6\Scripts\Editor\TMPro_TexturePostProcessor.cs
