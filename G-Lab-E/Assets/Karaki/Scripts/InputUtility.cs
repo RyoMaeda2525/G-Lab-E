@@ -17,6 +17,9 @@ public class InputUtility : MonoBehaviour
     [SerializeField, Tooltip("InputActionにおける、ジャンプ入力名")]
     private string _ButtonNameJump = "Jump";
 
+    [SerializeField, Tooltip("InputActionにおける、「上の変身先」への変身入力名")]
+    private string _ButtonNameMorphUp = "MorphUp";
+
     #endregion
 
     #region InputAction
@@ -29,6 +32,9 @@ public class InputUtility : MonoBehaviour
     /// <summary> ジャンプの入力状況 </summary>
     static InputAction _JumpAction = default;
 
+    /// <summary> 「上の変身先」への変身の入力状況 </summary>
+    static InputAction _MorphUpAction = default;
+
     #endregion
 
     #region プロパティ
@@ -38,6 +44,8 @@ public class InputUtility : MonoBehaviour
     static public Vector2 GetAxis2DCameraMove { get => _CameraMoveAction.ReadValue<Vector2>(); }
     /// <summary> ジャンプボタン押下直後 </summary>
     static public bool GetDownJump { get => _JumpAction.triggered; }
+    /// <summary> 「上の変身先」への変身ボタン押下直後 </summary>
+    static public bool GetDownMorphUp { get => _MorphUpAction.triggered; }
 
     #endregion
 
@@ -50,6 +58,7 @@ public class InputUtility : MonoBehaviour
         _MoveAction = actionMap[_StickNameMove];
         _CameraMoveAction = actionMap[_StickNameCameraMove];
         _JumpAction = actionMap[_ButtonNameJump];
+        _MorphUpAction = actionMap[_ButtonNameMorphUp];
     }
 
     
