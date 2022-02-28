@@ -86,13 +86,16 @@ public class SlimeController : MonoBehaviour
 
     /// <summary> キャラクターを指定向きに回転させる </summary>
     /// <param name="targetDirection">目標向き</param>
+    /// <param name="up">上方向（Vector.Zeroなら上方向を指定しない）</param>
     /// <param name="rotateSpeed">回転速度</param>
     protected void CharacterRotation(Vector3 targetDirection, Vector3 up, float rotateSpeed)
     {
         if (targetDirection.sqrMagnitude > 0.0f)
         {
             Vector3 trunDirection = transform.right;
-            Quaternion charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f), up);
+            Quaternion charDirectionQuaternion = Quaternion.identity;
+            if(up.sqrMagnitude > 0f) charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f), up);
+            else charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, charDirectionQuaternion, rotateSpeed * Time.deltaTime);
         }
     }
@@ -100,11 +103,10 @@ public class SlimeController : MonoBehaviour
     /// <summary> 変身する </summary>
     protected void Morphing()
     {
-        //コウモリ×ヤモリに変身
-        if (InputUtility.GetDownMorphUp)
+        //スライムに戻る
+        if (InputUtility.GetDownMorphDown)
         {
-            //すでにコウモリ×ヤモリキメラならスライムに戻る
-            if (_ThisMorph == KindOfMorph.BatXGecko)
+            if(_ThisMorph != KindOfMorph.Slime)
             {
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
@@ -113,7 +115,12 @@ public class SlimeController : MonoBehaviour
                 this.gameObject.SetActive(false);
                 _Morphing = KindOfMorph.Slime;
             }
-            else
+        }
+
+        //コウモリ×ヤモリに変身
+        if (InputUtility.GetDownMorphUp)
+        {
+            if (_ThisMorph != KindOfMorph.BatXGecko)
             {
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).First();
                 sc.transform.position = transform.position;
@@ -123,6 +130,20 @@ public class SlimeController : MonoBehaviour
                 _Morphing = KindOfMorph.BatXGecko;
             }
         }
+
+        //イルカ×ワニに変身
+        if (InputUtility.GetDownMorphRight)
+        {
+            if(_ThisMorph != KindOfMorph.DolphinXCrocodile)
+            {
+                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXCrocodile).First();
+                sc.transform.position = transform.position;
+                sc.transform.rotation = transform.rotation;
+                sc.gameObject.SetActive(true);
+                this.gameObject.SetActive(false);
+                _Morphing = KindOfMorph.DolphinXCrocodile;
+            }
+        }
     }
 
     /// <summary> 変身する種類 </summary>
@@ -130,5 +151,6 @@ public class SlimeController : MonoBehaviour
     {
         Slime,
         BatXGecko,
+        DolphinXCrocodile,
     }
 }
