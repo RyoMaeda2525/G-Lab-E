@@ -436,11 +436,11 @@ GameObject:
   m_Component:
   - component: {fileID: 541340343}
   - component: {fileID: 541340342}
-  - component: {fileID: 541340341}
   - component: {fileID: 541340340}
   - component: {fileID: 541340339}
   - component: {fileID: 541340338}
   - component: {fileID: 541340344}
+  - component: {fileID: 541340341}
   m_Layer: 0
   m_Name: SampleEnemy
   m_TagString: Untagged
@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1675668cd3d6a4642bf1555c354b8a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerdistance: 4
   speed: 0.01
   _playerObj: {fileID: 1423156247}
 --- !u!1 &831618200
@@ -971,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444797107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0.03}
+  m_LocalPosition: {x: 0, y: 0.56, z: 5}
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 50137853}
