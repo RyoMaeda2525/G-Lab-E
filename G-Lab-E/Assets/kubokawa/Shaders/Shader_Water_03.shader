@@ -18,7 +18,7 @@
 				"Queue" = "Transparent"
 				"RenderType" = "Transparent"
 			}
-
+			Cull Off
 			GrabPass {}
 
 			CGPROGRAM
