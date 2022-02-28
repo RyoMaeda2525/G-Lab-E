@@ -15,8 +15,8 @@
 
 		SubShader{
 			Tags {
-				"Queue" = "Transparent"
-				"RenderType" = "Transparent"
+				"Queue" = "Opaque"
+				"RenderType" = "Opaque"
 			}
 			Cull Off
 			GrabPass {}
@@ -83,8 +83,8 @@
 					half3 grab = tex2D(_GrabTexture, grabUV + distortion).rgb * _Color;
 
 
-					o.Albedo = fixed3(0, 0, 0);
-					o.Emission = grab;
+					o.Albedo = fixed3(1, 1, 1);
+					//o.Emission = grab;
 					o.Metallic = 0;
 					o.Smoothness = _Glossiness;
 					o.Normal = normal;
@@ -93,5 +93,5 @@
 			ENDCG
 		}
 
-			FallBack "Transparent/Diffuse"
+			FallBack "Diffuse"//"Transparent/Diffuse"
 }
