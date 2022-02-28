@@ -23,15 +23,13 @@ public class movewithfloor : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        
         if (transform.parent == null && collision.gameObject.tag == "MoveFloor")
         {
             var emptyObject = new GameObject();
             emptyObject.transform.parent = collision.gameObject.transform;
             transform.parent = emptyObject.transform;
-        }
-
-    }
-
+        }}
     void OnCollisionExit(Collision collision)
     {
         if (transform.parent != null && collision.gameObject.tag == "MoveFloor")
@@ -39,4 +37,20 @@ public class movewithfloor : MonoBehaviour
             transform.parent = null;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (other.gameObject.tag == "PostProcessing")
+        {
+            rb.useGravity = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
+    }
+
 }
