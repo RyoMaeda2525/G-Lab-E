@@ -5,6 +5,7 @@ using UnityEngine;
 public class movewithfloor : MonoBehaviour
 {
     public Vector3 defaultScale = Vector3.zero;
+
     void Start()
     {
         defaultScale = transform.lossyScale;
@@ -23,13 +24,14 @@ public class movewithfloor : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
+
         if (transform.parent == null && collision.gameObject.tag == "MoveFloor")
         {
             var emptyObject = new GameObject();
             emptyObject.transform.parent = collision.gameObject.transform;
             transform.parent = emptyObject.transform;
-        }}
+        }
+    }
     void OnCollisionExit(Collision collision)
     {
         if (transform.parent != null && collision.gameObject.tag == "MoveFloor")
@@ -41,7 +43,6 @@ public class movewithfloor : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-
         if (other.gameObject.tag == "PostProcessing")
         {
             rb.useGravity = false;
@@ -52,5 +53,4 @@ public class movewithfloor : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
     }
-
 }

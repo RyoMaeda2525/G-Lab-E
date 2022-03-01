@@ -68,7 +68,7 @@
 
 				void surf(Input IN, inout SurfaceOutputStandard o) {
 					fixed4 waveTex1 = tex2D(_WaveTex1, IN.uv_WaveTex1 * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x));
-					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.x));
+					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y));
 
 					fixed3 normal1 = UnpackNormal(waveTex1);
 					fixed3 normal2 = UnpackNormal(waveTex2);
