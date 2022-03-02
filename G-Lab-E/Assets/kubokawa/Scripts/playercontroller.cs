@@ -19,7 +19,7 @@ public class playercontroller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //rotateCameraの呼び出し
         rotateplayer();
