@@ -25,7 +25,8 @@ public class BatXGeckoController : SlimeController
     protected override void Start()
     {
         base.Start();
-        Move = MoveGround;
+        Move = MoveWall;
+        _Rb.useGravity = false;
     }
 
     // Update is called once per frame
@@ -41,47 +42,57 @@ public class BatXGeckoController : SlimeController
         //ジャンプ入力で壁張り付き、解除
         if (InputUtility.GetDownJump)
         {
-            if (Move == MoveGround)
+            Debug.Log(_FoundWallNormal);
+
+            //正面に壁や床を見つけている
+            if (_FoundWallNormal.sqrMagnitude > 0)
             {
-                if (_FoundWallNormal.sqrMagnitude > 0f)
-                {
-                    ChangeMoveGroundToWall(_FoundWallNormal);
-                }
+                _PlaneNormal = _FoundWallNormal;
             }
+            //見つけてない
             else
             {
-                if (InputUtility.GetDownJump)
-                {
-                    ChangeMoveWallToGround();
-                }
+                _PlaneNormal = Vector3.up;
+                Move = MoveGlide;
             }
         }
     }
 
-    /// <summary> 移動方法を壁移動から床移動に変更する手続き </summary>
-    void ChangeMoveWallToGround()
+    void MoveGlide()
     {
-        _Rb.rotation = Quaternion.LookRotation(_PlaneNormal, Vector3.up);
-        _PlaneNormal = Vector3.up;
-        Move = MoveGround;
-        _Rb.useGravity = true;
-    }
+        //基本情報をローカルで定義
+        //カメラ視点の正面(重力軸無視)
+        Vector3 forward = Vector3.ProjectOnPlane(_CameraTransform.forward, _PlaneNormal);
+        forward = forward.normalized;
+        //カメラ視点の右方向
+        Vector3 right = Vector3.ProjectOnPlane(_CameraTransform.right, _PlaneNormal);
+        right = right.normalized;
 
-    /// <summary> 移動方法をを床移動から壁移動に変更する手続き </summary>
-    void ChangeMoveGroundToWall(Vector3 wallNormal)
-    {
-        _PlaneNormal = wallNormal;
-        _Rb.position += Vector3.up * 0.2f;
-        _Rb.rotation = Quaternion.LookRotation(Vector3.up, _PlaneNormal);
-        Move = MoveWall;
-        _Rb.useGravity = false;
+        //プレイヤーの移動入力を取得
+        float horizontal = InputUtility.GetAxis2DMove.x;
+        float vertical = InputUtility.GetAxis2DMove.y;
+
+        //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed * 0.5f;
+
+        _Rb.AddForce(forceForPb + (-_PlaneNormal * 2f));
+        CharacterRotation(forceForPb, _PlaneNormal, 90f);
+
+        //壁または床を足元から探す
+        Vector3 offset = transform.forward * _FindWallOffset;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 0.1f, _LayerGround))
+        {
+            _PlaneNormal = hit.normal;
+            Move = MoveWall;
+        }
     }
 
     void MoveWall()
     {
         //基本情報をローカルで定義
         //カメラ視点の正面(重力軸無視)
-        Vector3 forward = Vector3.ProjectOnPlane(Vector3.up, _PlaneNormal);
+        Vector3 forward = Vector3.ProjectOnPlane(_CameraTransform.up, _PlaneNormal);
         forward = forward.normalized;
         //カメラ視点の右方向
         Vector3 right = Vector3.ProjectOnPlane(_CameraTransform.right, _PlaneNormal);
@@ -93,27 +104,20 @@ public class BatXGeckoController : SlimeController
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed;
-
-        _Rb.AddForce(forceForPb - transform.up * 9.8f);
+        _Rb.AddForce(forceForPb - _PlaneNormal * 9.8f);
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
 
-        //壁を足元から探す
+        //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 1f, _LayerGround))
         {
-            //壁法線が鉛直とほぼ変わらないくらいなら壁移動解除
-            if (Vector3.Angle(Vector3.up, hit.normal) < _SlopeLimit)
-            {
-                ChangeMoveWallToGround();
-            }
-            //そうでなければ移動方向平面の法線を更新
-            else _PlaneNormal = hit.normal;
+            _PlaneNormal = hit.normal;
         }
-        //なければ壁移動解除
         else
         {
-            ChangeMoveWallToGround();
+            _PlaneNormal = Vector3.up;
+            Move = MoveGlide;
         }
     }
 
