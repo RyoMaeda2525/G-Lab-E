@@ -7,18 +7,11 @@ public class SampleEnemy : MonoBehaviour
 {
     /// <summary>ナビメッシュ</summary>
     NavMeshAgent m_agent;
-    Vector3 _playerPos;
-    Transform _playerTransform;
-    /// <summary>プレイヤーとの距離</summary>
-    float distance;
-    /// <summary>カメラに映った時のbool</summary>
-    bool Rendered = false;
-    /// <summary>エネミーが追いかけてくる距離</summary>
-    [SerializeField] float _playerdistance;
     /// <summary>エネミーのスピード</summary>
-    [SerializeField] float speed;
+    //[SerializeField] float speed = 0.5f;
     /// <summary>追いかけるプレイヤー</summary>
     [SerializeField] GameObject _playerObj;
+    private RaycastHit hit;
 
     void Start()
     {
@@ -27,22 +20,33 @@ public class SampleEnemy : MonoBehaviour
 
     void Update()
     {
-        _playerPos = _playerObj.transform.position;
-        distance = Vector3.Distance(this.transform.position, _playerPos);
-        
-        if(Rendered == true/*distance < _playerdistance*/)
-        {
-            //m_agent.SetDestination(transform.position += transform.forward * speed);
-            m_agent.destination = _playerObj.transform.position;
-        }
+      
     }
 
-    /// <summary>メインカメラに映った時に呼ばれる</summary>
-    void OnWillRenderObject()
+    private void OnTriggerStay(Collider other)
     {
-        if (Camera.current.tag == "MainCamera")
+        if (other.gameObject == _playerObj)
         {
-            Rendered = true;
+            var diff = _playerObj.transform.position - transform.position;
+            var distance = diff.magnitude;
+            var direction = diff.normalized;
+
+            if (Physics.Raycast(transform.position, direction, out hit, distance))
+            {
+                Debug.Log("Rayが当たった");
+                if (hit.transform.gameObject == _playerObj)
+                {
+                    m_agent.isStopped = false;
+                    m_agent.destination = _playerObj.transform.position;
+                    Debug.Log("当たった");
+                }
+                else
+                {
+                    m_agent.isStopped = true;
+                }
+
+            }
+
         }
     }
 }
