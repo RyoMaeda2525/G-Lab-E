@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BatXGeckoController : SlimeController
 {
-    [SerializeField, Tooltip("地形として認識するオブジェクトレイヤー")]
-    LayerMask _LayerGround = default;
+    /// <summary>重力および壁張り付き加速度</summary>
+    const float GRAVITY_SPEED = 9.8f;
 
     /// <summary> 発見した壁の法線ベクトル </summary>
     Vector3 _FoundWallNormal = default;
@@ -16,6 +16,9 @@ public class BatXGeckoController : SlimeController
 
     [SerializeField, Tooltip("坂道と認識できる角度の限界")]
     float _SlopeLimit = 40f;
+
+    /// <summary>重力速度</summary>
+    float _CurrentGravitySpeed = 9.8f;
 
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
@@ -35,15 +38,13 @@ public class BatXGeckoController : SlimeController
         Move();
     }
 
-    protected override void Update()
+    void Update()
     {
-        base.Update();
+        Morphing();
 
         //ジャンプ入力で壁張り付き、解除
         if (InputUtility.GetDownJump)
         {
-            Debug.Log(_FoundWallNormal);
-
             //正面に壁や床を見つけている
             if (_FoundWallNormal.sqrMagnitude > 0)
             {
@@ -73,10 +74,10 @@ public class BatXGeckoController : SlimeController
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed * 0.5f;
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 0.5f;
 
-        _Rb.AddForce(forceForPb + (-_PlaneNormal * 2f));
-        CharacterRotation(forceForPb, _PlaneNormal, 90f);
+        _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed * 0.4f));
+        CharacterRotation(forceForPb, _PlaneNormal, 180f);
 
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
@@ -103,8 +104,8 @@ public class BatXGeckoController : SlimeController
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed;
-        _Rb.AddForce(forceForPb - _PlaneNormal * 9.8f);
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
+        _Rb.AddForce(forceForPb - _PlaneNormal * _CurrentGravitySpeed);
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
 
         //壁または床を足元から探す
@@ -133,6 +134,23 @@ public class BatXGeckoController : SlimeController
             {
                 _FoundWallNormal = hit.normal;
             }
+        }
+
+        //水レイヤに触れていると溺れる
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
+        {
+            _CurrentSpeed = _MoveSpeed * 0.1f;
+            _CurrentGravitySpeed = 0f;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //水レイヤから脱出できると元に戻る
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
+        {
+            _CurrentSpeed = _MoveSpeed;
+            _CurrentGravitySpeed = GRAVITY_SPEED;
         }
     }
 }

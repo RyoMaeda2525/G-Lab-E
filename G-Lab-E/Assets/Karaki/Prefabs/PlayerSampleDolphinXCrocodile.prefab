@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4909649465765416206}
   - component: {fileID: 4909649465765416195}
   - component: {fileID: 4909649465765416194}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: PlayerSampleDolphinXCrocodile
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -128,3 +128,6 @@ MonoBehaviour:
   _CameraTransform: {fileID: 0}
   _MoveSpeed: 15
   _LayerNameWater: Water
+  _LayerGround:
+    serializedVersion: 2
+    m_Bits: 512

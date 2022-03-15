@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6050062431163971495}
   - component: {fileID: 6050062431163971492}
   - component: {fileID: 6050062431163971491}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: PlayerSampleSlime
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &6050062431163971492
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +126,7 @@ MonoBehaviour:
   _ThisMorph: 0
   _CameraTransform: {fileID: 0}
   _MoveSpeed: 15
+  _LayerNameWater: Water
+  _LayerGround:
+    serializedVersion: 2
+    m_Bits: 512

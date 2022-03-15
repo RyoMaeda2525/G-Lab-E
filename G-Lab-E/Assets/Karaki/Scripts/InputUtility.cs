@@ -57,6 +57,8 @@ public class InputUtility : MonoBehaviour
     static public Vector2 GetAxis2DCameraMove { get => _CameraMoveAction.ReadValue<Vector2>(); }
     /// <summary> ジャンプボタン押下直後 </summary>
     static public bool GetDownJump { get => _JumpAction.triggered; }
+    /// <summary> ジャンプボタン押下中 </summary>
+    static public bool GetJump { get => _JumpAction.IsPressed(); }
     /// <summary> 「上の変身先」への変身ボタン押下直後 </summary>
     static public bool GetDownMorphUp { get => _MorphUpAction.triggered; }
     /// <summary> 「下の変身先」への変身ボタン押下直後 </summary>

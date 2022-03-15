@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DolphinXCrocodileController : SlimeController
+public class DolphinXPenguinController : SlimeController
 {
-    [SerializeField, Tooltip("水中として認識するオブジェクトレイヤー名")]
-    string _LayerNameWater = "Water";
-
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
 
@@ -19,7 +16,7 @@ public class DolphinXCrocodileController : SlimeController
     }
 
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
         if (Move != MoveWater) Morphing();
     }
@@ -57,7 +54,6 @@ public class DolphinXCrocodileController : SlimeController
         //水レイヤに触れているときに泳ぐ
         if(other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
         {
-
             Move = MoveWater;
             _Rb.useGravity = false;
         }

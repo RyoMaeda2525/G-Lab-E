@@ -24,8 +24,23 @@ public class SlimeController : MonoBehaviour
     [SerializeField, Tooltip("キャラクターの移動力")]
     protected float _MoveSpeed = 30f;
 
+    [SerializeField, Tooltip("キャラクターのジャンプ力")]
+    float _JumpPower = 10f;
+
+    [SerializeField, Tooltip("水中として認識するオブジェクトレイヤー名")]
+    protected string _LayerNameWater = "Water";
+
+    [SerializeField, Tooltip("地形として認識するオブジェクトレイヤー")]
+    protected LayerMask _LayerGround = default;
+
     /// <summary> 移動方向平面の法線ベクトル </summary>
     protected Vector3 _PlaneNormal = new Vector3(0f, 1f, 0f);
+
+    /// <summary>現在の移動力</summary>
+    protected float _CurrentSpeed = 0f;
+
+    /// <summary>地面を見つけている</summary>
+    bool _IsFoundGround = false;
 
     #region プロパティ
     public KindOfMorph ThisMorph { get => _ThisMorph; }
@@ -43,6 +58,8 @@ public class SlimeController : MonoBehaviour
 
         //現在の変身先のモノだけ有効化
         this.gameObject.SetActive(_Morphing == _ThisMorph);
+
+        _CurrentSpeed = _MoveSpeed;
     }
 
     protected void OnDestroy()
@@ -56,9 +73,36 @@ public class SlimeController : MonoBehaviour
         MoveGround();
     }
 
-    protected virtual void Update()
+    void Update()
     {
         Morphing();
+
+        //床を足元から探す
+        _IsFoundGround = false;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.26f, _LayerGround))
+        {
+            _IsFoundGround = true;
+        }
+
+        //ジャンプ入力
+        if (InputUtility.GetDownJump)
+        {
+            //床を見つけている
+            if (_IsFoundGround)
+            {
+                _Rb.AddForce(Vector3.up * _JumpPower, ForceMode.Impulse);
+            }
+        }
+
+        //ジャンプ力減衰
+        if (!InputUtility.GetJump)
+        {
+            if(!_IsFoundGround && _Rb.velocity.y > 0)
+            {
+                _Rb.velocity = Vector3.ProjectOnPlane(_Rb.velocity, Vector3.up);
+            }
+        }
     }
 
     /// <summary> 地面を移動する </summary>
@@ -77,11 +121,19 @@ public class SlimeController : MonoBehaviour
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed;
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
 
-
-        _Rb.AddForce(forceForPb);
-        CharacterRotation(forceForPb, Vector3.up, 360f);
+        //  接地状態
+        if (_IsFoundGround)
+        {
+            _Rb.AddForce(forceForPb);
+            CharacterRotation(forceForPb, Vector3.up, 360f);
+        }
+        else
+        {
+            _Rb.AddForce(forceForPb * 0.4f);
+            CharacterRotation(forceForPb, Vector3.up, 90f);
+        }
     }
 
     /// <summary> キャラクターを指定向きに回転させる </summary>
@@ -134,14 +186,14 @@ public class SlimeController : MonoBehaviour
         //イルカ×ワニに変身
         if (InputUtility.GetDownMorphRight)
         {
-            if(_ThisMorph != KindOfMorph.DolphinXCrocodile)
+            if(_ThisMorph != KindOfMorph.DolphinXPenguin)
             {
-                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXCrocodile).First();
+                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).First();
                 sc.transform.position = transform.position;
                 sc.transform.rotation = transform.rotation;
                 sc.gameObject.SetActive(true);
                 this.gameObject.SetActive(false);
-                _Morphing = KindOfMorph.DolphinXCrocodile;
+                _Morphing = KindOfMorph.DolphinXPenguin;
             }
         }
     }
@@ -151,6 +203,26 @@ public class SlimeController : MonoBehaviour
     {
         Slime,
         BatXGecko,
-        DolphinXCrocodile,
+        DolphinXPenguin,
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //水レイヤに触れていると溺れる
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
+        {
+            _CurrentSpeed = _MoveSpeed / 5f;
+            _Rb.useGravity = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //水レイヤから脱出できると元に戻る
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
+        {
+            _CurrentSpeed = _MoveSpeed;
+            _Rb.useGravity = true;
+        }
     }
 }
