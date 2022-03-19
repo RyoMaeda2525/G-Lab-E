@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4909649465765416206}
   - component: {fileID: 4909649465765416195}
   - component: {fileID: 4909649465765416194}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: PlayerSampleDolphinXPenguin
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -132,3 +132,5 @@ MonoBehaviour:
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
+  _LayerNameWiremeshWall: WireMeshWall
+  _ThroughWiremeshTime: 0.5

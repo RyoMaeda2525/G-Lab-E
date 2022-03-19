@@ -83,18 +83,6 @@ public class SlimeController : MonoBehaviour
     void FixedUpdate()
     {
         MoveGround();
-
-        //指定時間金網に触れ続けたら、突っ込む
-        if (_ThroughWiremeshTimer > _ThroughWiremeshTime)
-        {
-            _ThroughWiremeshTimer = 0f;
-            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * -0.25f, ForceMode.Impulse);
-        }
-        //金網に触れているが指定時間経っていないと反発
-        else if (_ThroughWiremeshTimer > 0f)
-        {
-            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * 0.95f);
-        }
     }
 
     void Update()
@@ -146,6 +134,25 @@ public class SlimeController : MonoBehaviour
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
+
+        //指定時間金網に触れ続けたら、突っ込む
+        if (_ThroughWiremeshTimer > _ThroughWiremeshTime)
+        {
+            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * -0.1f, ForceMode.Impulse);
+        }
+        //金網に触れているが指定時間経っていないと反発
+        else if (_ThroughWiremeshTimer > 0f)
+        {
+            if(forceForPb.sqrMagnitude > 0f)
+            {
+                forceForPb *= 0.1f;
+            }
+            else
+            {
+                _ThroughWiremeshTimer = 0f;
+                _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * 0.1f, ForceMode.Impulse);
+            }
+        }
 
         //接地状態
         if (_IsFoundGround)
@@ -250,17 +257,13 @@ public class SlimeController : MonoBehaviour
         }
 
         //金網レイヤに触れている
-        int WiremeshWallLayerNumber = LayerMask.NameToLayer(_LayerNameWiremeshWall);
-        if (other.gameObject.layer == WiremeshWallLayerNumber)
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWiremeshWall))
         {
-            Debug.Log(other.ClosestPoint(transform.position) - transform.position);
-
             //金網を探す
             RaycastHit hit;
             if (Physics.Raycast(transform.position + Vector3.up * 0.5f, other.ClosestPoint(transform.position) - transform.position, out hit, 3f, LayerMask.GetMask(_LayerNameWiremeshWall)))
             {
                 _WiremeshNormal = hit.normal;
-
                 _ThroughWiremeshTimer += Time.deltaTime;
             }
         }

@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class InputUtility : MonoBehaviour
 {
-    /// <summary> コントローラー振動用メンバ </summary>
-    static Gamepad gamepad = default;
+    
 
     #region InputActionのActionsキー
     [Header("以下、InputActionのActionsに登録した名前を登録")]
@@ -28,6 +27,20 @@ public class InputUtility : MonoBehaviour
 
     [SerializeField, Tooltip("InputActionにおける、「右の変身先」への変身入力名")]
     string _ButtonNameMorphRight = "MorphRight";
+    #endregion
+
+    #region コントローラー振動用メンバ
+    /// <summary> コントローラー </summary>
+    static Gamepad _Gamepad = default;
+
+    [SerializeField, Range(0, 1), Tooltip("コントローラーの右側の振動の強さ")]
+    float _RightShakePower = 0.5f;
+
+    [SerializeField, Range(0, 1), Tooltip("コントローラーの左側の振動の強さ")]
+    float _LeftShakePower = 0.5f;
+
+    [SerializeField, Tooltip("コントローラーの振動の間隔")]
+    float _ShakeInterval = 0.2f;
     #endregion
 
     #region InputAction
@@ -81,7 +94,9 @@ public class InputUtility : MonoBehaviour
         _MorphRightAction = actionMap[_ButtonNameMorphRight];
 
         //ゲームパッド情報を取得
-        gamepad = Gamepad.current;
+        _Gamepad = Gamepad.current;
+
+        StartCoroutine(PalusShake());
     }
 
     /// <summary> コントローラーの振動を促す。ただし、数値は0～1の範囲で。範囲を超える場合はClampする。 </summary>
@@ -89,20 +104,36 @@ public class InputUtility : MonoBehaviour
     /// <param name="rightPower">右側のモーター強度</param>
     static public void SimpleShakeController(float leftPower, float rightPower)
     {
-        if (gamepad == null) gamepad = Gamepad.current;
-        if (gamepad != null)
+        if (_Gamepad == null) _Gamepad = Gamepad.current;
+        if (_Gamepad != null)
         {
-            gamepad.SetMotorSpeeds(Mathf.Clamp01(leftPower), Mathf.Clamp01(rightPower));
+            _Gamepad.SetMotorSpeeds(Mathf.Clamp01(leftPower), Mathf.Clamp01(rightPower));
+            
         }
     }
 
-    /// <summary>コントローラーの振動を止める。</summary>
+    /// <summary>コントローラーの振動を止める</summary>
     static public void StopShakeController()
     {
-        if (gamepad == null) gamepad = Gamepad.current;
-        if (gamepad != null)
+        if (_Gamepad == null) _Gamepad = Gamepad.current;
+        if (_Gamepad != null)
         {
-            gamepad.SetMotorSpeeds(0f, 0f);
+            _Gamepad.SetMotorSpeeds(0f, 0f);
+        }
+    }
+
+    /// <summary>コントローラーの振動を一定間隔で</summary>
+    IEnumerator PalusShake()
+    {
+        while (enabled)
+        {
+            SimpleShakeController(_LeftShakePower, _RightShakePower);
+
+            yield return new WaitForSeconds(_ShakeInterval);
+
+            StopShakeController();
+
+            yield return new WaitForSeconds(_ShakeInterval);
         }
     }
 }
