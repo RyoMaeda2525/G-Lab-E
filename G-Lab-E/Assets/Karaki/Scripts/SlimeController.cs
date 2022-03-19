@@ -36,11 +36,23 @@ public class SlimeController : MonoBehaviour
     /// <summary> 移動方向平面の法線ベクトル </summary>
     protected Vector3 _PlaneNormal = new Vector3(0f, 1f, 0f);
 
-    /// <summary>現在の移動力</summary>
+    /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
     /// <summary>地面を見つけている</summary>
     bool _IsFoundGround = false;
+
+    [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
+    string _LayerNameWiremeshWall = "WireMeshWall";
+
+    [SerializeField, Tooltip("金網をすり抜けるのにかかる時間")]
+    float _ThroughWiremeshTime = 0.5f;
+
+    /// <summary>金網すり抜けの経過時間</summary>
+    float _ThroughWiremeshTimer = 0f;
+
+    /// <summary>金網面の法線</summary>
+    Vector3 _WiremeshNormal = Vector3.zero;
 
     #region プロパティ
     public KindOfMorph ThisMorph { get => _ThisMorph; }
@@ -71,6 +83,18 @@ public class SlimeController : MonoBehaviour
     void FixedUpdate()
     {
         MoveGround();
+
+        //指定時間金網に触れ続けたら、突っ込む
+        if (_ThroughWiremeshTimer > _ThroughWiremeshTime)
+        {
+            _ThroughWiremeshTimer = 0f;
+            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * -0.25f, ForceMode.Impulse);
+        }
+        //金網に触れているが指定時間経っていないと反発
+        else if (_ThroughWiremeshTimer > 0f)
+        {
+            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * 0.95f);
+        }
     }
 
     void Update()
@@ -80,7 +104,7 @@ public class SlimeController : MonoBehaviour
         //床を足元から探す
         _IsFoundGround = false;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.26f, _LayerGround))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.45f, _LayerGround))
         {
             _IsFoundGround = true;
         }
@@ -106,7 +130,7 @@ public class SlimeController : MonoBehaviour
     }
 
     /// <summary> 地面を移動する </summary>
-    protected virtual void MoveGround()
+    void MoveGround()
     {
         //基本情報をローカルで定義
         //カメラ視点の正面(重力軸無視)
@@ -123,7 +147,7 @@ public class SlimeController : MonoBehaviour
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
 
-        //  接地状態
+        //接地状態
         if (_IsFoundGround)
         {
             _Rb.AddForce(forceForPb);
@@ -206,6 +230,16 @@ public class SlimeController : MonoBehaviour
         DolphinXPenguin,
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //金網レイヤに触れた
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWiremeshWall))
+        {
+            //速度減衰
+            _Rb.velocity = Vector3.Project(Vector3.up, _Rb.velocity);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         //水レイヤに触れていると溺れる
@@ -213,6 +247,22 @@ public class SlimeController : MonoBehaviour
         {
             _CurrentSpeed = _MoveSpeed / 5f;
             _Rb.useGravity = false;
+        }
+
+        //金網レイヤに触れている
+        int WiremeshWallLayerNumber = LayerMask.NameToLayer(_LayerNameWiremeshWall);
+        if (other.gameObject.layer == WiremeshWallLayerNumber)
+        {
+            Debug.Log(other.ClosestPoint(transform.position) - transform.position);
+
+            //金網を探す
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + Vector3.up * 0.5f, other.ClosestPoint(transform.position) - transform.position, out hit, 3f, LayerMask.GetMask(_LayerNameWiremeshWall)))
+            {
+                _WiremeshNormal = hit.normal;
+
+                _ThroughWiremeshTimer += Time.deltaTime;
+            }
         }
     }
 
@@ -223,6 +273,12 @@ public class SlimeController : MonoBehaviour
         {
             _CurrentSpeed = _MoveSpeed;
             _Rb.useGravity = true;
+        }
+
+        //金網レイヤから離れた
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWiremeshWall))
+        {
+            _ThroughWiremeshTimer = 0f;
         }
     }
 }

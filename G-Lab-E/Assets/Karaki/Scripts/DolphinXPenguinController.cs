@@ -26,6 +26,31 @@ public class DolphinXPenguinController : SlimeController
         Move();
     }
 
+    /// <summary> 地面を移動する </summary>
+    void MoveGround()
+    {
+        //基本情報をローカルで定義
+        //カメラ視点の正面(重力軸無視)
+        Vector3 forward = Vector3.ProjectOnPlane(_CameraTransform.forward, _PlaneNormal);
+        forward = forward.normalized;
+        //カメラ視点の右方向
+        Vector3 right = Vector3.ProjectOnPlane(_CameraTransform.right, _PlaneNormal);
+        right = right.normalized;
+
+        //プレイヤーの移動入力を取得
+        float horizontal = InputUtility.GetAxis2DMove.x;
+        float vertical = InputUtility.GetAxis2DMove.y;
+
+        //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeed;
+
+        if (forceForPb.sqrMagnitude > 0f)
+        {
+            _Rb.AddForce(forceForPb);
+            CharacterRotation(forceForPb, Vector3.up, 360f);
+        }
+    }
+
     /// <summary> 水中移動 </summary>
     void MoveWater()
     {
