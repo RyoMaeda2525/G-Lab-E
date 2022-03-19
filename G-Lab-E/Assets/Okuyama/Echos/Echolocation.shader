@@ -1,6 +1,7 @@
 ﻿Shader "Custom/Echolocation"
 {
-    Properties{
+    Properties
+    {
             _Color("Color", Color) = (1, 1, 1, 1)
             _Center("CenterX", vector) = (0, 0, 0)
             _Radius("Radius", float) = 0
