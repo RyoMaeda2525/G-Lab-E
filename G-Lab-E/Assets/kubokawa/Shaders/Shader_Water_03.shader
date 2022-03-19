@@ -15,8 +15,8 @@
 
 		SubShader{
 			Tags {
-				"Queue" = "Transparent"
-				"RenderType" = "Transparent"
+				"Queue" = "Opaque"
+				"RenderType" = "Opaque"
 			}
 			Cull Off
 			GrabPass {}
@@ -68,7 +68,7 @@
 
 				void surf(Input IN, inout SurfaceOutputStandard o) {
 					fixed4 waveTex1 = tex2D(_WaveTex1, IN.uv_WaveTex1 * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x));
-					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.x));
+					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y));
 
 					fixed3 normal1 = UnpackNormal(waveTex1);
 					fixed3 normal2 = UnpackNormal(waveTex2);
@@ -83,8 +83,8 @@
 					half3 grab = tex2D(_GrabTexture, grabUV + distortion).rgb * _Color;
 
 
-					o.Albedo = fixed3(0, 0, 0);
-					o.Emission = grab;
+					o.Albedo = fixed3(1, 1, 1);
+					//o.Emission = grab;
 					o.Metallic = 0;
 					o.Smoothness = _Glossiness;
 					o.Normal = normal;
@@ -93,5 +93,5 @@
 			ENDCG
 		}
 
-			FallBack "Transparent/Diffuse"
+			FallBack "Diffuse"//"Transparent/Diffuse"
 }
