@@ -12,6 +12,9 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の変身先 </summary>
     static KindOfMorph _Morphing = KindOfMorph.Slime;
 
+    [SerializeField, Tooltip("true : 変身可能である")]
+    protected bool _IsAbleToMorph = true;
+
     /// <summary> 移動用Rigidbody </summary>
     protected Rigidbody _Rb = default;
 
@@ -55,6 +58,10 @@ public class SlimeController : MonoBehaviour
     Vector3 _WiremeshNormal = Vector3.zero;
 
     #region プロパティ
+    /// <summary> true : 変身可能である </summary>
+    public bool IsAbleToMorph { set => _IsAbleToMorph = value; }
+
+    /// <summary> このキャラクターの変身の種類 </summary>
     public KindOfMorph ThisMorph { get => _ThisMorph; }
     #endregion
 
@@ -110,7 +117,7 @@ public class SlimeController : MonoBehaviour
         //ジャンプ力減衰
         if (!InputUtility.GetJump)
         {
-            if(!_IsFoundGround && _Rb.velocity.y > 0)
+            if (!_IsFoundGround && _Rb.velocity.y > 0)
             {
                 _Rb.velocity = Vector3.ProjectOnPlane(_Rb.velocity, Vector3.up);
             }
@@ -138,19 +145,19 @@ public class SlimeController : MonoBehaviour
         //指定時間金網に触れ続けたら、突っ込む
         if (_ThroughWiremeshTimer > _ThroughWiremeshTime)
         {
-            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * -0.1f, ForceMode.Impulse);
+            _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * -0.05f, ForceMode.Impulse);
         }
         //金網に触れているが指定時間経っていないと反発
         else if (_ThroughWiremeshTimer > 0f)
         {
-            if(forceForPb.sqrMagnitude > 0f)
+            if (forceForPb.sqrMagnitude > 0f)
             {
-                forceForPb *= 0.1f;
+                forceForPb *= 0.3f;
             }
             else
             {
                 _ThroughWiremeshTimer = 0f;
-                _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * 0.1f, ForceMode.Impulse);
+                _Rb.AddForce(_WiremeshNormal * _CurrentSpeed * 0.05f, ForceMode.Impulse);
             }
         }
 
@@ -177,7 +184,7 @@ public class SlimeController : MonoBehaviour
         {
             Vector3 trunDirection = transform.right;
             Quaternion charDirectionQuaternion = Quaternion.identity;
-            if(up.sqrMagnitude > 0f) charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f), up);
+            if (up.sqrMagnitude > 0f) charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f), up);
             else charDirectionQuaternion = Quaternion.LookRotation(targetDirection + (trunDirection * 0.001f));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, charDirectionQuaternion, rotateSpeed * Time.deltaTime);
         }
@@ -189,7 +196,7 @@ public class SlimeController : MonoBehaviour
         //スライムに戻る
         if (InputUtility.GetDownMorphDown)
         {
-            if(_ThisMorph != KindOfMorph.Slime)
+            if (_ThisMorph != KindOfMorph.Slime)
             {
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
@@ -205,26 +212,32 @@ public class SlimeController : MonoBehaviour
         {
             if (_ThisMorph != KindOfMorph.BatXGecko)
             {
-                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).First();
-                sc.transform.position = transform.position;
-                sc.transform.rotation = transform.rotation;
-                sc.gameObject.SetActive(true);
-                this.gameObject.SetActive(false);
-                _Morphing = KindOfMorph.BatXGecko;
+                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
+                if (sc && sc._IsAbleToMorph)
+                {
+                    sc.transform.position = transform.position;
+                    sc.transform.rotation = transform.rotation;
+                    sc.gameObject.SetActive(true);
+                    this.gameObject.SetActive(false);
+                    _Morphing = KindOfMorph.BatXGecko;
+                }
             }
         }
 
         //イルカ×ワニに変身
         if (InputUtility.GetDownMorphRight)
         {
-            if(_ThisMorph != KindOfMorph.DolphinXPenguin)
+            if (_ThisMorph != KindOfMorph.DolphinXPenguin)
             {
-                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).First();
-                sc.transform.position = transform.position;
-                sc.transform.rotation = transform.rotation;
-                sc.gameObject.SetActive(true);
-                this.gameObject.SetActive(false);
-                _Morphing = KindOfMorph.DolphinXPenguin;
+                SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
+                if (sc && sc._IsAbleToMorph)
+                {
+                    sc.transform.position = transform.position;
+                    sc.transform.rotation = transform.rotation;
+                    sc.gameObject.SetActive(true);
+                    this.gameObject.SetActive(false);
+                    _Morphing = KindOfMorph.DolphinXPenguin;
+                }
             }
         }
     }
@@ -244,6 +257,8 @@ public class SlimeController : MonoBehaviour
         {
             //速度減衰
             _Rb.velocity = Vector3.Project(Vector3.up, _Rb.velocity);
+            //地面との摩擦を無効化
+            _Rb.useGravity = false;
         }
     }
 
@@ -282,6 +297,9 @@ public class SlimeController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWiremeshWall))
         {
             _ThroughWiremeshTimer = 0f;
+
+            //地面との摩擦を有効化
+            _Rb.useGravity = true;
         }
     }
 }
