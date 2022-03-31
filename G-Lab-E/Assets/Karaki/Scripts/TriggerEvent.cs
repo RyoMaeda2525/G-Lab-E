@@ -10,6 +10,9 @@ public class TriggerEvent : MonoBehaviour
     [SerializeField, Tooltip("イベントを発生させる対象オブジェクトのタグ名")]
     string _TagNameTriggerTarget = "Player";
 
+    /// <summary>トリガーに接触したオブジェクト</summary>
+    GameObject _Triggered = null;
+
     [SerializeField, Tooltip("トリガーに触れた直後に実行するイベントのメソッドをここにアサイン")]
     UnityEvent _EnterToRunEvent = default;
 
@@ -19,16 +22,21 @@ public class TriggerEvent : MonoBehaviour
     [SerializeField, Tooltip("トリガーに触れ、離れた直後に実行するイベントのメソッドをここにアサイン")]
     UnityEvent _ExitToRunEvent = default;
 
+    public GameObject Triggered { get => _Triggered; }
+
     // Start is called before the first frame update
     void Start()
     {
         _Trigger = GetComponent<Collider>();
+
+        _Triggered = null;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(_TagNameTriggerTarget))
         {
+            _Triggered = other.gameObject;
             _EnterToRunEvent.Invoke();
         }
     }
@@ -45,6 +53,7 @@ public class TriggerEvent : MonoBehaviour
     {
         if (other.CompareTag(_TagNameTriggerTarget))
         {
+            _Triggered = null;
             _ExitToRunEvent.Invoke();
         }
     }

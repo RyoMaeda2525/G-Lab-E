@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(TriggerEvent))]
 public class CourseOutRecover : MonoBehaviour
 {
     [SerializeField, Tooltip("復活地点となる位置をアサイン")]
@@ -17,11 +18,13 @@ public class CourseOutRecover : MonoBehaviour
     [SerializeField, Tooltip("暗転から復帰するメソッドをアサイン")]
     UnityEvent _ReturnFromBlackoutMethod = default;
 
+    /// <summary>起因するイベントトリガーコンポーネント</summary>
+    TriggerEvent _Trigger = default;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _Trigger = GetComponent<TriggerEvent>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class CourseOutRecover : MonoBehaviour
         StartCoroutine(RecoverCoroutine());
     }
 
+    /// <summary>コースに復帰する流れを実施するコルーチン</summary>
     IEnumerator RecoverCoroutine()
     {
         WaitForSeconds wait = new WaitForSeconds(1f);
@@ -43,7 +47,7 @@ public class CourseOutRecover : MonoBehaviour
 
         yield return wait;
 
-        _RecoverTarget.position = _RecoverPoint.position;
+        _Trigger.Triggered.transform.position = _RecoverPoint.position;
 
         yield return wait;
 
