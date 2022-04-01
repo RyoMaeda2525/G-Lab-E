@@ -11,7 +11,13 @@ public class TestTriggerEvent : MonoBehaviour
     string _TagNamePlayer = "Player";
 
     [SerializeField, Tooltip("実行するイベントのメソッドをここにアサイン")]
-    UnityEvent _RunEvent = default;
+    UnityEvent _EnterRunEvent = default;
+
+    [SerializeField, Tooltip("実行するイベントのメソッドをここにアサイン")]
+    UnityEvent _SteyRunEvent = default;
+
+    [SerializeField, Tooltip("実行するイベントのメソッドをここにアサイン")]
+    UnityEvent _ExitRunEvent = default;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +29,23 @@ public class TestTriggerEvent : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(_TagNamePlayer))
         {
-            _RunEvent.Invoke();
+            _EnterRunEvent.Invoke();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag(_TagNamePlayer))
+        {
+            _SteyRunEvent.Invoke();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(_TagNamePlayer))
+        {
+            _ExitRunEvent.Invoke();
         }
     }
 }
