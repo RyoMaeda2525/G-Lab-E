@@ -6,6 +6,15 @@
             "id": "9769daf9-3617-4e9c-a15b-eb30f10d557d",
             "actions": [
                 {
+                    "name": "PauseMenu",
+                    "type": "Button",
+                    "id": "97c77868-2cb6-430f-be91-26749692f137",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "CameraMove",
                     "type": "PassThrough",
                     "id": "3ecd4342-ac40-4c7c-96bc-d343cb8896a1",
@@ -300,6 +309,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MorphRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a67735c2-9564-41e7-b2d8-98008418a8d2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

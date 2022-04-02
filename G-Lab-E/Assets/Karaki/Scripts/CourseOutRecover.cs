@@ -27,12 +27,6 @@ public class CourseOutRecover : MonoBehaviour
         _Trigger = GetComponent<TriggerEvent>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DoRecover()
     {
         StartCoroutine(RecoverCoroutine());

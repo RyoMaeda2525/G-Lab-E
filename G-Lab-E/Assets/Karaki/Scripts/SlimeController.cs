@@ -92,8 +92,12 @@ public class SlimeController : MonoBehaviour
         MoveGround();
     }
 
+    
+
     void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         Morphing();
 
         //床を足元から探す
@@ -249,6 +253,8 @@ public class SlimeController : MonoBehaviour
         BatXGecko,
         DolphinXPenguin,
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {

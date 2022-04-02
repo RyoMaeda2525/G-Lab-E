@@ -40,6 +40,8 @@ public class BatXGeckoController : SlimeController
 
     void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         Morphing();
 
         //ジャンプ入力で壁張り付き、解除
