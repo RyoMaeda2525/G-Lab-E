@@ -30,6 +30,9 @@ public class InputUtility : MonoBehaviour
 
     [SerializeField, Tooltip("InputActionにおける、「右の変身先」への変身入力名")]
     string _ButtonNameMorphRight = "MorphRight";
+
+    [SerializeField, Tooltip("InputActionにおける、「左の変身先」への変身入力名")]
+    string _ButtonNameMorphLeft = "MorphLeft";
     #endregion
 
     #region コントローラー振動用メンバ
@@ -67,6 +70,9 @@ public class InputUtility : MonoBehaviour
 
     /// <summary> 「右の変身先」への変身の入力状況 </summary>
     static InputAction _MorphRightAction = default;
+
+    /// <summary> 「左の変身先」への変身の入力状況 </summary>
+    static InputAction _MorphLeftAction = default;
     #endregion
 
     #region プロパティ
@@ -86,6 +92,8 @@ public class InputUtility : MonoBehaviour
     static public bool GetDownMorphDown { get => _MorphDownAction.triggered; }
     /// <summary> 「右の変身先」への変身ボタン押下直後 </summary>
     static public bool GetDownMorphRight { get => _MorphRightAction.triggered; }
+    /// <summary> 「左の変身先」への変身ボタン押下直後 </summary>
+    static public bool GetDownMorphLeft { get => _MorphLeftAction.triggered; }
     #endregion
 
     // Start is called before the first frame update
@@ -101,6 +109,7 @@ public class InputUtility : MonoBehaviour
         _MorphUpAction = actionMap[_ButtonNameMorphUp];
         _MorphDownAction = actionMap[_ButtonNameMorphDown];
         _MorphRightAction = actionMap[_ButtonNameMorphRight];
+        _MorphLeftAction = actionMap[_ButtonNameMorphLeft];
 
         //ゲームパッド情報を取得
         _Gamepad = Gamepad.current;

@@ -198,7 +198,7 @@ public class SlimeController : MonoBehaviour
     protected void Morphing()
     {
         //スライムに戻る
-        if (InputUtility.GetDownMorphDown)
+        if (InputUtility.GetDownMorphUp)
         {
             if (_ThisMorph != KindOfMorph.Slime)
             {
@@ -212,7 +212,7 @@ public class SlimeController : MonoBehaviour
         }
 
         //コウモリ×ヤモリに変身
-        if (InputUtility.GetDownMorphUp)
+        if (InputUtility.GetDownMorphLeft)
         {
             if (_ThisMorph != KindOfMorph.BatXGecko)
             {
