@@ -114,7 +114,7 @@ public class InputUtility : MonoBehaviour
         //ゲームパッド情報を取得
         _Gamepad = Gamepad.current;
 
-        //StartCoroutine(PalusShake());
+        StartCoroutine(PalusShake());
     }
 
     /// <summary> コントローラーの振動を促す。ただし、数値は0～1の範囲で。範囲を超える場合はClampする。 </summary>
