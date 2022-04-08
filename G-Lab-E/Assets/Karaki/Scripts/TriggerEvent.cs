@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider))]
 public class TriggerEvent : MonoBehaviour
 {
-    Collider _Trigger = default;
-
     [SerializeField, Tooltip("イベントを発生させる対象オブジェクトのタグ名")]
     string _TagNameTriggerTarget = "Player";
 
@@ -27,8 +26,6 @@ public class TriggerEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _Trigger = GetComponent<Collider>();
-
         _Triggered = null;
     }
 
