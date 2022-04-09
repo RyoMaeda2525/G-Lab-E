@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a16db4b55052ab143979e6f3af091d72,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -2005,20 +2006,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TagNamePlayer: Player
-  _RunEvent:
+  _EnterRunEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 793972300}
-        m_MethodName: Stage2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _SteyRunEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _ExitRunEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1346475763
 BoxCollider:
   m_ObjectHideFlags: 0
