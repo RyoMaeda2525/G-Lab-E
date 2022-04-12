@@ -4,50 +4,58 @@ using UnityEngine;
 
 public class EcholocationController1 : MonoBehaviour
 {
-    private static readonly int Center = Shader.PropertyToID("_Center");
-    private static readonly int Radius = Shader.PropertyToID("_Radius");
+    /// <summary>マテリアルのパラメーター、_Center のID</summary>
+    static readonly int IDCenter = Shader.PropertyToID("_Center");
 
-    // ここにインスペクター上でEcholocationマテリアルをセットしておく
-    [SerializeField] Material material;
+    /// <summary>マテリアルのパラメーター、_Radius のID</summary>
+    static readonly int IDRadius = Shader.PropertyToID("_Radius");
 
-    // 半径が大きくなるスピード
-    [SerializeField] [Min(0.0f)] float speed = 5.0f;
-    [SerializeField] GameObject _player;
-    Vector3 _playerPos;
+    [SerializeField, Tooltip("ここにインスペクター上でEcholocationマテリアルをセットしておく")]
+    Material _Material = default;
 
-    // 現在の半径
-    private float radius;
+    [SerializeField, Min(0.0f), Tooltip("半径が大きくなるスピード")] 
+    float _Speed = 5.0f;
 
-    // 半径の初期値は無限大としておく
+    [SerializeField, Tooltip("Echolocationするキャラクター")]
+    GameObject _Player;
+
+    /// <summary>現在の半径</summary>
+    float _Radius;
+
+    
     private void Start()
     {
-        _playerPos = _player.transform.position;
+        // 半径の初期値は無限大としておく
+        _Radius = Mathf.Infinity;
     }
+
     private void OnEnable()
     {
-        this.radius = Mathf.Infinity;
+        // 半径の初期値は無限大としておく
+        _Radius = Mathf.Infinity;
     }
 
     // 毎フレーム半径のセットおよび拡張を行う
     private void Update()
     {
-        _playerPos = _player.transform.position;
+        Vector3 _playerPos = _Player.transform.position;
         if (InputUtility.GetDownJump)
         {
-            Debug.Log("ジャンプボタンが押された！");
             EchoMaterialSwitcher.DoEchoOrder();
             EmitCall(_playerPos);
         }
 
-        this.material.SetFloat(Radius, this.radius);
-        this.radius += this.speed * Time.deltaTime;
+        _Material.SetFloat(IDRadius, _Radius);
+        _Radius += _Speed * Time.deltaTime;
     }
 
-    // 他のスクリプトからEmitCallを実行することで
-    // 中心点を設定し、半径を0にリセットする
+    /// <summary>
+    /// 他のスクリプトからEmitCallを実行することで中心点を設定し、半径を0にリセットする
+    /// </summary>
+    /// <param name="position">Echoの発生源</param>
     public void EmitCall(Vector3 position)
     {
-        this.radius = 0.0f;
-        this.material.SetVector(Center, position);
+        _Radius = 0.0f;
+        _Material.SetVector(IDCenter, position);
     }
 }
