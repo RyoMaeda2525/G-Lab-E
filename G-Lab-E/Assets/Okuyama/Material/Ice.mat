@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EchoMaterial
-  m_Shader: {fileID: 4800000, guid: 3a4f904ca11f81f4f8e103b92dbaf79d, type: 3}
+  m_Name: Ice
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,13 +67,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 12.051268
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Center: {r: 0.09, g: 0.593, b: -0.31, a: 0}
-    - _Color: {r: 0, g: 0.18836021, b: 1, a: 1}
+    - _Color: {r: 0.28034887, g: 0.9433962, b: 0.8945401, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
