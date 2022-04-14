@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: field_winter_snowpillar_MT
-  m_Shader: {fileID: 4800000, guid: cd25333ccb688234387cd0192b9ec3e4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4e4c59391d19d42439fb028e7842a5bf, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _COLORADDSUBDIFF_ON _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -89,12 +89,16 @@ Material:
     - _SrcBlend: 5
     - _TopY: 49.8
     - _UVSec: 0
+    - _XShift: 0.1
+    - _XSpeed: 10
+    - _YShift: 0.1
+    - _YSpeed: 10
     - _ZWrite: 0
     m_Colors:
     - _BottomColor: {r: 1, g: 1, b: 1, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.9198113, g: 1, b: 0.9959226, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TopColor: {r: 1, g: 1, b: 1, a: 1}

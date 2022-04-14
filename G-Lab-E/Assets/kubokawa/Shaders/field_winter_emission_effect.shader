@@ -4,6 +4,7 @@
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex("Texture", 2D) = "white" {}
+        _EmissionIntensity("Emission Intensity", Range(1.0, 100.0)) = 10.0
     }
     SubShader
     {
@@ -27,6 +28,7 @@
         };
 
         fixed4 _Color;
+        float _EmissionIntensity;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -44,13 +46,14 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
+
             //fixed4 c = _Color;
             // Albedo comes from a texture tinted by color
             //o.Albedo = IN.vertColor.rgb ;
-            o.Albedo = IN.vertColor.rgb;
-
+            //o.Albedo = IN.vertColor.rgb;
+            o.Emission = IN.vertColor.rgb * _EmissionIntensity;
             // Metallic and smoothness come from slider variables
-            o.Alpha = c.a;
+            //o.Alpha = c.a;
         }
         ENDCG
     }
