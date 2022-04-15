@@ -11,6 +11,9 @@ public class BatXGeckoController : SlimeController
     /// <summary> 発見した壁の法線ベクトル </summary>
     Vector3 _FoundWallNormal = default;
 
+    [SerializeField, Tooltip("壁のぼり可能な壁のタグ名")]
+    string _TagWalkableWall = "WalkableWall";
+
     [SerializeField, Tooltip("地面を探す時にRayを飛ばす位置にかけるオフセット")]
     float _FindWallOffset = 0.1f;
 
@@ -127,14 +130,18 @@ public class BatXGeckoController : SlimeController
 
     private void OnTriggerStay(Collider other)
     {
-        _FoundWallNormal = Vector3.zero;
-        //キャラクター正面の壁を見る
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up * 0.1f, transform.forward, out hit, 1f, _LayerGround))
+        //壁のぼりできる壁である
+        if (other.CompareTag(_TagWalkableWall))
         {
-            if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)
+            _FoundWallNormal = Vector3.zero;
+            //キャラクター正面の壁を見る
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + transform.up * 0.1f, transform.forward, out hit, 1f, _LayerGround))
             {
-                _FoundWallNormal = hit.normal;
+                if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)
+                {
+                    _FoundWallNormal = hit.normal;
+                }
             }
         }
 
