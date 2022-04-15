@@ -15,7 +15,7 @@
 
 		SubShader{
 			Tags {
-				"Queue" = "Opaque"
+				"Queue" = "Geometry"
 				"RenderType" = "Opaque"
 			}
 			Cull Off
