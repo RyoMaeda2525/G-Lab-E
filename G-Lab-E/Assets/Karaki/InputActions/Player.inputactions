@@ -6,6 +6,15 @@
             "id": "9769daf9-3617-4e9c-a15b-eb30f10d557d",
             "actions": [
                 {
+                    "name": "PauseMenu",
+                    "type": "Button",
+                    "id": "97c77868-2cb6-430f-be91-26749692f137",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "CameraMove",
                     "type": "PassThrough",
                     "id": "3ecd4342-ac40-4c7c-96bc-d343cb8896a1",
@@ -54,6 +63,15 @@
                     "name": "MorphRight",
                     "type": "Button",
                     "id": "f935fe2d-818e-4944-bcc5-199adf2ad3bd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MorphLeft",
+                    "type": "Button",
+                    "id": "e4ba298f-2ab0-4711-b01d-8cda9611af59",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -300,6 +318,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "MorphRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a67735c2-9564-41e7-b2d8-98008418a8d2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d90115a-04df-4157-8fe7-1956e4400e64",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a4a7931-6236-4aac-8751-646b5d3da41e",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1bce3f7e-9c6e-4b8d-90cf-6ff32cc603ea",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MorphLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80dedb58-858f-4ae2-8868-74a17a24c599",
+                    "path": "<XInputController>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MorphLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98614e86-6b4f-4eff-9938-92804549210d",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MorphLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

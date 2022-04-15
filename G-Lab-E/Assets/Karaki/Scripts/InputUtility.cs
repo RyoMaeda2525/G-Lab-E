@@ -10,6 +10,9 @@ public class InputUtility : MonoBehaviour
 
     #region InputActionのActionsキー
     [Header("以下、InputActionのActionsに登録した名前を登録")]
+    [SerializeField, Tooltip("InputActionにおける、ポーズメニューボタン名")]
+    string _StickNamePauseMenu = "PauseMenu";
+
     [SerializeField, Tooltip("InputActionにおける、移動入力名")]
     string _StickNameMove = "Move";
 
@@ -27,6 +30,9 @@ public class InputUtility : MonoBehaviour
 
     [SerializeField, Tooltip("InputActionにおける、「右の変身先」への変身入力名")]
     string _ButtonNameMorphRight = "MorphRight";
+
+    [SerializeField, Tooltip("InputActionにおける、「左の変身先」への変身入力名")]
+    string _ButtonNameMorphLeft = "MorphLeft";
     #endregion
 
     #region コントローラー振動用メンバ
@@ -44,6 +50,9 @@ public class InputUtility : MonoBehaviour
     #endregion
 
     #region InputAction
+    /// <summary> ポーズメニュー起動の入力状況 </summary>
+    static InputAction _PauseMenuAction = default;
+
     /// <summary> 移動操作の入力状況 </summary>
     static InputAction _MoveAction = default;
 
@@ -61,9 +70,14 @@ public class InputUtility : MonoBehaviour
 
     /// <summary> 「右の変身先」への変身の入力状況 </summary>
     static InputAction _MorphRightAction = default;
+
+    /// <summary> 「左の変身先」への変身の入力状況 </summary>
+    static InputAction _MorphLeftAction = default;
     #endregion
 
     #region プロパティ
+    /// <summary> ポーズメニューボタン押下直後 </summary>
+    static public bool GetDownPauseMenu { get => _PauseMenuAction.triggered; }
     /// <summary> 移動操作の二次元値 </summary>
     static public Vector2 GetAxis2DMove { get => _MoveAction.ReadValue<Vector2>(); }
     /// <summary> カメラ移動操作の二次元値 </summary>
@@ -78,6 +92,8 @@ public class InputUtility : MonoBehaviour
     static public bool GetDownMorphDown { get => _MorphDownAction.triggered; }
     /// <summary> 「右の変身先」への変身ボタン押下直後 </summary>
     static public bool GetDownMorphRight { get => _MorphRightAction.triggered; }
+    /// <summary> 「左の変身先」への変身ボタン押下直後 </summary>
+    static public bool GetDownMorphLeft { get => _MorphLeftAction.triggered; }
     #endregion
 
     // Start is called before the first frame update
@@ -86,12 +102,14 @@ public class InputUtility : MonoBehaviour
         //入力を関連付け
         PlayerInput input = GetComponent<PlayerInput>();
         InputActionMap actionMap = input.currentActionMap;
+        _PauseMenuAction = actionMap[_StickNamePauseMenu];
         _MoveAction = actionMap[_StickNameMove];
         _CameraMoveAction = actionMap[_StickNameCameraMove];
         _JumpAction = actionMap[_ButtonNameJump];
         _MorphUpAction = actionMap[_ButtonNameMorphUp];
         _MorphDownAction = actionMap[_ButtonNameMorphDown];
         _MorphRightAction = actionMap[_ButtonNameMorphRight];
+        _MorphLeftAction = actionMap[_ButtonNameMorphLeft];
 
         //ゲームパッド情報を取得
         _Gamepad = Gamepad.current;

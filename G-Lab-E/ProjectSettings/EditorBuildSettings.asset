@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Karaki/\u03B1Version 1.unity"
+    guid: ef65e498764158142aaa14b397e3077f
+  - enabled: 1
+    path: "Assets/Maeda/\u03B1Version 2.unity"
+    guid: e3e7d615a53bff24b8f9298dfdce3755
+  - enabled: 1
+    path: "Assets/Maeda/\u03B1Version 3.unity"
+    guid: 49527ee9592afcf43abfdd72bdd26833
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5332601794a6ada41a8a3c5091a8ee2b,
       type: 2}
