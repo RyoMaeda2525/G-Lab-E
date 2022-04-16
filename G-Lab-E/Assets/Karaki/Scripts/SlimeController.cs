@@ -42,7 +42,7 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
-    /// <summary>地面を見つけている</summary>
+    [SerializeField, Tooltip("地面を見つけている")]
     bool _IsFoundGround = false;
 
     [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
