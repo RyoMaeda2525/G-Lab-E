@@ -14,6 +14,9 @@
 
 		_YShift("Yuv Shift", Range(-1.0, 1.0)) = 0.1
 		_YSpeed("Y Scroll Speed", Range(1.0, 100.0)) = 10.0
+
+		[PowerSlider(0.1)] _F0("F0", Range(0.0, 1.0)) = 0.02
+		_Scale("Scale", range(0, 10)) = 5
 	}
 		SubShader
 		{
@@ -35,15 +38,22 @@
 				{
 					float4 vertex : POSITION;
 					float2 uv : TEXCOORD0;
+					half3 normal : NORMAL;
+					float2 texcoord : TEXCOORD5;
 				};
 
 				struct v2f
 				{
 					float2 uv : TEXCOORD0;
 					UNITY_FOG_COORDS(1)
+					float2 texcoord : TEXCOORD5;
 					float4 vert_color : TEXCOORD2;
 					float4 vertex : SV_POSITION;
 					float3 worldPos : WORLD_POS;
+
+					
+					half vdotn : TEXCOORD3;
+					half3 reflDir : TEXCOORD4;
 				};
 
 				sampler2D _MainTex;
@@ -56,16 +66,36 @@
 				float _YShift;
 				float _XSpeed;
 				float _YSpeed;
+				float _F0;
+				half _Scale;
 
 				v2f vert(appdata v)
 				{
 					v2f o;
+
+					//Speed
+					_XShift = _XShift * _XSpeed;
+					_YShift = _YShift * _YSpeed;
+
+					//add Shift
+					v.uv.x = v.uv.x + _XShift * _Time;
+					v.uv.y = v.uv.y + _YShift * _Time;
+
+					float d = tex2Dlod(_MainTex, float4(v.uv.xy, 0, 0)).a;
+					d = d * 2 - 1;
+					v.vertex.x += d * _Scale;
+
 					o.vertex = UnityObjectToClipPos(v.vertex);
 					o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 					o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 					half t = (o.worldPos.y - _BottomY) / (_TopY - _BottomY);
 					o.vert_color = lerp(_BottomColor, _TopColor, saturate(t));
 					UNITY_TRANSFER_FOG(o,o.vertex);
+
+					half3 viewDir = normalize(ObjSpaceViewDir(v.vertex));
+					o.vdotn = dot(viewDir, v.normal.xyz);
+					o.reflDir = mul(unity_ObjectToWorld, reflect(-viewDir, v.normal.xyz));
+
 					return o;
 				}
 				float4 _EmissionColor;
@@ -88,8 +118,12 @@
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 
-				//xcol.a = col.a;
-				return col + tex2D(_MainTex, i.uv) * _EmissionColor;
+				col.a = col.a > tex2D(_MainTex, i.uv).a ? tex2D(_MainTex, i.uv) : col.a;
+				col.rgb = col.rgb + tex2D(_MainTex, i.uv).rgb;
+				//half fresnel = _F0 + (1.0h - _F0) * pow(1.0h - i.vdotn, 5);
+				half fresnel = _F0 + (1.0h - _F0) * pow(i.vdotn, 5);
+
+				return col  * fresnel + _EmissionColor;
 			}
 			ENDCG
 		}
