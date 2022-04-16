@@ -573,7 +573,8 @@ GameObject:
   - component: {fileID: 5748215889890082665}
   - component: {fileID: 5748215889890082666}
   - component: {fileID: 8508778158988704034}
-  m_Layer: 0
+  - component: {fileID: 1583644697}
+  m_Layer: 13
   m_Name: slime_nishiuchi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +588,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4829171842460303908}
-  m_LocalRotation: {x: -0.18748803, y: 0.36465606, z: 0.07521603, w: 0.90896463}
+  m_LocalRotation: {x: -0.18748502, y: 0.36465567, z: 0.075214595, w: 0.9089655}
   m_LocalPosition: {x: 190.159, y: 0.035050973, z: 97.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -626,7 +627,7 @@ Rigidbody:
   m_GameObject: {fileID: 4829171842460303908}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -640,7 +641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4829171842460303908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4595acb565279a41aecccfc820372af, type: 3}
   m_Name: 
@@ -727,10 +728,34 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.39500427
-  m_Height: 0.79000854
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.17212498, z: 2.722889e-16}
+  m_Radius: 0.29153112
+  m_Height: 0.58306223
+  m_Direction: 2
+  m_Center: {x: -0.0037899017, y: 0.27822545, z: 0.005046189}
+--- !u!114 &1583644697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829171842460303908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764c1f8926ace684eb31eb4d5f58406b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IsAbleToMorph: 1
+  _ThisMorph: 0
+  _CameraTransform: {fileID: 0}
+  _MoveSpeed: 8
+  _JumpPower: 5
+  _LayerNameWater: Water
+  _LayerGround:
+    serializedVersion: 2
+    m_Bits: 512
+  _IsFoundGround: 0
+  _LayerNameWiremeshWall: WireMeshWall
+  _ThroughWiremeshTime: 0.5
 --- !u!1 &4851815393312749459
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +998,7 @@ GameObject:
   - component: {fileID: 7191036118061138012}
   m_Layer: 0
   m_Name: main
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
