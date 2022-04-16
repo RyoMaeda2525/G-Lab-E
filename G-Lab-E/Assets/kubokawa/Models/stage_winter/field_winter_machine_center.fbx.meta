@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 828c2486e764b804caef111a9f260c54
+guid: ca4180c5608cd81499fa3e2ca0c1d5fc
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: field_winter_tilling_ice_mountain_MT
-    second: {fileID: 2100000, guid: 8db059dd51dc87a4d82b3278e948fabd, type: 2}
+      name: prop_1F_MT
+    second: {fileID: 2100000, guid: 9a49b3897e7d8df4a982e46a10ef7144, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: prop_1F_transparency_MT
+    second: {fileID: 2100000, guid: 0950dcf861f02674d84e2e6be23b9cfb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
