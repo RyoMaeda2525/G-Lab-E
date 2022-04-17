@@ -6,6 +6,9 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: field_spring_windmill_animClip
+  - first:
+      74: -998496362607748373
+    second: field_spring_door_entrance_animClip
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -99,8 +102,133 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: field_spring_inside_props_grp
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_crane1
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_cylinder_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_frame
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_frame_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_left
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_left/field_spring_door_entrance_left_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_right
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_right/field_spring_door_entrance_right_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence2
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence2/field_spring_fence2_grid
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_jinja
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_pillar_frame
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_box
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_cylinder
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_inside1
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_robe
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill/field_spring_prop_windmill_anim_locater
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill/field_spring_prop_windmill_anim_locater/field_spring_prop_windmill_anim
+        weight: 1
+      - path: field_spring_inside_props_grp/field_spring_room
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: field_spring_door_entrance_animClip
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: field_spring_inside_props_grp
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_crane1
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_cylinder_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_frame
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_frame_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_left
+        weight: 1
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_left/field_spring_door_entrance_left_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_right
+        weight: 1
+      - path: field_spring_inside_props_grp/field_spring_door_entrance/field_spring_door_entrance_right/field_spring_door_entrance_right_glass
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence2
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_fence2/field_spring_fence2_grid
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_jinja
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_pillar_frame
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_box
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_cylinder
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_inside1
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_robe
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill/field_spring_prop_windmill_anim_locater
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_prop_windmill/field_spring_prop_windmill_anim_locater/field_spring_prop_windmill_anim
+        weight: 0
+      - path: field_spring_inside_props_grp/field_spring_room
+        weight: 0
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0
@@ -162,7 +290,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
