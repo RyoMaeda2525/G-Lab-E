@@ -1,4 +1,4 @@
-﻿Shader "Unlit/EmissionShader"
+﻿Shader "Unlit/EmissionShader_oneside"
 {
     Properties
     {
@@ -20,7 +20,6 @@
         Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
         LOD 100
-            Cull off
         
         Pass
         {
