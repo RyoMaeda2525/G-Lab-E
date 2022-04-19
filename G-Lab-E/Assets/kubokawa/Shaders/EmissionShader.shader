@@ -14,6 +14,7 @@
         _MainColor("Color", Color) = (1,1,1,1)
         _EmissionMap("Emission Map", 2D) = "black" {}               //追加
         [HDR] _EmissionColor("Emission Color", Color) = (0,0,0)    //追加
+        _EmissionIntensity("EmissionIntensity", Range(0.0, 100.0)) = 1
     }
     SubShader
     {
@@ -55,7 +56,8 @@
 
             float4 _MainColor;
             uniform sampler2D _EmissionMap;    //追加
-            float4 _EmissionColor;             //追加
+            float4 _EmissionColor;  
+            float _EmissionIntensity;//追加
 
             v2f vert (appdata v)
             {
@@ -81,7 +83,8 @@
                 col.a = _MainColor.a;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col + tex2D(_EmissionMap, i.uv) * _EmissionColor;;
+                col = col + tex2D(_EmissionMap, i.uv) * _EmissionColor * _EmissionIntensity;
+                return col;
             }
             ENDCG
         }
