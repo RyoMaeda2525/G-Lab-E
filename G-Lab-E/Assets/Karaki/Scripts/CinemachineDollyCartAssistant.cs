@@ -17,6 +17,5 @@ public class CinemachineDollyCartAssistant : MonoBehaviour
     public void RecoverPosition(float position)
     {
         _Cd.m_Position = position;
-        Debug.Log(position + "\n" + _Cd.m_Position);
     }
 }

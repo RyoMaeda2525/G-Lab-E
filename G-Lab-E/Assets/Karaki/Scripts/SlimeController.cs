@@ -12,6 +12,9 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の変身先 </summary>
     static KindOfMorph _Morphing = KindOfMorph.Slime;
 
+    [SerializeField, Tooltip("変身用エフェクトオブジェクト")]
+    GameObject _MorphEffect = default;
+
     [SerializeField, Tooltip("true : 変身可能である")]
     protected bool _IsAbleToMorph = true;
 
@@ -197,11 +200,14 @@ public class SlimeController : MonoBehaviour
     /// <summary> 変身する </summary>
     protected void Morphing()
     {
+        _MorphEffect.transform.position = transform.position;
+
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)
         {
             if (_ThisMorph != KindOfMorph.Slime)
             {
+                if (_MorphEffect) _MorphEffect.SetActive(true);
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
                 sc.transform.rotation = transform.rotation;
@@ -219,8 +225,10 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
+                    if (_MorphEffect) _MorphEffect.SetActive(true);
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
+
                     sc.gameObject.SetActive(true);
                     this.gameObject.SetActive(false);
                     _Morphing = KindOfMorph.BatXGecko;
@@ -236,6 +244,7 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
+                    if (_MorphEffect) _MorphEffect.SetActive(true);
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
                     sc.gameObject.SetActive(true);
