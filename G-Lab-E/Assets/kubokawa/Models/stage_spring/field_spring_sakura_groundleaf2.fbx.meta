@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 8b0a70044310e114eae753133e271369
+guid: a29a650453d536e40b8da0a18fc1bacb
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: field_spring_sakura_leaf_MT
+    second: {fileID: 2100000, guid: 9012ed6d61c12c64ea42f8e974ccf038, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
