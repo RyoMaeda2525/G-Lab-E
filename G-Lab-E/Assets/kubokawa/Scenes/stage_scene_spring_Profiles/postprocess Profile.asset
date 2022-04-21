@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
     overrideState: 1
     value: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   ambientOnly:
-    overrideState: 0
+    overrideState: 1
     value: 1
   noiseFilterTolerance:
     overrideState: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 3.5
+    value: 4
   aperture:
     overrideState: 0
     value: 4.9

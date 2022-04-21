@@ -24192,7 +24192,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.84
   m_Range: 10
   m_SpotAngle: 30
@@ -47363,7 +47363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &2087666462
 AudioListener:
   m_ObjectHideFlags: 0
@@ -47940,7 +47940,7 @@ PrefabInstance:
     - target: {fileID: 4248973745963534354, guid: 4843b76e2ec311146944faeb4519d8ac,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4843b76e2ec311146944faeb4519d8ac, type: 3}
