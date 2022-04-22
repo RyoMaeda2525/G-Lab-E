@@ -109,8 +109,6 @@ public class BeltScrollController : MonoBehaviour
 
         _SetPosition.Invoke();
 
-        yield return wait;
-
         _DamageLeave = _DamageCount;
         //gameObject.SetActive(true);
 
