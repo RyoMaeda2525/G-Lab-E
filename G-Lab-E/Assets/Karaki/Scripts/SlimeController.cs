@@ -12,8 +12,11 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の変身先 </summary>
     static KindOfMorph _Morphing = KindOfMorph.Slime;
 
-    [SerializeField, Tooltip("変身用エフェクトオブジェクト")]
-    GameObject _MorphEffect = default;
+    [SerializeField, Tooltip("変身用エフェクトプレハブ")]
+    GameObject _MorphEffectPrefab = default;
+
+    /// <summary>変身用エフェクトを生成したもの</summary>
+    static GameObject _MorphEffectInstance = null;
 
     [SerializeField, Tooltip("true : 変身可能である")]
     protected bool _IsAbleToMorph = true;
@@ -200,14 +203,15 @@ public class SlimeController : MonoBehaviour
     /// <summary> 変身する </summary>
     protected void Morphing()
     {
-        _MorphEffect.transform.position = transform.position;
+        //変身エフェクトが表示されている状態なら
+        if (_MorphEffectInstance) _MorphEffectInstance.transform.position = transform.position;
 
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)
         {
             if (_ThisMorph != KindOfMorph.Slime)
             {
-                if (_MorphEffect) _MorphEffect.SetActive(true);
+                GenerateMorphEffect();
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
                 sc.transform.rotation = transform.rotation;
@@ -225,7 +229,7 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
-                    if (_MorphEffect) _MorphEffect.SetActive(true);
+                    GenerateMorphEffect();
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
 
@@ -244,7 +248,7 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
-                    if (_MorphEffect) _MorphEffect.SetActive(true);
+                    GenerateMorphEffect();
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
                     sc.gameObject.SetActive(true);
@@ -263,7 +267,17 @@ public class SlimeController : MonoBehaviour
         DolphinXPenguin,
     }
 
+    /// <summary>変身エフェクトを（再）生成する</summary>
+    void GenerateMorphEffect()
+    {
+        if (_MorphEffectInstance)
+        {
+            Destroy(_MorphEffectInstance);
+        }
 
+        _MorphEffectInstance = Instantiate(_MorphEffectPrefab);
+        _MorphEffectInstance.transform.position = transform.position;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

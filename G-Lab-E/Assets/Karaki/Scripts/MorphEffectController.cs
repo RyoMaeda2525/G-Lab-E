@@ -25,8 +25,7 @@ public class MorphEffectController : MonoBehaviour
             _Timer += Time.deltaTime;
             if (_Timer > _Time)
             {
-                gameObject.SetActive(false);
-                _Timer = 0f;
+                Destroy(gameObject);
             }
         }
     }
