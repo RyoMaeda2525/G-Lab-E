@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BeltScrollController : MonoBehaviour
@@ -17,17 +18,43 @@ public class BeltScrollController : MonoBehaviour
     [SerializeField, Tooltip("移動可能な範囲からはみ出そうな時に、押し戻しをかける力の倍率")]
     float _PushBackToAreaSpeedRatio = 1f;
 
+    [SerializeField, Tooltip("障害物とみなすオブジェクトのレイヤー名")]
+    string _LayerNameObstacle = "Ground";
+
+    [SerializeField, Tooltip("許されるダメージ回数")]
+    byte _DamageCount = 3;
+
+    [SerializeField, Tooltip("ダメージを受けれる残り回数")]
+    byte _DamageLeave = 0;
+
     /// <summary>BeltScrollさせるRigidbody</summary>
     Rigidbody _Rb = default;
+
+    [SerializeField, Tooltip("暗転させるメソッドをアサイン")]
+    UnityEvent _DoBlackoutMethod = default;
+
+    [SerializeField, Tooltip("暗転から復帰するメソッドをアサイン")]
+    UnityEvent _ReturnFromBlackoutMethod = default;
+
+    [SerializeField, Tooltip("CinemachineDollyCartで、通過失敗した際に復帰する位置をセットするメソッドをアサイン")]
+    UnityEvent _SetPosition = default;
+
+
+    /// <summary>ダメージを受けれる残り回数</summary>
+    public byte DamageLeave { get => _DamageLeave; set => _DamageLeave = value; }
+
 
     // Start is called before the first frame update
     void Start()
     {
         _Rb = GetComponent<Rigidbody>();
+        _DamageLeave = _DamageCount;
     }
 
     void FixedUpdate()
     {
+        if (_DamageLeave < 1) return;
+
         //キャラクターが移動範囲内にいるかどうかを確認
         bool isLowerOnAreaHorizontal = transform.localPosition.x < _MoveAreaMin.x;
         bool isUpperOnAreaHorizontal = _MoveAreaMax.x < transform.localPosition.x;
@@ -66,6 +93,39 @@ public class BeltScrollController : MonoBehaviour
         else if (isUpperOnAreaVertical)
         {
             _Rb.AddRelativeForce(Vector3.down * _MoveSpeed * _PushBackToAreaSpeedRatio);
+        }
+    }
+
+    /// <summary>コースに復帰する流れを実施するコルーチン</summary>
+    IEnumerator RecoverCoroutine()
+    {
+        //gameObject.SetActive(false);
+
+        WaitForSeconds wait = new WaitForSeconds(1f);
+
+        _DoBlackoutMethod.Invoke();
+
+        yield return wait;
+
+        _SetPosition.Invoke();
+
+        yield return wait;
+
+        _DamageLeave = _DamageCount;
+        //gameObject.SetActive(true);
+
+        _ReturnFromBlackoutMethod.Invoke();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (_DamageLeave < 1) return;
+
+        if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameObstacle))
+        {
+            _DamageLeave -= 1;
+
+            if (_DamageLeave < 1) StartCoroutine(RecoverCoroutine());
         }
     }
 }
