@@ -4,6 +4,7 @@
     {
         [PowerSlider(0.1)] _F0("F0", Range(0.0, 1.0)) = 0.02
         _CubeMap("Cube Map", Cube) = "white" {}
+        _EmissionIntesity("_EmissionIntesity", Range(0.0, 10)) = 1 
     }
         SubShader
     {
@@ -32,6 +33,7 @@
 
             UNITY_DECLARE_TEXCUBE(_CubeMap);
             float _F0;
+            float _EmissionIntesity;
 
             v2f vert(appdata v)
             {
@@ -46,7 +48,7 @@
             fixed4 frag(v2f i) : SV_Target
             {
                 half fresnel = _F0 + (1.0h - _F0) * pow(1.0h - i.vdotn, 5);
-                return UNITY_SAMPLE_TEXCUBE(_CubeMap, i.reflDir) * fresnel;
+                return UNITY_SAMPLE_TEXCUBE(_CubeMap, i.reflDir) * fresnel * _EmissionIntesity;
             }
             ENDCG
         }
