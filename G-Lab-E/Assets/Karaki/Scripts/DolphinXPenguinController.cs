@@ -18,6 +18,8 @@ public class DolphinXPenguinController : SlimeController
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         if (Move != MoveWater) Morphing();
     }
 

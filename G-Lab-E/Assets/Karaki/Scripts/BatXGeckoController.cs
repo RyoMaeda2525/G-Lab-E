@@ -11,11 +11,20 @@ public class BatXGeckoController : SlimeController
     /// <summary> 発見した壁の法線ベクトル </summary>
     Vector3 _FoundWallNormal = default;
 
+    [SerializeField, Tooltip("壁のぼり可能な壁のタグ名")]
+    string _TagWalkableWall = "WalkableWall";
+
     [SerializeField, Tooltip("地面を探す時にRayを飛ばす位置にかけるオフセット")]
     float _FindWallOffset = 0.1f;
 
     [SerializeField, Tooltip("坂道と認識できる角度の限界")]
     float _SlopeLimit = 40f;
+
+    [SerializeField, Tooltip("滑空時の最低落下速度倍率")]
+    float _GlideFallSpeedRate = 0.1f;
+
+    [SerializeField, Tooltip("滑空時の落下速度が最低値になる飛行速度")]
+    float _GlideFallSpeedBorder = 3f;
 
     /// <summary>重力速度</summary>
     float _CurrentGravitySpeed = 9.8f;
@@ -40,6 +49,8 @@ public class BatXGeckoController : SlimeController
 
     void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         Morphing();
 
         //ジャンプ入力で壁張り付き、解除
@@ -76,15 +87,21 @@ public class BatXGeckoController : SlimeController
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 0.5f;
 
-        _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed * 0.4f));
-        CharacterRotation(forceForPb, _PlaneNormal, 180f);
+        _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
+        CharacterRotation(forceForPb, _PlaneNormal, 360f);
+
+        //落下速度調整
+        float glideSpeed = Vector3.ProjectOnPlane(_Rb.velocity, _PlaneNormal).magnitude;
+        float gravitySpeed = -((((_GlideFallSpeedRate - 1f) * 5f / (_GlideFallSpeedBorder)) * glideSpeed) + 8f);
+        Debug.Log("glide : " + glideSpeed + "  gravity : " + gravitySpeed);
+        _Rb.velocity = new Vector3(_Rb.velocity.x, gravitySpeed, _Rb.velocity.z);
 
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 0.1f, _LayerGround))
         {
-            _PlaneNormal = hit.normal;
+            _PlaneNormal = Vector3.up;
             Move = MoveWall;
         }
     }
@@ -125,14 +142,18 @@ public class BatXGeckoController : SlimeController
 
     private void OnTriggerStay(Collider other)
     {
-        _FoundWallNormal = Vector3.zero;
-        //キャラクター正面の壁を見る
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up * 0.1f, transform.forward, out hit, 1f, _LayerGround))
+        //壁のぼりできる壁である
+        if (other.CompareTag(_TagWalkableWall))
         {
-            if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)
+            _FoundWallNormal = Vector3.zero;
+            //キャラクター正面の壁を見る
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + transform.up * 0.1f, transform.forward, out hit, 1f, _LayerGround))
             {
-                _FoundWallNormal = hit.normal;
+                if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)
+                {
+                    _FoundWallNormal = hit.normal;
+                }
             }
         }
 

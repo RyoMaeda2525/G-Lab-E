@@ -7,6 +7,7 @@
 		_TopColor("TopColor", Color) = (1, 1, 1, 1)
 		_BottomY("BottomY", float) = -0.5
 		_BottomColor("BottomColor", Color) = (0, 0, 0, 1)
+	    _EmissionColor("EmissionColor", Color) = (1,1,1,1)
 	}
 		SubShader
 		{
@@ -57,18 +58,22 @@
 					UNITY_TRANSFER_FOG(o,o.vertex);
 					return o;
 				}
+				float4 _EmissionColor;
 
 				fixed4 frag(v2f i) : SV_Target
 				{
 					// sample the texture
 					fixed4 col = tex2D(_MainTex, i.uv);
+
+
+
 				// gradation
 				col = col * i.vert_color;
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 
 				col.a = col.a;
-				return col;
+				return col * _EmissionColor * _EmissionColor;
 			}
 			ENDCG
 		}

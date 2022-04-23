@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4909649465765416206}
   - component: {fileID: 4909649465765416195}
   - component: {fileID: 4909649465765416194}
-  m_Layer: 10
+  - component: {fileID: 753001333}
+  m_Layer: 8
   m_Name: PlayerSampleDolphinXPenguin
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033613a2d8ad9ca4494478ad90864648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _IsAbleToMorph: 1
   _ThisMorph: 2
   _CameraTransform: {fileID: 0}
   _MoveSpeed: 15
@@ -132,3 +134,20 @@ MonoBehaviour:
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
+  _LayerNameWiremeshWall: WireMeshWall
+  _ThroughWiremeshTime: 0.5
+--- !u!114 &753001333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909649465765416201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6664e71421eead741bb11a9f37f9496c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Material: {fileID: 2100000, guid: 62640bbe3d9ba1249a2fc520599b5ea1, type: 2}
+  _Speed: 5
+  _Player: {fileID: 4909649465765416201}
