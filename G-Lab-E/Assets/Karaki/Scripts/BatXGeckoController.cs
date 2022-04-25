@@ -93,7 +93,6 @@ public class BatXGeckoController : SlimeController
         //落下速度調整
         float glideSpeed = Vector3.ProjectOnPlane(_Rb.velocity, _PlaneNormal).magnitude;
         float gravitySpeed = -((((_GlideFallSpeedRate - 1f) * 5f / (_GlideFallSpeedBorder)) * glideSpeed) + 8f);
-        Debug.Log("glide : " + glideSpeed + "  gravity : " + gravitySpeed);
         _Rb.velocity = new Vector3(_Rb.velocity.x, gravitySpeed, _Rb.velocity.z);
 
         //壁または床を足元から探す

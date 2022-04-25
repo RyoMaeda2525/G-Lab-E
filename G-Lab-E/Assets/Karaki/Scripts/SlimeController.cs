@@ -12,11 +12,8 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の変身先 </summary>
     static KindOfMorph _Morphing = KindOfMorph.Slime;
 
-    [SerializeField, Tooltip("変身用エフェクトプレハブ")]
-    GameObject _MorphEffectPrefab = default;
-
-    /// <summary>変身用エフェクトを生成したもの</summary>
-    static GameObject _MorphEffectInstance = null;
+    /// <summary>変身エフェクトを制御するコンポーネント</summary>
+    MorphEffectController _MorphEffectController = default;
 
     [SerializeField, Tooltip("true : 変身可能である")]
     protected bool _IsAbleToMorph = true;
@@ -85,6 +82,8 @@ public class SlimeController : MonoBehaviour
         this.gameObject.SetActive(_Morphing == _ThisMorph);
 
         _CurrentSpeed = _MoveSpeed;
+
+        _MorphEffectController = FindObjectOfType<MorphEffectController>();
     }
 
     protected void OnDestroy()
@@ -203,21 +202,22 @@ public class SlimeController : MonoBehaviour
     /// <summary> 変身する </summary>
     protected void Morphing()
     {
-        //変身エフェクトが表示されている状態なら
-        if (_MorphEffectInstance) _MorphEffectInstance.transform.position = transform.position;
+        //変身エフェクトが表示されている状態なら変身要求は不可
+        if (_MorphEffectController.IsPlayingAnimation) return;
+        _MorphEffectController.transform.position = transform.position;
 
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)
         {
             if (_ThisMorph != KindOfMorph.Slime)
             {
-                GenerateMorphEffect();
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
                 sc.transform.rotation = transform.rotation;
-                sc.gameObject.SetActive(true);
-                this.gameObject.SetActive(false);
+                _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                 _Morphing = KindOfMorph.Slime;
+                _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                this.gameObject.SetActive(false);
             }
         }
 
@@ -229,18 +229,17 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
-                    GenerateMorphEffect();
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
-
-                    sc.gameObject.SetActive(true);
-                    this.gameObject.SetActive(false);
+                    _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                     _Morphing = KindOfMorph.BatXGecko;
+                    _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                    this.gameObject.SetActive(false);
                 }
             }
         }
 
-        //イルカ×ワニに変身
+        //イルカ×ペンギンに変身
         if (InputUtility.GetDownMorphRight)
         {
             if (_ThisMorph != KindOfMorph.DolphinXPenguin)
@@ -248,35 +247,15 @@ public class SlimeController : MonoBehaviour
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
-                    GenerateMorphEffect();
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
-                    sc.gameObject.SetActive(true);
-                    this.gameObject.SetActive(false);
+                    _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                     _Morphing = KindOfMorph.DolphinXPenguin;
+                    _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                    this.gameObject.SetActive(false);
                 }
             }
         }
-    }
-
-    /// <summary> 変身する種類 </summary>
-    public enum KindOfMorph : byte
-    {
-        Slime,
-        BatXGecko,
-        DolphinXPenguin,
-    }
-
-    /// <summary>変身エフェクトを（再）生成する</summary>
-    void GenerateMorphEffect()
-    {
-        if (_MorphEffectInstance)
-        {
-            Destroy(_MorphEffectInstance);
-        }
-
-        _MorphEffectInstance = Instantiate(_MorphEffectPrefab);
-        _MorphEffectInstance.transform.position = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -331,4 +310,12 @@ public class SlimeController : MonoBehaviour
             _Rb.useGravity = true;
         }
     }
+}
+
+/// <summary> 変身する種類 </summary>
+public enum KindOfMorph : byte
+{
+    Slime = 0,
+    BatXGecko,
+    DolphinXPenguin,
 }
