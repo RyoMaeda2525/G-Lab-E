@@ -143,7 +143,7 @@ public class BatXGeckoController : SlimeController
     private void OnTriggerStay(Collider other)
     {
         //壁のぼりできる壁である
-        if (/*other.CompareTag(_TagWalkableWall)*/ true)
+        if (other.CompareTag(_TagWalkableWall))
         {
             _FoundWallNormal = Vector3.zero;
             //キャラクター正面の壁を見る
