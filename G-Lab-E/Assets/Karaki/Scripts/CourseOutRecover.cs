@@ -13,10 +13,10 @@ public class CourseOutRecover : MonoBehaviour
     Transform _RecoverTarget = default;
 
     [SerializeField, Tooltip("暗転させるメソッドをアサイン")]
-    UnityEvent _DoBlackoutMethod = default;
+    protected UnityEvent _DoBlackoutMethod = default;
 
     [SerializeField, Tooltip("暗転から復帰するメソッドをアサイン")]
-    UnityEvent _ReturnFromBlackoutMethod = default;
+    protected UnityEvent _ReturnFromBlackoutMethod = default;
 
     /// <summary>起因するイベントトリガーコンポーネント</summary>
     TriggerEvent _Trigger = default;
@@ -33,7 +33,7 @@ public class CourseOutRecover : MonoBehaviour
     }
 
     /// <summary>コースに復帰する流れを実施するコルーチン</summary>
-    IEnumerator RecoverCoroutine()
+    protected virtual IEnumerator RecoverCoroutine()
     {
         WaitForSeconds wait = new WaitForSeconds(1f);
 

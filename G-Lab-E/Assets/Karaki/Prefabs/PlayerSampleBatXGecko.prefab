@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4832125215910732935}
   - component: {fileID: 4832125215910732930}
   - component: {fileID: 4832125215910732929}
+  - component: {fileID: 4832125215910732928}
+  - component: {fileID: 1234015145}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -79,6 +81,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4832125215910732928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832125215910732934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1234015145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832125215910732934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c865ade4af217c44a65b49824e95419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Renderer: {fileID: 0}
+  _MaterialOrigins: []
+  _MaterialEcho: {fileID: 2100000, guid: 62640bbe3d9ba1249a2fc520599b5ea1, type: 2}
+  _MaterialEchos: []
 --- !u!1 &4832125216779305885
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade20f7cefa7dab4abe15324d350c2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MorphEffect: {fileID: 0}
   _IsAbleToMorph: 1
   _ThisMorph: 1
   _CameraTransform: {fileID: 0}
@@ -233,5 +265,5 @@ MonoBehaviour:
   _TagWalkableWall: WalkableWall
   _FindWallOffset: 0.02
   _SlopeLimit: 40
-  _GlideFallSpeedRate: 0.04
-  _GlideFallSpeedBorder: 2
+  _GlideFallSpeedRate: 0.1
+  _GlideFallSpeedBorder: 3
