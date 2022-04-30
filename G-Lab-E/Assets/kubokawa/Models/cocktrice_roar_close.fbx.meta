@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6d18b4871183bc14491ce6916cea5b3b
+guid: 1e1e8958438183b4aa80dbfc6f181e58
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: cocktrice_walk_animClip
+    second: cocktrice_roar_close_animClip
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -40,11 +40,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: cocktrice_walk_animClip
+      name: cocktrice_roar_close_animClip
       takeName: Take 001
       internalID: 0
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 0
+      lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -105,7 +105,9 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 354e54f05b78e5446be741923fa2872c
+  - ca2ee2b4f92701f4ba10ccd7e73e48f4
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
