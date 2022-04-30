@@ -95,8 +95,6 @@ public class BatXGeckoController : SlimeController
             }
         }
 
-        Debug.Log(_CurrentGravitySpeed);
-
         _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
 
