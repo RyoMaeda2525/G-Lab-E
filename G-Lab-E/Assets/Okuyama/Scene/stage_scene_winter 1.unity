@@ -334,6 +334,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5805234902184158143, guid: 9e59e45843c63e843817edd79706b0c9, type: 3}
+--- !u!1 &40739257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40739258}
+  - component: {fileID: 40739259}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40739258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40739257}
+  m_LocalRotation: {x: -0, y: -0.94234985, z: 0, w: -0.3346293}
+  m_LocalPosition: {x: -0.238, y: 0.171, z: 1.651}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -219.1, z: 0}
+--- !u!65 &40739259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40739257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3597121, y: 0.23433971, z: 1.540101}
+  m_Center: {x: -0.24094236, y: -0.16149306, z: 0.11038749}
 --- !u!1001 &42168050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -413,6 +457,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ecab97343775b44a694a34d759425a, type: 3}
+--- !u!1 &49076015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49076016}
+  - component: {fileID: 49076017}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49076016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49076015}
+  m_LocalRotation: {x: -0, y: -0.24802387, z: -0, w: 0.968754}
+  m_LocalPosition: {x: -0.32, y: 0.5100002, z: -5.625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -28.721, z: 0}
+--- !u!65 &49076017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49076015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.093918, y: 0.23433971, z: 1.1828527}
+  m_Center: {x: -0.54695785, y: -0.16149378, z: 0.013350786}
 --- !u!1 &56745927
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +595,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56745927}
   m_Mesh: {fileID: 6793245269337750581, guid: 81e7ef95fee752c4dabdf7a5a5ce4660, type: 3}
+--- !u!1 &60005776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60005777}
+  - component: {fileID: 60005778}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &60005777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60005776}
+  m_LocalRotation: {x: -0, y: -0.46252277, z: 0, w: -0.88660747}
+  m_LocalPosition: {x: -1.8, y: -0.043, z: 5.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -304.9, z: 0}
+--- !u!65 &60005778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60005776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2464004, y: 0.23433971, z: 1.4132669}
+  m_Center: {x: -0.45910096, y: -0.16149306, z: 0.17380461}
 --- !u!1 &61737533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7222971718091896234, guid: 81c3de03007163d4c8fdef8ee627c9a8,
@@ -527,6 +659,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2799108448964128560, guid: 81c3de03007163d4c8fdef8ee627c9a8, type: 3}
+--- !u!1 &62228565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62228566}
+  - component: {fileID: 62228568}
+  - component: {fileID: 62228567}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &62228566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62228565}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769441}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &62228567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62228565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &62228568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62228565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35753477, y: 0.6126728, z: 9.053123}
+  m_Center: {x: 0.06888217, y: -0.1936636, z: 0.037870407}
 --- !u!1 &72753639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5062244910134845891, guid: fc561bb1c8f34eb4480a4587b68f8199,
@@ -976,6 +1166,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1dd9396d1783ab41a3571f8f6ad9c96, type: 3}
+--- !u!1 &150224095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150224096}
+  - component: {fileID: 150224098}
+  - component: {fileID: 150224097}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150224096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150224095}
+  m_LocalRotation: {x: -0.11774688, y: -0.012422709, z: -0.0050105155, w: 0.99295336}
+  m_LocalPosition: {x: -4.2906513, y: 0.33446503, z: -12.382355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -13.530001, y: -1.3840001, z: -0.41400003}
+--- !u!65 &150224097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150224095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.2961645, y: 1.7884192, z: 13.647984}
+  m_Center: {x: -0.07890702, y: 0.89701915, z: -1.233793}
+--- !u!114 &150224098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150224095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
 --- !u!1 &154254131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7495000817230751621, guid: 0b99c4f85cd0ae4458345b4bf17eabc3,
@@ -996,6 +1246,66 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1467201550182867309, guid: 0b99c4f85cd0ae4458345b4bf17eabc3, type: 3}
+--- !u!1 &159932425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159932426}
+  - component: {fileID: 159932427}
+  - component: {fileID: 159932428}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159932426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159932425}
+  m_LocalRotation: {x: 0.07141754, y: 0.77089375, z: -0.08783226, w: 0.6268236}
+  m_LocalPosition: {x: 0.07, y: 0.53, z: 18.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 13, y: 101.77, z: 0}
+--- !u!65 &159932427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159932425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6180882, y: 0.39834005, z: 2.5515924}
+  m_Center: {x: -0.809052, y: 0.4556165, z: -0.6401284}
+--- !u!114 &159932428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159932425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
 --- !u!1 &164704475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7348497130734145326, guid: 81c3de03007163d4c8fdef8ee627c9a8,
@@ -1076,6 +1386,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4704462752321062502, guid: 45adc5d758e5d62499a2ae3832e7dfff, type: 3}
+--- !u!1 &212054917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212054918}
+  - component: {fileID: 212054920}
+  - component: {fileID: 212054919}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &212054918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212054917}
+  m_LocalRotation: {x: 0, y: 0.14634202, z: 0, w: 0.98923403}
+  m_LocalPosition: {x: 7.26, y: -2.55, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 16.83, z: 0}
+--- !u!114 &212054919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212054917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &212054920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212054917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.740648, y: 0.3563931, z: 6.924903}
+  m_Center: {x: -0.657983, y: -0.32180345, z: -5.5472317}
 --- !u!1001 &214652459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1250,6 +1618,66 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 232600850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &236287576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236287577}
+  - component: {fileID: 236287579}
+  - component: {fileID: 236287578}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236287577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236287576}
+  m_LocalRotation: {x: -0, y: -0.24043147, z: -0, w: 0.97066617}
+  m_LocalPosition: {x: 10.4, y: 0, z: 0.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 699294170}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -27.824001, z: 0}
+--- !u!114 &236287578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236287576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
+--- !u!65 &236287579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236287576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.95162, y: 0.41615295, z: 3.8217669}
+  m_Center: {x: 1.1345032, y: 0.29192352, z: -0.7388487}
 --- !u!1 &256801671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3879958599262229032, guid: 7296622daf2900a479ee610f2be9b475,
@@ -1653,6 +2081,64 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 332057788}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &353883942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353883943}
+  - component: {fileID: 353883945}
+  - component: {fileID: 353883944}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353883943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353883942}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -0.49, y: 0, z: 0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769441}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &353883944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353883942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &353883945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353883942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.38985324, y: 0.6126728, z: 9.053123}
+  m_Center: {x: 0.0850414, y: -0.1936636, z: 0.037870403}
 --- !u!1001 &354108431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,6 +2208,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b74add9b71261e48b1b7dd0e8966079, type: 3}
+--- !u!1 &369856003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369856004}
+  - component: {fileID: 369856006}
+  - component: {fileID: 369856005}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369856004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369856003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.01, y: 2.45, z: 7.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &369856005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369856003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4114075, y: 0.83215714, z: 18.05281}
+  m_Center: {x: 0.1263771, y: 0.18518639, z: 0.7517319}
+--- !u!114 &369856006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369856003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
 --- !u!1001 &373056750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,6 +2372,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5120801390943168693, guid: c26707c64aa5efc458c83fc32621afb2, type: 3}
+--- !u!1 &404192923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404192924}
+  - component: {fileID: 404192926}
+  - component: {fileID: 404192925}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404192924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404192923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.521, y: -2.541, z: 0.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &404192925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404192923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &404192926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404192923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2387216, y: 0.3563931, z: 1.4872284}
+  m_Center: {x: -0.3641237, y: -0.32180345, z: -2.7536697}
 --- !u!1001 &406950871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6748,6 +7352,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7266870921615875767, guid: 81c3de03007163d4c8fdef8ee627c9a8, type: 3}
+--- !u!1 &466385816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466385817}
+  - component: {fileID: 466385819}
+  - component: {fileID: 466385818}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466385817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466385816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.88, y: -2.55, z: 0.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466385818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466385816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &466385819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466385816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6763933, y: 0.3563931, z: 1.2121735}
+  m_Center: {x: -0.46430218, y: -0.32180345, z: -2.8911972}
 --- !u!1001 &475258377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7640,6 +8302,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3396391160648807373, guid: fc561bb1c8f34eb4480a4587b68f8199, type: 3}
+--- !u!1 &556719534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556719535}
+  - component: {fileID: 556719537}
+  - component: {fileID: 556719536}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &556719535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556719534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35, y: -2.55, z: 7.618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556719536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556719534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &556719537
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556719534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1279342, y: 0.3563931, z: 1.371521}
+  m_Center: {x: -0.5274831, y: -0.32180345, z: -2.9156494}
 --- !u!1001 &558786808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7837,17 +8557,17 @@ PrefabInstance:
     - target: {fileID: 5210518091432859806, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 20.07
       objectReference: {fileID: 0}
     - target: {fileID: 5210518091432859806, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 14.425
       objectReference: {fileID: 0}
     - target: {fileID: 5210518091432859806, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -214.45
+      value: -233.096
       objectReference: {fileID: 0}
     - target: {fileID: 5210518091432859806, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
@@ -7887,12 +8607,12 @@ PrefabInstance:
     - target: {fileID: 5688186505653421170, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0005735639
+      value: -0.000573509
       objectReference: {fileID: 0}
     - target: {fileID: 5688186505653421170, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00095350936
+      value: 0.0009533996
       objectReference: {fileID: 0}
     - target: {fileID: 5748215889890082665, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
@@ -12704,12 +13424,93 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -14.883, y: 180, z: 0}
+--- !u!1 &686190118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686190119}
+  - component: {fileID: 686190120}
+  - component: {fileID: 686190121}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686190119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686190118}
+  m_LocalRotation: {x: 0.057112068, y: 0.61253726, z: -0.04444453, w: 0.787122}
+  m_LocalPosition: {x: -3.17, y: 1.77, z: 18.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 8.3, y: 75.78, z: 0}
+--- !u!65 &686190120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686190118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.637008, y: 0.39255685, z: 3.7525077}
+  m_Center: {x: -0.81850666, y: 0.000688253, z: -0.039670583}
+--- !u!114 &686190121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686190118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
 --- !u!1 &699294169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1109458064564362396, guid: 3b74add9b71261e48b1b7dd0e8966079,
     type: 3}
   m_PrefabInstance: {fileID: 354108431}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &699294170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 953399859119357254, guid: 3b74add9b71261e48b1b7dd0e8966079,
+    type: 3}
+  m_PrefabInstance: {fileID: 354108431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &699294171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699294169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
 --- !u!64 &699294173
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13052,6 +13853,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1874246646916276368, guid: ca4180c5608cd81499fa3e2ca0c1d5fc, type: 3}
+--- !u!1 &771499972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771499973}
+  - component: {fileID: 771499975}
+  - component: {fileID: 771499974}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771499973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771499972}
+  m_LocalRotation: {x: 0, y: 0.22188887, z: 0, w: 0.97507197}
+  m_LocalPosition: {x: 16.66, y: -2.55, z: -0.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 25.64, z: 0}
+--- !u!114 &771499974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771499972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &771499975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771499972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.903431, y: 0.3563931, z: 8.600981}
+  m_Center: {x: -1.0765806, y: -0.3218024, z: -6.3852477}
 --- !u!1 &789834585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db6348c4ef9efdd46b311095b230ce90,
@@ -13221,6 +14080,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7934792056453411235, guid: 81c3de03007163d4c8fdef8ee627c9a8, type: 3}
+--- !u!1 &874856930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874856931}
+  - component: {fileID: 874856933}
+  - component: {fileID: 874856932}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874856931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874856930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.19, y: -2.55, z: 1.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874856932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874856930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &874856933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874856930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2387216, y: 0.3563931, z: 1.3144226}
+  m_Center: {x: -0.3641237, y: -0.32180345, z: -2.8400726}
 --- !u!1 &881761948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2170225847503740301, guid: 81c3de03007163d4c8fdef8ee627c9a8,
@@ -13241,6 +14158,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7937484664981061973, guid: 81c3de03007163d4c8fdef8ee627c9a8, type: 3}
+--- !u!1 &882852287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882852288}
+  - component: {fileID: 882852290}
+  - component: {fileID: 882852289}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &882852288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882852287}
+  m_LocalRotation: {x: 0, y: 0.22188887, z: 0, w: 0.97507197}
+  m_LocalPosition: {x: 14.11, y: -2.55, z: 8.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 25.64, z: 0}
+--- !u!114 &882852289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882852287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &882852290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882852287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.903431, y: 0.3563931, z: 8.600981}
+  m_Center: {x: -1.0765806, y: -0.3218024, z: -6.3852477}
 --- !u!1001 &883974184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13315,6 +14290,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50612bdcca8261c42a1b2d458adc8d4b, type: 3}
+--- !u!1 &895311981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895311982}
+  - component: {fileID: 895311984}
+  - component: {fileID: 895311983}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895311982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895311981}
+  m_LocalRotation: {x: 0, y: -0.20022298, z: 0, w: 0.9797504}
+  m_LocalPosition: {x: 2.4, y: -1.041, z: 7.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -23.1, z: 0}
+--- !u!114 &895311983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895311981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &895311984
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895311981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.093918, y: 0.23433968, z: 1.6055838}
+  m_Center: {x: -0.54695785, y: -0.16149391, z: 0.09716588}
 --- !u!1 &897310445 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 387487604269514201, guid: 0b99c4f85cd0ae4458345b4bf17eabc3,
@@ -23024,19 +24057,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!1 &974255079 stripped
+--- !u!1 &972502483
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b74add9b71261e48b1b7dd0e8966079,
-    type: 3}
-  m_PrefabInstance: {fileID: 354108431}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &974255080
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972502484}
+  - component: {fileID: 972502486}
+  - component: {fileID: 972502485}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &972502484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972502483}
+  m_LocalRotation: {x: 0.07583472, y: 0.8634693, z: -0.13652833, w: 0.4796144}
+  m_LocalPosition: {x: 1.14, y: 0.23, z: 17.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 17.97, y: 121.9, z: 0}
+--- !u!114 &972502485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974255079}
+  m_GameObject: {fileID: 972502483}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
@@ -23045,6 +24104,19 @@ MonoBehaviour:
   _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
   _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
   _iceflote: 1
+--- !u!65 &972502486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972502483}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.364062, y: 0.5899564, z: 2.5515924}
+  m_Center: {x: -0.6820317, y: 0.25172362, z: -0.64012843}
 --- !u!1001 &990815576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23352,6 +24424,66 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8548083691038384655, guid: cccaec040248da9429792900826de537, type: 3}
+--- !u!1 &1014772246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014772247}
+  - component: {fileID: 1014772249}
+  - component: {fileID: 1014772248}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014772247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014772246}
+  m_LocalRotation: {x: 0.028917631, y: 0.95987785, z: -0.107922055, w: 0.25719854}
+  m_LocalPosition: {x: 3.05, y: -0.7, z: 15.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 12.83, y: 150, z: 0}
+--- !u!114 &1014772248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014772246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
+--- !u!65 &1014772249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014772246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1637428, y: 0.87573344, z: 12.582415}
+  m_Center: {x: -0.28218976, y: 0.24228075, z: 2.7253523}
 --- !u!1 &1021151655
 GameObject:
   m_ObjectHideFlags: 0
@@ -24095,6 +25227,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5805234902184158143, guid: 9e59e45843c63e843817edd79706b0c9, type: 3}
+--- !u!1 &1114778095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114778096}
+  - component: {fileID: 1114778097}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1114778096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114778095}
+  m_LocalRotation: {x: 0, y: -0.9174077, z: 0, w: 0.39794862}
+  m_LocalPosition: {x: 0.655, y: 0.389, z: -4.198}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -133.1, z: 0}
+--- !u!65 &1114778097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114778095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3597121, y: 0.23433971, z: 1.1828527}
+  m_Center: {x: -0.24094301, y: -0.16149378, z: 0.01335078}
 --- !u!1 &1117890395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6283122858242206287, guid: fc561bb1c8f34eb4480a4587b68f8199,
@@ -24273,6 +25449,180 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 606786c6ee0840a4ebf7ead2ee9bb2e6, type: 3}
+--- !u!1 &1158988126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158988127}
+  - component: {fileID: 1158988129}
+  - component: {fileID: 1158988128}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158988127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158988126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.29, y: -2.55, z: 5.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158988128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158988126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1158988129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158988126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.0862174, y: 6.903845, z: 7.3836517}
+  m_Center: {x: 0.10995841, y: 2.9519224, z: -0.9320297}
+--- !u!1 &1162768344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162768345}
+  - component: {fileID: 1162768347}
+  - component: {fileID: 1162768346}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162768345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162768344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.92, y: -2.55, z: 5.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162768346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162768344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1162768347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162768344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1279342, y: 0.3563931, z: 1.371521}
+  m_Center: {x: -0.5274831, y: -0.32180345, z: -2.9156494}
+--- !u!1 &1170996533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170996534}
+  - component: {fileID: 1170996536}
+  - component: {fileID: 1170996535}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170996534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170996533}
+  m_LocalRotation: {x: 0, y: -0.3995492, z: 0, w: 0.91671175}
+  m_LocalPosition: {x: 0.547, y: -0.829, z: 6.538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -47.1, z: 0}
+--- !u!114 &1170996535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170996533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1170996536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170996533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7993497, y: 0.23433968, z: 1.5650104}
+  m_Center: {x: -0.39967376, y: -0.16149391, z: 0.11745322}
 --- !u!1001 &1180936049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24367,6 +25717,124 @@ CapsuleCollider:
   m_Height: 2.3376997
   m_Direction: 1
   m_Center: {x: 0.2567456, y: 1.0913516, z: 0.09841797}
+--- !u!1 &1187822853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187822854}
+  - component: {fileID: 1187822855}
+  - component: {fileID: 1187822856}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187822854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187822853}
+  m_LocalRotation: {x: 0.0746875, y: 0.7316023, z: -0.08122205, w: 0.6727428}
+  m_LocalPosition: {x: -0.76, y: 0.91, z: 18.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 12.67, y: 94.8, z: 0}
+--- !u!65 &1187822855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187822853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.364062, y: 0.36615935, z: 2.5515924}
+  m_Center: {x: -0.6820392, y: 0.297725, z: -0.64012825}
+--- !u!114 &1187822856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187822853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
+--- !u!1 &1193003863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193003864}
+  - component: {fileID: 1193003866}
+  - component: {fileID: 1193003865}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1193003864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193003863}
+  m_LocalRotation: {x: 0, y: -0.3995492, z: 0, w: 0.91671175}
+  m_LocalPosition: {x: -0.36, y: -0.708, z: 4.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -47.1, z: 0}
+--- !u!114 &1193003865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193003863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1193003866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193003863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.765556, y: 0.23433968, z: 1.5650104}
+  m_Center: {x: -0.4165706, y: -0.16149391, z: 0.11745321}
 --- !u!1 &1200280881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3876577601286106578, guid: 81c3de03007163d4c8fdef8ee627c9a8,
@@ -24476,6 +25944,148 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad54ed2c10cdaf4195172cae12990d0, type: 3}
+--- !u!4 &1231769439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2011792932075970850, guid: bad54ed2c10cdaf4195172cae12990d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231769438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1231769440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1213569532629319812, guid: bad54ed2c10cdaf4195172cae12990d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231769438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1231769441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6943267567057478546, guid: bad54ed2c10cdaf4195172cae12990d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231769438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1231769442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6937737069061364133, guid: bad54ed2c10cdaf4195172cae12990d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231769438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1232413564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232413565}
+  - component: {fileID: 1232413566}
+  - component: {fileID: 1232413567}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232413565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232413564}
+  m_LocalRotation: {x: 0.058016863, y: 0.26507482, z: -0.015980504, w: 0.9623482}
+  m_LocalPosition: {x: -4.59, y: 1.77, z: 17.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1709506660}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 6.9, y: 30.8, z: 0}
+--- !u!65 &1232413566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232413564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9578972, y: 0.32511282, z: 3.4218373}
+  m_Center: {x: -0.9789519, y: 0.36058554, z: -0.20500599}
+--- !u!114 &1232413567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232413564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
+--- !u!1 &1255666568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255666569}
+  - component: {fileID: 1255666571}
+  - component: {fileID: 1255666570}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1255666569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255666568}
+  m_LocalRotation: {x: 0.0901064, y: -0.1976719, z: 0.018250473, w: 0.97594756}
+  m_LocalPosition: {x: 0.58, y: 0.84, z: -4.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 10.55, y: -22.9, z: 0}
+--- !u!114 &1255666570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255666568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1255666571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255666568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4323182, y: 0.23433961, z: 5.736256}
+  m_Center: {x: -0.74995667, y: -0.16149755, z: -1.4921634}
 --- !u!1 &1259641186
 GameObject:
   m_ObjectHideFlags: 0
@@ -24715,6 +26325,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8224431495664295975, guid: 81c3de03007163d4c8fdef8ee627c9a8, type: 3}
+--- !u!1 &1277255208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277255209}
+  - component: {fileID: 1277255211}
+  - component: {fileID: 1277255210}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1277255209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277255208}
+  m_LocalRotation: {x: 0.0628575, y: -0.025254535, z: 0.0015910938, w: 0.99770164}
+  m_LocalPosition: {x: -1.406, y: -0.237, z: 1.155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 7.21, y: -2.9, z: 0}
+--- !u!114 &1277255210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277255208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1277255211
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277255208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7655563, y: 0.23433968, z: 1.9269674}
+  m_Center: {x: -0.4165714, y: -0.16149391, z: 0.057498552}
 --- !u!1001 &1280981835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30376,6 +32044,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc561bb1c8f34eb4480a4587b68f8199, type: 3}
+--- !u!1 &1360419805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1360419806}
+  - component: {fileID: 1360419808}
+  - component: {fileID: 1360419807}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1360419806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360419805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.696, y: -2.55, z: 3.974}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1360419807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360419805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1360419808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360419805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2387216, y: 0.3563931, z: 1.3144226}
+  m_Center: {x: -0.3641237, y: -0.32180345, z: -2.8400726}
 --- !u!1001 &1377808255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35574,6 +37300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f9c157fd36f62d7458eafcac6ee9b81a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9c157fd36f62d7458eafcac6ee9b81a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -35653,6 +37384,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76dc9871d39fefb4c8c7a787c5577f90, type: 3}
+--- !u!1 &1483919461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483919462}
+  - component: {fileID: 1483919464}
+  - component: {fileID: 1483919463}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483919462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483919461}
+  m_LocalRotation: {x: 0, y: 0.06104851, z: 0, w: 0.99813485}
+  m_LocalPosition: {x: -1.617, y: -0.534, z: 3.203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769439}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 7, z: 0}
+--- !u!114 &1483919463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483919461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1483919464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483919461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7655563, y: 0.23433968, z: 1.5207596}
+  m_Center: {x: -0.41657054, y: -0.16149391, z: 0.09532758}
 --- !u!1001 &1514570516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35846,6 +37635,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2458017242458702541, guid: fc561bb1c8f34eb4480a4587b68f8199, type: 3}
+--- !u!1 &1538158452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538158453}
+  - component: {fileID: 1538158454}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538158453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538158452}
+  m_LocalRotation: {x: -0, y: -0.46252277, z: 0, w: -0.88660747}
+  m_LocalPosition: {x: -1.45, y: -0.043, z: 3.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -304.9, z: 0}
+--- !u!65 &1538158454
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538158452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8754854, y: 0.23433971, z: 1.540101}
+  m_Center: {x: -0.32306403, y: -0.16149306, z: 0.1103875}
 --- !u!1001 &1556436205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35940,6 +37773,124 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4065931807332117983, guid: ed4f98d7292dad6418964080ad80e28c, type: 3}
+--- !u!1 &1559726887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559726888}
+  - component: {fileID: 1559726890}
+  - component: {fileID: 1559726889}
+  m_Layer: 0
+  m_Name: IceFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1559726888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559726887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.44, y: 0, z: -1.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 699294170}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1559726889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559726887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb6d90cb1b0e44aade90c97dc79102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
+  _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
+  _iceflote: 1
+--- !u!65 &1559726890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559726887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.000355, y: 0.41615295, z: 5.495178}
+  m_Center: {x: -1.3898621, y: 0.29192352, z: -1.1537476}
+--- !u!1 &1564411824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564411825}
+  - component: {fileID: 1564411827}
+  - component: {fileID: 1564411826}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1564411825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564411824}
+  m_LocalRotation: {x: 0, y: 0.1883241, z: 0, w: 0.982107}
+  m_LocalPosition: {x: 9.151, y: -2.55, z: 0.052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 21.71, z: 0}
+--- !u!114 &1564411826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564411824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &1564411827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564411824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0043492, y: 0.3563931, z: 1.4382453}
+  m_Center: {x: -0.5186145, y: -0.32180345, z: -2.7781432}
 --- !u!1001 &1576586063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36535,6 +38486,50 @@ CapsuleCollider:
   m_Height: 2.3376997
   m_Direction: 1
   m_Center: {x: 0.2567456, y: 1.0913516, z: 0.09841797}
+--- !u!1 &1585958717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585958718}
+  - component: {fileID: 1585958719}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1585958718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585958717}
+  m_LocalRotation: {x: 0, y: -0.9999905, z: 0, w: 0.004363461}
+  m_LocalPosition: {x: 1.31, y: 0.171, z: -2.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769440}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -179.5, z: 0}
+--- !u!65 &1585958719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585958717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3597121, y: 0.23433973, z: 1.7844602}
+  m_Center: {x: -0.24094236, y: -0.16149306, z: 0.111538135}
 --- !u!1 &1600720755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5333030643090206752, guid: bad54ed2c10cdaf4195172cae12990d0,
@@ -36926,6 +38921,12 @@ Transform:
 --- !u!1 &1709506659 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5535354793082332828, guid: 3b74add9b71261e48b1b7dd0e8966079,
+    type: 3}
+  m_PrefabInstance: {fileID: 354108431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1709506660 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2411125457501975544, guid: 3b74add9b71261e48b1b7dd0e8966079,
     type: 3}
   m_PrefabInstance: {fileID: 354108431}
   m_PrefabAsset: {fileID: 0}
@@ -47688,6 +49689,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5650109379136591007, guid: fc561bb1c8f34eb4480a4587b68f8199, type: 3}
+--- !u!1 &2015713323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015713324}
+  - component: {fileID: 2015713326}
+  - component: {fileID: 2015713325}
+  m_Layer: 0
+  m_Name: SnowFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015713324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015713323}
+  m_LocalRotation: {x: 0, y: 0.23963499, z: 0, w: 0.9708631}
+  m_LocalPosition: {x: -9.99, y: -2.55, z: 7.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1231769442}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 27.73, z: 0}
+--- !u!114 &2015713325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015713323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd7b224a23cf774ea6df51e5fe16fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snowDrag: 5
+--- !u!65 &2015713326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015713323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.096178, y: 6.903845, z: 11.922878}
+  m_Center: {x: 1.0392936, y: 2.9519224, z: -3.2016451}
 --- !u!1 &2018721191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2164465753678331481, guid: 81c3de03007163d4c8fdef8ee627c9a8,

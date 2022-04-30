@@ -14,12 +14,12 @@ public class IceFloor : MonoBehaviour
     [SerializeField] float _iceflote = 1f;
     Rigidbody _rb;
 
-    public void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collider.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            collider.material = _iceMaterial;
-            _rb = collider.gameObject.GetComponent<Rigidbody>();
+            other.material = _iceMaterial;
+            _rb = other.gameObject.GetComponent<Rigidbody>();
             _rb.drag = _iceflote;
         }
     }
