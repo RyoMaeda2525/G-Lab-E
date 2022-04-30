@@ -20,12 +20,6 @@ public class BatXGeckoController : SlimeController
     [SerializeField, Tooltip("坂道と認識できる角度の限界")]
     float _SlopeLimit = 40f;
 
-    [SerializeField, Tooltip("滑空時の最低落下速度倍率")]
-    float _GlideFallSpeedRate = 0.1f;
-
-    [SerializeField, Tooltip("滑空時の落下速度が最低値になる飛行速度")]
-    float _GlideFallSpeedBorder = 3f;
-
     /// <summary>重力速度</summary>
     float _CurrentGravitySpeed = 9.8f;
 
@@ -66,6 +60,7 @@ public class BatXGeckoController : SlimeController
             {
                 _PlaneNormal = Vector3.up;
                 Move = MoveGlide;
+                _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
             }
         }
     }
@@ -87,13 +82,23 @@ public class BatXGeckoController : SlimeController
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 0.5f;
 
+        //ジャンプボタンにより滑空・落下を切り替える
+        if (InputUtility.GetDownJump)
+        {
+            if(_CurrentGravitySpeed < GRAVITY_SPEED)
+            {
+                _CurrentGravitySpeed = GRAVITY_SPEED;
+            }
+            else
+            {
+                _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
+            }
+        }
+
+        Debug.Log(_CurrentGravitySpeed);
+
         _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
-
-        //落下速度調整
-        float glideSpeed = Vector3.ProjectOnPlane(_Rb.velocity, _PlaneNormal).magnitude;
-        float gravitySpeed = -((((_GlideFallSpeedRate - 1f) * 5f / (_GlideFallSpeedBorder)) * glideSpeed) + 8f);
-        _Rb.velocity = new Vector3(_Rb.velocity.x, gravitySpeed, _Rb.velocity.z);
 
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
@@ -135,6 +140,7 @@ public class BatXGeckoController : SlimeController
         {
             _PlaneNormal = Vector3.up;
             Move = MoveGlide;
+            _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
         }
     }
 
