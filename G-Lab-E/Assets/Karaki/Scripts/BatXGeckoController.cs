@@ -12,7 +12,7 @@ public class BatXGeckoController : SlimeController
     const float GLIDE_GRAVITY_SPEED = 1.75f;
 
     /// <summary> 発見した壁の法線ベクトル </summary>
-    Vector3 _FoundWallNormal = default;
+    Vector3? _FoundWallNormal = null;
 
     [SerializeField, Tooltip("壁のぼり可能な壁のタグ名")]
     string _TagWalkableWall = "WalkableWall";
@@ -54,17 +54,73 @@ public class BatXGeckoController : SlimeController
         if (InputUtility.GetDownJump)
         {
             //正面に壁や床を見つけている
-            if (_FoundWallNormal.sqrMagnitude > 0)
+            if (_FoundWallNormal != null)
             {
-                _PlaneNormal = _FoundWallNormal;
+                _PlaneNormal = (Vector3)_FoundWallNormal;
+                Move = MoveWall;
             }
             //見つけてない
             else
             {
-                _PlaneNormal = Vector3.up;
-                Move = MoveGlide;
-                _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
+                //壁張り付きの時
+                if(Move == MoveWall)
+                {
+                    _PlaneNormal = Vector3.up;
+                    Move = MoveGlide;
+                    _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
+                }
+                //滑空中の時
+                else if(Move == MoveGlide)
+                {
+                    //ジャンプボタンにより滑空・落下を切り替える
+                    if (InputUtility.GetDownJump)
+                    {
+                        if (_CurrentGravitySpeed < GRAVITY_SPEED)
+                        {
+                            _CurrentGravitySpeed = GRAVITY_SPEED;
+                        }
+                        else
+                        {
+                            _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
+                        }
+                    }
+                }
             }
+        }
+        _FoundWallNormal = null;
+    }
+
+    void MoveGround()
+    {
+        //基本情報をローカルで定義
+        //カメラ視点の正面(重力軸無視)
+        Vector3 forward = Vector3.ProjectOnPlane(_CameraTransform.forward, _PlaneNormal);
+        forward = forward.normalized;
+        //カメラ視点の右方向
+        Vector3 right = Vector3.ProjectOnPlane(_CameraTransform.right, _PlaneNormal);
+        right = right.normalized;
+
+        //プレイヤーの移動入力を取得
+        float horizontal = InputUtility.GetAxis2DMove.x;
+        float vertical = InputUtility.GetAxis2DMove.y;
+
+        //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
+
+        _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
+        CharacterRotation(forceForPb, _PlaneNormal, 720f);
+
+        //床を足元から探す
+        Vector3 offset = transform.forward * _FindWallOffset;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 0.1f, _LayerGround))
+        {
+            _PlaneNormal = Vector3.up;
+        }
+        else
+        {
+            Move = MoveGlide;
+            _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
         }
     }
 
@@ -85,19 +141,6 @@ public class BatXGeckoController : SlimeController
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 1.2f;
 
-        //ジャンプボタンにより滑空・落下を切り替える
-        if (InputUtility.GetDownJump)
-        {
-            if(_CurrentGravitySpeed < GRAVITY_SPEED)
-            {
-                _CurrentGravitySpeed = GRAVITY_SPEED;
-            }
-            else
-            {
-                _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
-            }
-        }
-
         _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
 
@@ -106,8 +149,9 @@ public class BatXGeckoController : SlimeController
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 0.1f, _LayerGround))
         {
-            _PlaneNormal = hit.normal;
-            Move = MoveWall;
+            _PlaneNormal = Vector3.up;
+            Move = MoveGround;
+            _CurrentGravitySpeed = GRAVITY_SPEED;
         }
     }
 
@@ -133,7 +177,8 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 1f, _LayerGround))
+        if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 1f, _LayerGround)
+            && (hit.collider.CompareTag(_TagWalkableWall)))
         {
             _PlaneNormal = hit.normal;
         }
@@ -151,7 +196,6 @@ public class BatXGeckoController : SlimeController
         //壁のぼりできる壁である
         if (other.CompareTag(_TagWalkableWall))
         {
-            _FoundWallNormal = Vector3.zero;
             //キャラクター正面の壁を見る
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up * 0.1f, transform.forward, out hit, 1f, _LayerGround))
