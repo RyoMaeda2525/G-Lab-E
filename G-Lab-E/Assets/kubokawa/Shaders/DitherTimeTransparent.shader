@@ -55,7 +55,7 @@
                     float2 ditherUv = screenPos / 4;
 
                     float dither = tex2D(_DitherTex, ditherUv).r;
-                    _Alpha -= _Time * 0.8 ;
+                    //_Alpha -= _Time * 0.8 ;
                     clip(_Alpha - dither);
 
                     return color;
