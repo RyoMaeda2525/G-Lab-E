@@ -205,6 +205,7 @@ public class SlimeController : MonoBehaviour
         //変身エフェクトが表示されている状態なら変身要求は不可
         if (_MorphEffectController.IsPlayingAnimation) return;
         _MorphEffectController.transform.position = transform.position;
+        _MorphEffectController.transform.rotation = transform.rotation;
 
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)

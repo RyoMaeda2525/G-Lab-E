@@ -8,6 +8,9 @@ public class BatXGeckoController : SlimeController
     /// <summary>重力および壁張り付き加速度</summary>
     const float GRAVITY_SPEED = 9.8f;
 
+    /// <summary>滑空時の重力加速度</summary>
+    const float GLIDE_GRAVITY_SPEED = 1.75f;
+
     /// <summary> 発見した壁の法線ベクトル </summary>
     Vector3 _FoundWallNormal = default;
 
@@ -60,7 +63,7 @@ public class BatXGeckoController : SlimeController
             {
                 _PlaneNormal = Vector3.up;
                 Move = MoveGlide;
-                _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
+                _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
             }
         }
     }
@@ -80,7 +83,7 @@ public class BatXGeckoController : SlimeController
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 0.5f;
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 1.2f;
 
         //ジャンプボタンにより滑空・落下を切り替える
         if (InputUtility.GetDownJump)
@@ -91,7 +94,7 @@ public class BatXGeckoController : SlimeController
             }
             else
             {
-                _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
+                _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
             }
         }
 
@@ -103,7 +106,7 @@ public class BatXGeckoController : SlimeController
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -_PlaneNormal - offset, out hit, 0.1f, _LayerGround))
         {
-            _PlaneNormal = Vector3.up;
+            _PlaneNormal = hit.normal;
             Move = MoveWall;
         }
     }
@@ -138,7 +141,7 @@ public class BatXGeckoController : SlimeController
         {
             _PlaneNormal = Vector3.up;
             Move = MoveGlide;
-            _CurrentGravitySpeed = GRAVITY_SPEED * 0.4f;
+            _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
         }
     }
 

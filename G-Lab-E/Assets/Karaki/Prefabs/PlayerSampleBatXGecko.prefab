@@ -204,10 +204,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.2
+  m_Radius: 0.41561368
+  m_Height: 1.1999998
   m_Direction: 2
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0.059799846, y: 0.71244454, z: 7.5816553e-10}
 --- !u!135 &4832125216779305860
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -249,11 +249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade20f7cefa7dab4abe15324d350c2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MorphEffect: {fileID: 0}
   _IsAbleToMorph: 1
   _ThisMorph: 1
   _CameraTransform: {fileID: 0}
-  _MoveSpeed: 15
+  _MoveSpeed: 10
   _JumpPower: 10
   _LayerNameWater: Water
   _LayerGround:
@@ -265,5 +264,3 @@ MonoBehaviour:
   _TagWalkableWall: WalkableWall
   _FindWallOffset: 0.02
   _SlopeLimit: 40
-  _GlideFallSpeedRate: 0.1
-  _GlideFallSpeedBorder: 3
