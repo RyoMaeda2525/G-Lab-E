@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4832125215910732935}
   - component: {fileID: 4832125215910732930}
   - component: {fileID: 4832125215910732929}
+  - component: {fileID: 4832125215910732928}
+  - component: {fileID: 1234015145}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -79,6 +81,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4832125215910732928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832125215910732934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1234015145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832125215910732934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c865ade4af217c44a65b49824e95419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Renderer: {fileID: 0}
+  _MaterialOrigins: []
+  _MaterialEcho: {fileID: 2100000, guid: 62640bbe3d9ba1249a2fc520599b5ea1, type: 2}
+  _MaterialEchos: []
 --- !u!1 &4832125216779305885
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,10 +204,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.2
+  m_Radius: 0.41561368
+  m_Height: 1.1999998
   m_Direction: 2
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0.059799846, y: 0.71244454, z: 7.5816553e-10}
 --- !u!135 &4832125216779305860
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -189,7 +220,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.25
-  m_Center: {x: 0, y: 1, z: 0.7}
+  m_Center: {x: 0, y: 1.1, z: 0.7}
 --- !u!54 &4832125216779305882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -221,7 +252,7 @@ MonoBehaviour:
   _IsAbleToMorph: 1
   _ThisMorph: 1
   _CameraTransform: {fileID: 0}
-  _MoveSpeed: 15
+  _MoveSpeed: 18
   _JumpPower: 10
   _LayerNameWater: Water
   _LayerGround:
@@ -231,7 +262,5 @@ MonoBehaviour:
   _LayerNameWiremeshWall: WireMeshWall
   _ThroughWiremeshTime: 0.5
   _TagWalkableWall: WalkableWall
-  _FindWallOffset: 0.02
+  _FindWallOffset: 0.1
   _SlopeLimit: 40
-  _GlideFallSpeedRate: 0.04
-  _GlideFallSpeedBorder: 2

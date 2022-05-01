@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033613a2d8ad9ca4494478ad90864648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MorphEffectPrefab: {fileID: 7604192617051542571, guid: 1a41ccc217809dc4c82ee6f851f8857a,
+    type: 3}
   _IsAbleToMorph: 1
   _ThisMorph: 2
   _CameraTransform: {fileID: 0}
@@ -134,6 +136,7 @@ MonoBehaviour:
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
+  _IsFoundGround: 0
   _LayerNameWiremeshWall: WireMeshWall
   _ThroughWiremeshTime: 0.5
 --- !u!114 &753001333
