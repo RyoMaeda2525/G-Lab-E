@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BatXGeckoController : SlimeController
 {
+    #region メンバ
     /// <summary>重力および壁張り付き加速度</summary>
     const float GRAVITY_SPEED = 9.8f;
 
@@ -28,6 +29,12 @@ public class BatXGeckoController : SlimeController
 
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
+    #endregion
+
+    #region プロパティ
+    /// <summary>True : 滑空中である</summary>
+    public bool IsGliding { get => Move == MoveGlide; }
+    #endregion
 
 
     // Start is called before the first frame update
