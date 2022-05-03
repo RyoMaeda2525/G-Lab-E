@@ -8,6 +8,10 @@ public class DolphinXPenguinController : SlimeController
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
 
+    /// <summary>True : 泳いでいる</summary>
+    public bool IsSwimming { get => Move == MoveWater; }
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
