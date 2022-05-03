@@ -24,6 +24,9 @@ public class BatXGeckoController : SlimeController
     [SerializeField, Tooltip("坂道と認識できる角度の限界")]
     float _SlopeLimit = 40f;
 
+    [SerializeField, Tooltip("ヤモリ×コウモリの壁を這う時の移動力")]
+    float _MoveSpeedWall = 5f;
+
     /// <summary>重力速度</summary>
     float _CurrentGravitySpeed = 9.8f;
 
@@ -177,7 +180,7 @@ public class BatXGeckoController : SlimeController
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeedWall;
         _Rb.AddForce(forceForPb - _PlaneNormal * _CurrentGravitySpeed);
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
 
