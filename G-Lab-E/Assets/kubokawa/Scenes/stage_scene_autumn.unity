@@ -2575,6 +2575,10 @@ PlayableDirector:
     value: {fileID: 6872341742747013263}
   - key: {fileID: -9073562628472913830, guid: 400d4b5c7a545094c80e9742b6c35197, type: 2}
     value: {fileID: 3892814642052597585}
+  - key: {fileID: 2260653250291993352, guid: 400d4b5c7a545094c80e9742b6c35197, type: 2}
+    value: {fileID: 1419567670004159186}
+  - key: {fileID: -3643171771974166387, guid: 400d4b5c7a545094c80e9742b6c35197, type: 2}
+    value: {fileID: 6318221531937462253}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2063668158
@@ -4680,6 +4684,7 @@ GameObject:
   - component: {fileID: 2612242159650948076}
   - component: {fileID: 5965933292818414026}
   - component: {fileID: 2076031287}
+  - component: {fileID: 1419567670004159186}
   m_Layer: 0
   m_Name: field_helloween_1_gimmick_1
   m_TagString: Untagged
@@ -4687,6 +4692,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!95 &1419567670004159186
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419567670004159185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &1476245354813461410
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4702,8 +4726,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419567670004159185}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.167, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543450651657559922}
@@ -7008,6 +7032,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5688186505653421170, guid: 566f10f59956edf48a685a3cc9cd4e65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0005736036
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688186505653421170, guid: 566f10f59956edf48a685a3cc9cd4e65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00095358875
+      objectReference: {fileID: 0}
     - target: {fileID: 5748215889890082665, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_Enabled
@@ -7016,7 +7050,7 @@ PrefabInstance:
     - target: {fileID: 5748215889890082668, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5748215890731601001, guid: 566f10f59956edf48a685a3cc9cd4e65,
         type: 3}
@@ -8307,6 +8341,7 @@ GameObject:
   - component: {fileID: 6312613279213231631}
   - component: {fileID: 4159134523645874012}
   - component: {fileID: 2076031288}
+  - component: {fileID: 6318221531937462253}
   m_Layer: 0
   m_Name: field_helloween_1_gimmick002
   m_TagString: Untagged
@@ -8314,6 +8349,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!95 &6318221531937462253
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318221531937462252}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &6333739293863564449
 MeshFilter:
   m_ObjectHideFlags: 0
