@@ -21,6 +21,7 @@ public class playercontroller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //rb.AddForce(0, 0, -10 + Random.value*2) ;
         //rotateCameraの呼び出し
         rotateplayer();
 
