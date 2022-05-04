@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SlimeController : MonoBehaviour
 {
+    #region メンバ
     /// <summary> 操作対象になりうるコンポーネント群 </summary>
     static List<SlimeController> _Controllers = new List<SlimeController>();
 
@@ -59,13 +60,15 @@ public class SlimeController : MonoBehaviour
 
     /// <summary>金網面の法線</summary>
     Vector3 _WiremeshNormal = Vector3.zero;
+    #endregion
 
     #region プロパティ
     /// <summary> true : 変身可能である </summary>
     public bool IsAbleToMorph { set => _IsAbleToMorph = value; }
-
     /// <summary> このキャラクターの変身の種類 </summary>
     public KindOfMorph ThisMorph { get => _ThisMorph; }
+    /// <summary>キャラクターの移動力</summary>
+    public float MoveSpeed { get => _MoveSpeed; }
     #endregion
 
     protected void Awake()

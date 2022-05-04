@@ -22,6 +22,20 @@ public class EcholocationController1 : MonoBehaviour
     /// <summary>現在の半径</summary>
     float _Radius;
 
+    /// <summary>True : エコーロケーションを行った</summary>
+    bool _DoneEcho = false;
+
+    /// <summary>True : エコーロケーションを行った。取得後Falseになる</summary>
+    public bool DoneEcho 
+    { 
+        get 
+        {
+            bool b = _DoneEcho;
+            _DoneEcho = false;
+            return b; 
+        }
+    }
+
     
     private void Start()
     {
@@ -43,6 +57,7 @@ public class EcholocationController1 : MonoBehaviour
         {
             EchoMaterialSwitcher.DoEchoOrder();
             EmitCall(_playerPos);
+            _DoneEcho = true;
         }
 
         _Material.SetFloat(IDRadius, _Radius);
