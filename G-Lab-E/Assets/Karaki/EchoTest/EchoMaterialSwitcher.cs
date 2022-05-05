@@ -24,6 +24,8 @@ public class EchoMaterialSwitcher : MonoBehaviour
     /// <summary> エコーロケーションを走らせているコルーチン格納メンバー </summary>
     Coroutine EchoProcess = null;
 
+    public static bool IsEcho { get => _IsEcho; }
+
     public static void DoEchoOrder()
     {
         _IsEcho = true;
@@ -33,7 +35,7 @@ public class EchoMaterialSwitcher : MonoBehaviour
     {
         _Renderer.materials = _MaterialEchos;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         _Renderer.materials = _MaterialOrigins;
 

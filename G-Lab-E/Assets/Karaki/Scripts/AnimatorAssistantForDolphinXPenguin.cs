@@ -26,6 +26,9 @@ public class AnimatorAssistantForDolphinXPenguin : MonoBehaviour
     [SerializeField, Tooltip("Animatorに渡すパラメーター名 : エコーロケーションを行う")]
     string _ParamNameDoEcho = "DoEcho";
 
+    /// <summary>true : エコーロケーションのアニメーションを再生済み</summary>
+    bool DoneAnimEcho = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,15 @@ public class AnimatorAssistantForDolphinXPenguin : MonoBehaviour
     {
         _Animator.SetFloat(_ParamNameSpeed, _Rb.velocity.sqrMagnitude);
         _Animator.SetBool(_ParamNameIsSwimming, _Controller.IsSwimming);
-        _Animator.SetBool(_ParamNameDoEcho, _Echo.DoneEcho);
+
+        if (_Echo.DoneEcho)
+        {
+            if (!DoneAnimEcho)
+            {
+                _Animator.SetTrigger(_ParamNameDoEcho);
+                DoneAnimEcho = true;
+            }
+        }
+        else DoneAnimEcho = false;
     }
 }
