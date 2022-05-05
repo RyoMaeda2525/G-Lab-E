@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1551229086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551229087}
+  - component: {fileID: 1551229088}
+  m_Layer: 0
+  m_Name: BGM_Escape(CriAtomSource)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1551229087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551229086}
+  m_LocalRotation: {x: -0, y: -0.67726135, z: -0, w: 0.73574257}
+  m_LocalPosition: {x: -51.018276, y: 1112.87, z: -17.835152}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 5210518091432859806}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551229088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551229086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 1
+  _cueName: BGM_Escape
+  _cueSheet: Eteam_BGM_20220502
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 1
+  _volume: 0.2
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1 &121445058465712446
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3442901539675698678}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0029347849, y: -0.005690262, z: 0}
+  m_LocalPosition: {x: 0.0029347849, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5210518091432859806}
@@ -576,7 +640,7 @@ GameObject:
   - component: {fileID: 1583644697}
   m_Layer: 13
   m_Name: slime_nishiuchi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,6 +660,7 @@ Transform:
   - {fileID: 7191036118061138012}
   - {fileID: 478029667380100086}
   - {fileID: 5748215890731601015}
+  - {fileID: 1551229087}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -23.309002, y: 43.719, z: 0}
@@ -731,7 +796,7 @@ CapsuleCollider:
   m_Radius: 0.29153112
   m_Height: 0.58306223
   m_Direction: 2
-  m_Center: {x: -0.0037899017, y: 0.27822545, z: 0.005046189}
+  m_Center: {x: -0.0037899017, y: -0.08, z: 0.005046189}
 --- !u!114 &1583644697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5251281668997096275}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.21085542, z: 0.27100712}
+  m_LocalPosition: {x: 0, y: -0.153, z: 0.271}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5210518091432859806}
@@ -998,7 +1063,7 @@ GameObject:
   - component: {fileID: 7191036118061138012}
   m_Layer: 0
   m_Name: main
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1011,7 +1076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5615997949163452579}
   m_LocalRotation: {x: -0.0000000474152, y: -0.000000047415213, z: -0.70710665, w: 0.7071069}
-  m_LocalPosition: {x: -0, y: 0.15225397, z: 0.000000047646463}
+  m_LocalPosition: {x: -0, y: -0.212, z: 0.000000047646463}
   m_LocalScale: {x: 1, y: 1.000001, z: 1}
   m_Children:
   - {fileID: 5688186505653421170}
@@ -1049,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5748215890731601015
 Transform:
   m_ObjectHideFlags: 0
@@ -1122,7 +1187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5748215890731601014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 

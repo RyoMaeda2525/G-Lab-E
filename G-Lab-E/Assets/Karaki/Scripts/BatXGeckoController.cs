@@ -135,7 +135,7 @@ public class BatXGeckoController : SlimeController
         //床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.45f, _LayerGround))
+        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround))
         {
             _PlaneNormal = Vector3.up;
         }
@@ -169,7 +169,7 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.45f, _LayerGround))
+        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround))
         {
             _PlaneNormal = Vector3.up;
             Move = MoveGround;
@@ -200,7 +200,7 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.45f, _LayerGround)
+        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround)
             && (hit.collider.CompareTag(_TagWalkableWall)))
         {
             _PlaneNormal = hit.normal;

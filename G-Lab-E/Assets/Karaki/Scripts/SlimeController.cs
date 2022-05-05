@@ -23,7 +23,7 @@ public class SlimeController : MonoBehaviour
     protected Rigidbody _Rb = default;
 
     /// <summary>当たり判定Collider</summary>
-    CapsuleCollider _CCol = default;
+    protected CapsuleCollider _CCol = default;
 
     [SerializeField, Tooltip("このキャラクターの変身の種類")]
     protected KindOfMorph _ThisMorph = KindOfMorph.Slime;

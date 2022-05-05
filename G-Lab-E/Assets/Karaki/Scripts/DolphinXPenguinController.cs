@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class DolphinXPenguinController : SlimeController
 {
-    /// <summary>当たり判定Collider</summary>
-    CapsuleCollider _CCol = default;
-
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
 
