@@ -49,6 +49,9 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
+    [SerializeField, Tooltip("地面を見つけるrayの長さ")]
+    protected float _GroundRayLength = 0.45f;
+
     [SerializeField, Tooltip("地面を見つけている")]
     protected bool _IsFoundGround = false;
 
@@ -115,7 +118,7 @@ public class SlimeController : MonoBehaviour
         //床を足元から探す
         _IsFoundGround = false;
         RaycastHit hit;
-        if(Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, 0.45f, _LayerGround))
+        if(Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
         {
             _IsFoundGround = true;
         }
