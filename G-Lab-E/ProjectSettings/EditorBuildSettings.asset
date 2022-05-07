@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Maeda/\u03B1Version1.unity"
-    guid: 7851aa0ebd31b304f85e26eb0f43519e
+    path: Assets/Scenes/stage_scene_Tutorial 1.unity
+    guid: bfd961c07af0acc47a364c4df0e3d5e5
   - enabled: 1
-    path: "Assets/Maeda/\u03B1Version 2.unity"
-    guid: e3e7d615a53bff24b8f9298dfdce3755
+    path: Assets/Scenes/stage_scene_Tutorial 2.unity
+    guid: efab2bec6b36d0d4b807c760bf3b2da7
   - enabled: 1
-    path: "Assets/Maeda/\u03B1Version 3.unity"
-    guid: 49527ee9592afcf43abfdd72bdd26833
+    path: Assets/Scenes/stage_scene_Tutorial 3.unity
+    guid: 9635f4abf1b59c3499d7884fdf470363
   - enabled: 1
-    path: Assets/Okuyama/Scene/stage_scene_spring1.unity
-    guid: 6d5eeacfb8c894144a56ba0837f5affb
+    path: Assets/Scenes/stage_scene_spring.unity
+    guid: 6dd817b779cc7544f8e6d8f6e2f738d2
+  - enabled: 1
+    path: Assets/Scenes/stage_scene_autumn.unity
+    guid: 78442c53bb4bcb342bd16ecd969cfe30
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5332601794a6ada41a8a3c5091a8ee2b,
       type: 2}
