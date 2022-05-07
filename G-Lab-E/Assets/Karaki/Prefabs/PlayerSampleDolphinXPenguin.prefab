@@ -46,10 +46,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.24
-  m_Height: 0.7
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.35174173
+  m_Height: 0.70348346
+  m_Direction: 1
+  m_Center: {x: -0.000000067587756, y: 0.07731801, z: -0.1496349}
 --- !u!54 &4909649465765416195
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81,12 +81,13 @@ MonoBehaviour:
   _IsAbleToMorph: 1
   _ThisMorph: 2
   _CameraTransform: {fileID: 0}
-  _MoveSpeed: 15
+  _MoveSpeed: 9
   _JumpPower: 10
   _LayerNameWater: Water
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
+  _GroundRayLength: 0.53
   _IsFoundGround: 0
   _LayerNameWiremeshWall: WireMeshWall
   _ThroughWiremeshTime: 0.5

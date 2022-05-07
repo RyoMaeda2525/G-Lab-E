@@ -2969,12 +2969,12 @@ PrefabInstance:
     - target: {fileID: 1953679693497929541, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00030170937
+      value: -0.00030167578
       objectReference: {fileID: 0}
     - target: {fileID: 1953679693497929541, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000679249
+      value: -0.00006791734
       objectReference: {fileID: 0}
     - target: {fileID: 1953679693497929541, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
@@ -3004,12 +3004,12 @@ PrefabInstance:
     - target: {fileID: 3089736930193456741, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00029903455
+      value: -0.00029903452
       objectReference: {fileID: 0}
     - target: {fileID: 3089736930193456741, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000078837445
+      value: -0.00007883744
       objectReference: {fileID: 0}
     - target: {fileID: 3089736930193456741, guid: 89e8ac860d121fc49996d1921ec0c380,
         type: 3}
@@ -9627,8 +9627,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1583644697, guid: 566f10f59956edf48a685a3cc9cd4e65, type: 3}
+      propertyPath: _JumpPower
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583644697, guid: 566f10f59956edf48a685a3cc9cd4e65, type: 3}
       propertyPath: _MoveSpeed
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1583644697, guid: 566f10f59956edf48a685a3cc9cd4e65, type: 3}
       propertyPath: _CameraTransform
@@ -41329,7 +41333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756368641}
-  m_LocalRotation: {x: -0.000073387644, y: 0.97143674, z: -0.23729852, w: -0.00030042947}
+  m_LocalRotation: {x: -0.00007338764, y: 0.97143674, z: -0.23729852, w: -0.00030042947}
   m_LocalPosition: {x: -0.12814453, y: 2.3000002, z: -207.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
