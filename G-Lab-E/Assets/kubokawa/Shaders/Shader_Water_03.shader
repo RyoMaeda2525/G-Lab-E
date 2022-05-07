@@ -83,7 +83,8 @@
 					half3 grab = tex2D(_GrabTexture, grabUV + distortion).rgb * _Color;
 
 
-					o.Albedo = fixed3(1, 1, 1);
+					//o.Albedo = fixed3(1, 1, 1);
+					o.Albedo = _Color;
 					//o.Emission = grab;
 					o.Metallic = 0;
 					o.Smoothness = _Glossiness;
