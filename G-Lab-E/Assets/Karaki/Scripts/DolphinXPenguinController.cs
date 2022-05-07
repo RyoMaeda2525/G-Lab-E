@@ -37,7 +37,7 @@ public class DolphinXPenguinController : SlimeController
             //床を足元から探す
             _IsFoundGround = false;
             RaycastHit hit;
-            if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, 0.45f, _LayerGround))
+            if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
             {
                 _IsFoundGround = true;
             }
