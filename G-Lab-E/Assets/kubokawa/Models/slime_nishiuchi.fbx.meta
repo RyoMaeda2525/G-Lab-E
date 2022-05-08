@@ -10,7 +10,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
+      name: lambert3
     second: {fileID: 2100000, guid: 1245238f5545a44489362494edbf6c88, type: 2}
   materials:
     materialImportMode: 1
@@ -43,15 +43,15 @@ ModelImporter:
       name: slime_nishiuti_blinking_animClip
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 100
+      firstFrame: 1
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
