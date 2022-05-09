@@ -9548,8 +9548,9 @@ GameObject:
   - component: {fileID: 6950386416493861169}
   - component: {fileID: 7123134836500148675}
   - component: {fileID: 7106778928369901283}
+  - component: {fileID: 940425939}
   m_Layer: 0
-  m_Name: eff_icewall 1
+  m_Name: IceEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14305,6 +14306,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &940425939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945609899062581171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8291a78914f9c0b4fa75e2f532db22b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ice: {fileID: 6946145137705789145}
+  _setOnIceTime: 1.2
 --- !u!1 &6945619567193617733
 GameObject:
   m_ObjectHideFlags: 0
