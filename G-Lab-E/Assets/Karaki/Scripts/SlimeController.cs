@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class SlimeController : MonoBehaviour
 {
+    #region メンバ
     /// <summary> 操作対象になりうるコンポーネント群 </summary>
     static List<SlimeController> _Controllers = new List<SlimeController>();
 
@@ -20,6 +21,9 @@ public class SlimeController : MonoBehaviour
 
     /// <summary> 移動用Rigidbody </summary>
     protected Rigidbody _Rb = default;
+
+    /// <summary>当たり判定Collider</summary>
+    protected CapsuleCollider _CCol = default;
 
     [SerializeField, Tooltip("このキャラクターの変身の種類")]
     protected KindOfMorph _ThisMorph = KindOfMorph.Slime;
@@ -45,8 +49,11 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
+    [SerializeField, Tooltip("地面を見つけるrayの長さ")]
+    protected float _GroundRayLength = 0.45f;
+
     [SerializeField, Tooltip("地面を見つけている")]
-    bool _IsFoundGround = false;
+    protected bool _IsFoundGround = false;
 
     [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
     string _LayerNameWiremeshWall = "WireMeshWall";
@@ -59,13 +66,15 @@ public class SlimeController : MonoBehaviour
 
     /// <summary>金網面の法線</summary>
     Vector3 _WiremeshNormal = Vector3.zero;
+    #endregion
 
     #region プロパティ
     /// <summary> true : 変身可能である </summary>
     public bool IsAbleToMorph { set => _IsAbleToMorph = value; }
-
     /// <summary> このキャラクターの変身の種類 </summary>
     public KindOfMorph ThisMorph { get => _ThisMorph; }
+    /// <summary>キャラクターの移動力</summary>
+    public float MoveSpeed { get => _MoveSpeed; }
     #endregion
 
     protected void Awake()
@@ -77,6 +86,7 @@ public class SlimeController : MonoBehaviour
     protected virtual void Start()
     {
         _Rb = GetComponent<Rigidbody>();
+        _CCol = GetComponent<CapsuleCollider>();
 
         //現在の変身先のモノだけ有効化
         this.gameObject.SetActive(_Morphing == _ThisMorph);
@@ -108,7 +118,7 @@ public class SlimeController : MonoBehaviour
         //床を足元から探す
         _IsFoundGround = false;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.45f, _LayerGround))
+        if(Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
         {
             _IsFoundGround = true;
         }
@@ -204,11 +214,14 @@ public class SlimeController : MonoBehaviour
     {
         //変身エフェクトが表示されている状態なら変身要求は不可
         if (_MorphEffectController.IsPlayingAnimation) return;
-        _MorphEffectController.transform.position = transform.position;
+        //空中にいるときはの変身要求は不可
+        if (!_IsFoundGround) return;
 
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)
         {
+            _MorphEffectController.transform.position = transform.position;
+            _MorphEffectController.transform.rotation = transform.rotation;
             if (_ThisMorph != KindOfMorph.Slime)
             {
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
@@ -226,6 +239,8 @@ public class SlimeController : MonoBehaviour
         {
             if (_ThisMorph != KindOfMorph.BatXGecko)
             {
+                _MorphEffectController.transform.position = transform.position;
+                _MorphEffectController.transform.rotation = transform.rotation;
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
@@ -244,6 +259,8 @@ public class SlimeController : MonoBehaviour
         {
             if (_ThisMorph != KindOfMorph.DolphinXPenguin)
             {
+                _MorphEffectController.transform.position = transform.position;
+                _MorphEffectController.transform.rotation = transform.rotation;
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {

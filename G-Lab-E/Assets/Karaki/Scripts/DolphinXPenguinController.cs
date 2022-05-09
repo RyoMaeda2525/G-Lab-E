@@ -8,11 +8,21 @@ public class DolphinXPenguinController : SlimeController
     /// <summary> 移動用メソッド </summary>
     Action Move = default;
 
+    /// <summary>True : 泳いでいる</summary>
+    public bool IsSwimming { get => Move == MoveWater; }
+    /// <summary>CapsuleCast用パラメータ : point1</summary>
+    Vector3 Point1 { get => transform.position + (_PlaneNormal * _CCol.radius) + _CCol.center + transform.forward * (_CCol.height / 2f); }
+    /// <summary>CapsuleCast用パラメータ : point2</summary>
+    Vector3 Point2 { get => transform.position + (_PlaneNormal * _CCol.radius) + _CCol.center + -transform.forward * (_CCol.height / 2f); }
+
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         Move = MoveGround;
+        _CCol = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -20,7 +30,18 @@ public class DolphinXPenguinController : SlimeController
     {
         if (PauseManager.IsPausing) return;
 
-        if (Move != MoveWater) Morphing();
+        if (Move != MoveWater)
+        {
+            Morphing();
+
+            //床を足元から探す
+            _IsFoundGround = false;
+            RaycastHit hit;
+            if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
+            {
+                _IsFoundGround = true;
+            }
+        }
     }
 
     void FixedUpdate()

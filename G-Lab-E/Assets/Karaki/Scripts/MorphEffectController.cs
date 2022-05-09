@@ -8,6 +8,9 @@ public class MorphEffectController : MonoBehaviour
     [SerializeField, Tooltip("スライムの液状化動作をするためのアニメーター")]
     Animator _AnimatorMorphSlimeMelting = default;
 
+    [SerializeField, Tooltip("液状スライムを拡縮動作するためのアニメーター")]
+    Animator _AnimatorMorphSlimeScaleing = default;
+
     [SerializeField, Tooltip("ヤモリ×コウモリの拡縮変身動作をするためのアニメーター")]
     Animator _AnimatorMorphBatXGeckoScaleing = default;
 
@@ -53,6 +56,12 @@ public class MorphEffectController : MonoBehaviour
     {
         _Timer = 0f;
         _IsPlayingAnimation = false;
+
+        //エフェクト用オブジェクトはまず表示しない
+        _AnimatorMorphSlimeMelting.gameObject.SetActive(false);
+        _AnimatorMorphSlimeScaleing.gameObject.SetActive(false);
+        _AnimatorMorphBatXGeckoScaleing.gameObject.SetActive(false);
+        _AnimatorMorphDolphinXPenguinScaleing.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,6 +79,12 @@ public class MorphEffectController : MonoBehaviour
                 ForEndMorphing = null;
                 _IsPlayingAnimation = false;
                 _Timer = 0f;
+
+                //エフェクト用オブジェクトを非表示にする
+                _AnimatorMorphSlimeMelting.gameObject.SetActive(false);
+                _AnimatorMorphSlimeScaleing.gameObject.SetActive(false);
+                _AnimatorMorphBatXGeckoScaleing.gameObject.SetActive(false);
+                _AnimatorMorphDolphinXPenguinScaleing.gameObject.SetActive(false);
             }
         }
     }
@@ -85,13 +100,25 @@ public class MorphEffectController : MonoBehaviour
         switch (current)
         {
             case KindOfMorph.Slime:
-                if (_AnimatorMorphSlimeMelting) _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeMelt);
+                if (_AnimatorMorphSlimeMelting)
+                {
+                    _AnimatorMorphSlimeMelting.gameObject.SetActive(true);
+                    _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeMelt);
+                }
                 break;
             case KindOfMorph.BatXGecko:
-                if (_AnimatorMorphBatXGeckoScaleing) _AnimatorMorphBatXGeckoScaleing.Play(_AnimNameShrinking);
+                if (_AnimatorMorphBatXGeckoScaleing)
+                {
+                    _AnimatorMorphBatXGeckoScaleing.gameObject.SetActive(true);
+                    _AnimatorMorphBatXGeckoScaleing.Play(_AnimNameShrinking);
+                }
                 break;
             case KindOfMorph.DolphinXPenguin:
-                if (_AnimatorMorphDolphinXPenguinScaleing) _AnimatorMorphDolphinXPenguinScaleing.Play(_AnimNameShrinking);
+                if (_AnimatorMorphDolphinXPenguinScaleing)
+                {
+                    _AnimatorMorphDolphinXPenguinScaleing.gameObject.SetActive(true);
+                    _AnimatorMorphDolphinXPenguinScaleing.Play(_AnimNameShrinking);
+                }
                 break;
             default: break;
         }
@@ -100,22 +127,42 @@ public class MorphEffectController : MonoBehaviour
         switch (target)
         {
             case KindOfMorph.Slime:
-                if (_AnimatorMorphSlimeMelting) _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeSolidification);
+                if (_AnimatorMorphSlimeMelting)
+                {
+                    _AnimatorMorphSlimeMelting.gameObject.SetActive(true);
+                    _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeSolidification);
+                }
                 break;
             case KindOfMorph.BatXGecko:
-                if (_AnimatorMorphBatXGeckoScaleing) _AnimatorMorphBatXGeckoScaleing.Play(_AnimNameSizeReturn);
+                if (_AnimatorMorphBatXGeckoScaleing)
+                {
+                    _AnimatorMorphBatXGeckoScaleing.gameObject.SetActive(true);
+                    _AnimatorMorphBatXGeckoScaleing.Play(_AnimNameSizeReturn);
+                }
                 //変身元がスライムでなければ、液状化したスライムを表示するアニメーションも流す
                 if (current > KindOfMorph.Slime)
                 {
-                    if (_AnimatorMorphSlimeMelting) _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeAppealLiquid);
+                    if (_AnimatorMorphSlimeScaleing)
+                    {
+                        _AnimatorMorphSlimeScaleing.gameObject.SetActive(true);
+                        _AnimatorMorphSlimeScaleing.Play(_AnimNameSlimeAppealLiquid);
+                    }
                 }
                 break;
             case KindOfMorph.DolphinXPenguin:
-                if (_AnimatorMorphDolphinXPenguinScaleing) _AnimatorMorphDolphinXPenguinScaleing.Play(_AnimNameSizeReturn);
+                if (_AnimatorMorphDolphinXPenguinScaleing)
+                {
+                    _AnimatorMorphDolphinXPenguinScaleing.gameObject.SetActive(true);
+                    _AnimatorMorphDolphinXPenguinScaleing.Play(_AnimNameSizeReturn);
+                }
                 //変身元がスライムでなければ、液状化したスライムを表示するアニメーションも流す
                 if (current > KindOfMorph.Slime)
                 {
-                    if (_AnimatorMorphSlimeMelting) _AnimatorMorphSlimeMelting.Play(_AnimNameSlimeAppealLiquid);
+                    if (_AnimatorMorphSlimeScaleing)
+                    {
+                        _AnimatorMorphSlimeScaleing.gameObject.SetActive(true);
+                        _AnimatorMorphSlimeScaleing.Play(_AnimNameSlimeAppealLiquid);
+                    }
                 }
                 break;
             default: break;

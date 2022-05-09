@@ -22,6 +22,12 @@ public class EcholocationController1 : MonoBehaviour
     /// <summary>現在の半径</summary>
     float _Radius;
 
+    /// <summary>True : エコーロケーションを行った</summary>
+    bool _DoneEcho = false;
+
+    /// <summary>True : エコーロケーションを行った。取得後Falseになる</summary>
+    public bool DoneEcho { get => _DoneEcho; }
+
     
     private void Start()
     {
@@ -38,11 +44,13 @@ public class EcholocationController1 : MonoBehaviour
     // 毎フレーム半径のセットおよび拡張を行う
     private void Update()
     {
+        _DoneEcho = false;
         Vector3 _playerPos = _Player.transform.position;
-        if (InputUtility.GetDownJump)
+        if (!_DoneEcho && !EchoMaterialSwitcher.IsEcho && InputUtility.GetDownJump)
         {
             EchoMaterialSwitcher.DoEchoOrder();
             EmitCall(_playerPos);
+            _DoneEcho = true;
         }
 
         _Material.SetFloat(IDRadius, _Radius);
