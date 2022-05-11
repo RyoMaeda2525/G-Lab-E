@@ -35,7 +35,7 @@ public class SlimeController : MonoBehaviour
     protected float _MoveSpeed = 30f;
 
     [SerializeField, Tooltip("キャラクターのジャンプ力")]
-    float _JumpPower = 10f;
+    protected float _JumpPower = 10f;
 
     [SerializeField, Tooltip("水中として認識するオブジェクトレイヤー名")]
     protected string _LayerNameWater = "Water";

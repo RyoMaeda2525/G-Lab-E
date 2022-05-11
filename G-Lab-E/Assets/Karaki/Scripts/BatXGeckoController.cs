@@ -82,9 +82,10 @@ public class BatXGeckoController : SlimeController
                 //壁張り付きの時
                 if(Move == MoveWall)
                 {
-                    _PlaneNormal = Vector3.up;
                     Move = MoveGlide;
                     _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
+                    _Rb.AddForce(_PlaneNormal * _JumpPower, ForceMode.Impulse);
+                    _PlaneNormal = Vector3.up;
                 }
                 //滑空中の時
                 else if(Move == MoveGlide)
@@ -102,8 +103,27 @@ public class BatXGeckoController : SlimeController
                         }
                     }
                 }
+                //地面にいるとき
+                else
+                {
+                    //床を見つけている
+                    if (_IsFoundGround)
+                    {
+                        _Rb.AddForce(Vector3.up * _JumpPower, ForceMode.Impulse);
+                    }
+                }
             }
         }
+
+        //ジャンプ力減衰
+        if (!InputUtility.GetJump)
+        {
+            if (!_IsFoundGround && _Rb.velocity.y > 0)
+            {
+                _Rb.velocity = Vector3.ProjectOnPlane(_Rb.velocity, Vector3.up);
+            }
+        }
+
         _FoundWallNormal = null;
     }
 
