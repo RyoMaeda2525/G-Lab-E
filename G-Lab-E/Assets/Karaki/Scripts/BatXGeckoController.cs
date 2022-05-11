@@ -114,9 +114,8 @@ public class BatXGeckoController : SlimeController
                 }
             }
         }
-
         //ジャンプ力減衰
-        if (!InputUtility.GetJump)
+        else if (!InputUtility.GetJump)
         {
             if (!_IsFoundGround && _Rb.velocity.y > 0)
             {
