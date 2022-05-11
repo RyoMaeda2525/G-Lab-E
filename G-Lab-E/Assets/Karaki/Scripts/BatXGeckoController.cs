@@ -6,9 +6,6 @@ using UnityEngine;
 public class BatXGeckoController : SlimeController
 {
     #region メンバ
-    /// <summary>当たり判定Collider</summary>
-    CapsuleCollider _Ccol = default;
-
     /// <summary>重力および壁張り付き加速度</summary>
     const float GRAVITY_SPEED = 9.8f;
 
@@ -39,9 +36,9 @@ public class BatXGeckoController : SlimeController
 
     #region プロパティ
     /// <summary>CapsuleCast用パラメータ : point1</summary>
-    Vector3 Point1 { get => transform.position + (_PlaneNormal * _Ccol.radius) + _Ccol.center + transform.forward * (_Ccol.height / 2f); }
+    Vector3 Point1 { get => transform.position + (_PlaneNormal * _CCol.radius * transform.localScale.y) + _CCol.center + transform.forward * (_CCol.height * transform.localScale.z / 2f); }
     /// <summary>CapsuleCast用パラメータ : point2</summary>
-    Vector3 Point2 { get => transform.position + (_PlaneNormal * _Ccol.radius) + _Ccol.center + -transform.forward * (_Ccol.height / 2f); }
+    Vector3 Point2 { get => transform.position + (_PlaneNormal * _CCol.radius * transform.localScale.y) + _CCol.center + -transform.forward * (_CCol.height * transform.localScale.z / 2f); }
     /// <summary>True : 滑空中である</summary>
     public bool IsGliding { get => Move == MoveGlide; }
     #endregion
@@ -53,7 +50,6 @@ public class BatXGeckoController : SlimeController
         base.Start();
         Move = MoveWall;
         _Rb.useGravity = false;
-        _Ccol = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -77,8 +73,7 @@ public class BatXGeckoController : SlimeController
             if (_FoundWallNormal != null)
             {
                 _PlaneNormal = (Vector3)_FoundWallNormal;
-                Move = MoveWall;
-                CharacterRotation(transform.forward, _PlaneNormal, 360f);
+                Move = TransitToWall;
                 _Rb.velocity = Vector3.zero;
             }
             //見つけてない
@@ -87,9 +82,10 @@ public class BatXGeckoController : SlimeController
                 //壁張り付きの時
                 if(Move == MoveWall)
                 {
-                    _PlaneNormal = Vector3.up;
                     Move = MoveGlide;
                     _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
+                    _Rb.AddForce(_PlaneNormal * _JumpPower, ForceMode.Impulse);
+                    _PlaneNormal = Vector3.up;
                 }
                 //滑空中の時
                 else if(Move == MoveGlide)
@@ -107,8 +103,26 @@ public class BatXGeckoController : SlimeController
                         }
                     }
                 }
+                //地面にいるとき
+                else
+                {
+                    //床を見つけている
+                    if (_IsFoundGround)
+                    {
+                        _Rb.AddForce(Vector3.up * _JumpPower, ForceMode.Impulse);
+                    }
+                }
             }
         }
+        //ジャンプ力減衰
+        else if (!InputUtility.GetJump)
+        {
+            if (!_IsFoundGround && _Rb.velocity.y > 0)
+            {
+                _Rb.velocity = Vector3.ProjectOnPlane(_Rb.velocity, Vector3.up);
+            }
+        }
+
         _FoundWallNormal = null;
     }
 
@@ -135,7 +149,7 @@ public class BatXGeckoController : SlimeController
         //床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
+        if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
         {
             _PlaneNormal = Vector3.up;
         }
@@ -161,7 +175,7 @@ public class BatXGeckoController : SlimeController
         float vertical = InputUtility.GetAxis2DMove.y;
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
-        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 1.2f;
+        Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed * 0.8f;
 
         _Rb.AddForce(forceForPb + (-_PlaneNormal * _CurrentGravitySpeed));
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
@@ -169,11 +183,27 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround))
+        if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround))
         {
             _PlaneNormal = Vector3.up;
             Move = MoveGround;
             _CurrentGravitySpeed = GRAVITY_SPEED;
+        }
+    }
+
+    void TransitToWall()
+    {
+        _CCol.isTrigger = true;
+
+        _Rb.AddForce(-_PlaneNormal * _CurrentGravitySpeed + Vector3.up);
+
+        Vector3 forward = Vector3.ProjectOnPlane(Vector3.up, _PlaneNormal);
+        CharacterRotation(forward, _PlaneNormal, 360f);
+
+        if(Vector3.Angle(_PlaneNormal, transform.up) < 5f)
+        {
+            Move = MoveWall;
+            _CCol.isTrigger = false;
         }
     }
 
@@ -200,7 +230,8 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if (Physics.CapsuleCast(Point1, Point2, _Ccol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround)
+        if(Physics.Raycast(transform.position, -_PlaneNormal, out hit, _CCol.radius * 3f, _LayerGround)
+        //if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround)
             && (hit.collider.CompareTag(_TagWalkableWall)))
         {
             _PlaneNormal = hit.normal;
@@ -221,7 +252,7 @@ public class BatXGeckoController : SlimeController
         {
             //キャラクター正面の壁を見る
             RaycastHit hit;
-            Vector3 extents = new Vector3(_Ccol.radius, _Ccol.radius, 0.05f); 
+            Vector3 extents = new Vector3(_CCol.radius, _CCol.radius, 0.05f); 
             if(Physics.BoxCast(transform.position + (transform.up * 0.1f) + -(transform.forward * 0.1f), extents, transform.forward, out hit, transform.rotation, 1f, _LayerGround))
             {
                 if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)

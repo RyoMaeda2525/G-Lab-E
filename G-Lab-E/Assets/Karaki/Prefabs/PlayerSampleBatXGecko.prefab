@@ -94,20 +94,20 @@ MonoBehaviour:
   _IsAbleToMorph: 1
   _ThisMorph: 1
   _CameraTransform: {fileID: 0}
-  _MoveSpeed: 9
+  _MoveSpeed: 18
   _JumpPower: 10
   _LayerNameWater: Water
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
-  _GroundRayLength: 0.65
+  _GroundRayLength: 0.25
   _IsFoundGround: 0
   _LayerNameWiremeshWall: WireMeshWall
   _ThroughWiremeshTime: 0.5
   _TagWalkableWall: WalkableWall
   _FindWallOffset: 0.1
   _SlopeLimit: 40
-  _MoveSpeedWall: 8
+  _MoveSpeedWall: 18
 --- !u!114 &7618233141826220965
 MonoBehaviour:
   m_ObjectHideFlags: 0
