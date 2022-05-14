@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LightingSet : MonoBehaviour
 {
@@ -16,17 +17,11 @@ public class LightingSet : MonoBehaviour
     [SerializeField, Tooltip("IntensityMultiplierの値")]
     private float _moonIntensity = 0;
 
-    [SerializeField, Tooltip("Light_moonlightのオブジェクト")]
-    private GameObject _moonSpot = default;
-
     [SerializeField, Tooltip("Light_moonlightのLight")]
     private Light _moonSpotLight = default;
 
     [SerializeField, Tooltip("Intensityの値")]
     private float _moonSpotIntensity = 0;
-
-    [SerializeField, Tooltip("Directional Lightのオブジェクト")]
-    private GameObject _directional = default;
 
     [SerializeField, Tooltip("Light_moonlightのLight")]
     private Light _directionalLight = default;
@@ -34,12 +29,13 @@ public class LightingSet : MonoBehaviour
     [SerializeField, Tooltip("Intensityの値")]
     private float _directionalLightIntensity = 0;
 
+    [SerializeField, Tooltip("外周4つの発電機が起動した時に起こすイベント")]
+    UnityEvent FullLightUp = default;
+
     // Start is called before the first frame update
-    void Awake()
+    void Awake() //明かりの取得と暗くする部分
     {
         _moonMaterial = _moon.GetComponent<Renderer>().material;
-        _moonSpotLight = _moonSpot.GetComponent<Light>();
-        _directionalLight = _directional.GetComponent<Light>();
 
         RenderSettings.ambientIntensity = _Lightingintensity;
         _moonMaterial.SetFloat("_EmissionIntensity", _moonIntensity);
@@ -53,5 +49,14 @@ public class LightingSet : MonoBehaviour
         _moonMaterial.SetFloat("_EmissionIntensity", _moonIntensity += 20);
         _moonSpotLight.intensity = _moonSpotIntensity += 2;
         _directionalLight.intensity = _directionalLightIntensity += 0.25f;
+    }
+
+    public void GateOpen() 
+    {
+
+        if (_Lightingintensity == 1 && _moonIntensity == 80 && _moonSpotIntensity == 8 && _directionalLightIntensity == 1) 
+        {
+            FullLightUp.Invoke();
+        }
     }
 }
