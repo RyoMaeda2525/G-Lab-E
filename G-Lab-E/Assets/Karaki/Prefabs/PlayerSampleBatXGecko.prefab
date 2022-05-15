@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1021808053147895893}
   - component: {fileID: 1021808053147895890}
-  - component: {fileID: 1021808053147895880}
   - component: {fileID: 1021808053147895894}
   - component: {fileID: 1021808053147895895}
   - component: {fileID: 2636998212719605865}
@@ -50,19 +49,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 2
   m_Center: {x: 0, y: 0.17, z: 0.02}
---- !u!135 &1021808053147895880
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021808053147895889}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0.17, z: 0.69}
 --- !u!54 &1021808053147895894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,7 +81,7 @@ MonoBehaviour:
   _ThisMorph: 1
   _CameraTransform: {fileID: 0}
   _MoveSpeed: 18
-  _JumpPower: 10
+  _JumpPower: 3.5
   _LayerNameWater: Water
   _LayerGround:
     serializedVersion: 2
@@ -107,7 +93,7 @@ MonoBehaviour:
   _TagWalkableWall: WalkableWall
   _FindWallOffset: 0.1
   _SlopeLimit: 40
-  _MoveSpeedWall: 8
+  _MoveSpeedWall: 12
 --- !u!114 &2636998212719605865
 MonoBehaviour:
   m_ObjectHideFlags: 0
