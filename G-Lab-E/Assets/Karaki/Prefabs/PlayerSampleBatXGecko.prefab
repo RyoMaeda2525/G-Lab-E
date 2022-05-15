@@ -45,8 +45,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1
+  m_Radius: 0.17
+  m_Height: 0.8
   m_Direction: 2
   m_Center: {x: 0, y: 0.17, z: 0.02}
 --- !u!54 &1021808053147895894
@@ -93,7 +93,7 @@ MonoBehaviour:
   _TagWalkableWall: WalkableWall
   _FindWallOffset: 0.1
   _SlopeLimit: 40
-  _MoveSpeedWall: 12
+  _MoveSpeedWall: 14
 --- !u!114 &2636998212719605865
 MonoBehaviour:
   m_ObjectHideFlags: 0
