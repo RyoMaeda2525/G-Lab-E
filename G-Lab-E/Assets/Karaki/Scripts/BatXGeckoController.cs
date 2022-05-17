@@ -12,9 +12,6 @@ public class BatXGeckoController : SlimeController
     /// <summary>滑空時の重力加速度</summary>
     const float GLIDE_GRAVITY_SPEED = 1.75f;
 
-    /// <summary> 発見した壁の法線ベクトル </summary>
-    Vector3? _FoundWallNormal = null;
-
     [SerializeField, Tooltip("壁のぼり可能な壁のタグ名")]
     string _TagWalkableWall = "WalkableWall";
 
@@ -69,10 +66,17 @@ public class BatXGeckoController : SlimeController
         //ジャンプ入力で壁張り付き、解除
         if (InputUtility.GetDownJump)
         {
-            //正面に壁や床を見つけている
-            if (_FoundWallNormal != null)
+            //キャラクター正面の壁を見る
+            RaycastHit hit;
+            bool isFindWalkableWall = Physics.Raycast(transform.position + (transform.up * 0.3f), transform.forward, out hit, 1f, _LayerGround);
+            //Vector3 extents = new Vector3(_CCol.radius, _CCol.radius, 0.05f);
+            //if (Physics.BoxCast(transform.position + (transform.up * 0.1f) + -(transform.forward * 0.1f), extents, transform.forward, out hit, transform.rotation, 1f, _LayerGround))
+            
+            if (isFindWalkableWall
+                && hit.collider.CompareTag(_TagWalkableWall)
+                && (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit))
             {
-                _PlaneNormal = (Vector3)_FoundWallNormal;
+                _PlaneNormal = hit.normal;
                 Move = TransitToWall;
                 _Rb.velocity = Vector3.zero;
             }
@@ -80,15 +84,15 @@ public class BatXGeckoController : SlimeController
             else
             {
                 //壁張り付きの時
-                if(Move == MoveWall)
+                if (Move == MoveWall)
                 {
                     Move = MoveGlide;
                     _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
-                    _Rb.AddForce(_PlaneNormal * _JumpPower, ForceMode.Impulse);
+                    _Rb.AddForce(_PlaneNormal * _JumpPower * 0.5f, ForceMode.Impulse);
                     _PlaneNormal = Vector3.up;
                 }
                 //滑空中の時
-                else if(Move == MoveGlide)
+                else if (Move == MoveGlide)
                 {
                     //ジャンプボタンにより滑空・落下を切り替える
                     if (InputUtility.GetDownJump)
@@ -115,15 +119,13 @@ public class BatXGeckoController : SlimeController
             }
         }
         //ジャンプ力減衰
-        else if (!InputUtility.GetJump)
+        else if (Move == MoveGround && !InputUtility.GetJump)
         {
             if (!_IsFoundGround && _Rb.velocity.y > 0)
             {
                 _Rb.velocity = Vector3.ProjectOnPlane(_Rb.velocity, Vector3.up);
             }
         }
-
-        _FoundWallNormal = null;
     }
 
     void MoveGround()
@@ -223,9 +225,9 @@ public class BatXGeckoController : SlimeController
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeedWall;
-        _Rb.AddForce(forceForPb - _PlaneNormal * _CurrentGravitySpeed);
+        _Rb.AddForce(forceForPb + -_PlaneNormal * _CurrentGravitySpeed);
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
-        if (_Rb.velocity.sqrMagnitude > 2f) _Rb.velocity = _Rb.velocity.normalized;
+        //if (_Rb.velocity.sqrMagnitude > 2f) _Rb.velocity = _Rb.velocity.normalized;
 
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
@@ -242,26 +244,12 @@ public class BatXGeckoController : SlimeController
             Move = MoveGlide;
             _CurrentGravitySpeed = GLIDE_GRAVITY_SPEED;
         }
+
     }
 
 
     private void OnTriggerStay(Collider other)
     {
-        //壁のぼりできる壁である
-        if (other.CompareTag(_TagWalkableWall))
-        {
-            //キャラクター正面の壁を見る
-            RaycastHit hit;
-            Vector3 extents = new Vector3(_CCol.radius, _CCol.radius, 0.05f); 
-            if(Physics.BoxCast(transform.position + (transform.up * 0.1f) + -(transform.forward * 0.1f), extents, transform.forward, out hit, transform.rotation, 1f, _LayerGround))
-            {
-                if (Vector3.Angle(hit.normal, transform.up) > _SlopeLimit)
-                {
-                    _FoundWallNormal = hit.normal;
-                }
-            }
-        }
-
         //水レイヤに触れていると溺れる
         if (other.gameObject.layer == LayerMask.NameToLayer(_LayerNameWater))
         {
