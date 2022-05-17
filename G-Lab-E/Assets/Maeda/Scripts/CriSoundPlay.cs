@@ -20,19 +20,18 @@ public class CriSoundPlay : MonoBehaviour
 
     public void SoundPlay(int a) 
     {
-        _atomSrc.Play(soundArray[a]);
-
         CriAtomSource.Status status = _atomSrc.status;
 
+       // if (status != CriAtomSource.Status.Playing) 
+       // {
+            _atomSrc.Play(soundArray[a]);
+       // }
+       // else 
         if (status == CriAtomSource.Status.Prep)
         {
             Debug.Log($"{_atomSrc.cueSheet} {_atomSrc.cueName}");
             Debug.Log("再生準備中");
-        }
-        else 
-        {
-            Debug.Log(_atomSrc.status);
-        }
+       }
     }
 
     public void PlayAndStopSound()
