@@ -225,9 +225,10 @@ public class BatXGeckoController : SlimeController
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _MoveSpeedWall;
+
         _Rb.AddForce(forceForPb + -_PlaneNormal * _CurrentGravitySpeed);
         CharacterRotation(forceForPb, _PlaneNormal, 360f);
-        //if (_Rb.velocity.sqrMagnitude > 2f) _Rb.velocity = _Rb.velocity.normalized;
+        
 
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
