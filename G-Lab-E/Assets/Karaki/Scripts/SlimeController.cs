@@ -160,7 +160,6 @@ public class SlimeController : MonoBehaviour
 
         //プレーヤーを移動させることができる状態なら、移動させたい度合・方向を取得
         Vector3 forceForPb = (horizontal * right + vertical * forward) * _CurrentSpeed;
-        Debug.Log(forceForPb);
 
         //指定時間金網に触れ続けたら、突っ込む
         if (_ThroughWiremeshTimer > _ThroughWiremeshTime)

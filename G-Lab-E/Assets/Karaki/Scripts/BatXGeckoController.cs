@@ -195,8 +195,6 @@ public class BatXGeckoController : SlimeController
 
     void TransitToWall()
     {
-        _CCol.isTrigger = true;
-
         _Rb.AddForce(-_PlaneNormal * _CurrentGravitySpeed + Vector3.up);
 
         Vector3 forward = Vector3.ProjectOnPlane(Vector3.up, _PlaneNormal);
@@ -205,7 +203,6 @@ public class BatXGeckoController : SlimeController
         if(Vector3.Angle(_PlaneNormal, transform.up) < 5f)
         {
             Move = MoveWall;
-            _CCol.isTrigger = false;
         }
     }
 
@@ -233,7 +230,7 @@ public class BatXGeckoController : SlimeController
         //壁または床を足元から探す
         Vector3 offset = transform.forward * _FindWallOffset;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, -_PlaneNormal, out hit, _CCol.radius * 3f, _LayerGround)
+        if(Physics.Raycast(transform.position + _PlaneNormal * 0.1f, -_PlaneNormal, out hit, 1f, _LayerGround)
         //if (Physics.CapsuleCast(Point1, Point2, _CCol.radius, -_PlaneNormal, out hit, 0.65f, _LayerGround)
             && (hit.collider.CompareTag(_TagWalkableWall)))
         {
