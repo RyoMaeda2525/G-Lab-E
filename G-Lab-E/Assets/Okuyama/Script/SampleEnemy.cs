@@ -11,7 +11,8 @@ public class SampleEnemy : MonoBehaviour
     [SerializeField] GameObject _playerObj;
     /// <summary>徘徊してほしい場所</summary>
     [SerializeField] Transform[] _wanderingPoint;
-    [SerializeField] int destPoint = 0;
+    /// <summary>初期の場所</summary>
+    [SerializeField] int _destPoint = 0;
 
     private RaycastHit hit;
     /// <summary>徘徊 /デフォ 徘徊する</summary>
@@ -45,11 +46,11 @@ public class SampleEnemy : MonoBehaviour
             return;
 
         // エージェントが現在設定された目標地点に行くように設定します
-        m_agent.destination = _wanderingPoint[destPoint].position;
+        m_agent.destination = _wanderingPoint[_destPoint].position;
 
         // 配列内の次の位置を目標地点に設定し、
         // 必要ならば出発地点にもどります
-        destPoint = (destPoint + 1) % _wanderingPoint.Length;
+        _destPoint = (_destPoint + 1) % _wanderingPoint.Length;
     }
 
     private void OnTriggerStay(Collider other)
