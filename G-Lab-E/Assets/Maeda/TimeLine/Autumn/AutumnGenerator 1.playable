@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: afb009e9f6558fb48849d521adf745ab, type: 2}
+  m_Clip: {fileID: 7400000, guid: 91eebe4134353c14492b86af92e92649, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: afb009e9f6558fb48849d521adf745ab, type: 2}
+  m_Clip: {fileID: 7400000, guid: 91eebe4134353c14492b86af92e92649, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 2503758234008934d9142114934fe027, type: 2}
+  m_Clip: {fileID: 7400000, guid: e4fe99149fcaf0f45997fe3a6815d88c, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 2503758234008934d9142114934fe027, type: 2}
+  m_Clip: {fileID: 7400000, guid: e4fe99149fcaf0f45997fe3a6815d88c, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -1125,7 +1125,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0.33333333333333326
     m_PreExtrapolationTime: 0
-    m_DisplayName: BlackFadeOut
+    m_DisplayName: FadeOut
   - m_Version: 1
     m_Start: 1.3333333333333333
     m_ClipIn: 0
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 3.7666666666666666
     m_PreExtrapolationTime: 0
-    m_DisplayName: BlackFadeIn
+    m_DisplayName: FadeIn
   - m_Version: 1
     m_Start: 7.266666666666667
     m_ClipIn: 0
@@ -1227,7 +1227,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
-    m_DisplayName: BlackFadeIn
+    m_DisplayName: FadeIn
   - m_Version: 1
     m_Start: 6.1
     m_ClipIn: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0.16666666666666696
     m_PreExtrapolationTime: 0
-    m_DisplayName: BlackFadeOut
+    m_DisplayName: FadeOut
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
