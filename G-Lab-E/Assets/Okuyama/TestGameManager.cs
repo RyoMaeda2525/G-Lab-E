@@ -49,6 +49,10 @@ public class TestGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(5);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            SceneManager.LoadScene(6);
+        }
 
         //if (Input.GetKeyDown(KeyCode.Alpha7))
         //{
@@ -67,5 +71,14 @@ public class TestGameManager : MonoBehaviour
     public void Stage2()
     {
         SceneManager.LoadScene(_stage2);
+    }
+
+    public void GameQuit() 
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
     }
 }
