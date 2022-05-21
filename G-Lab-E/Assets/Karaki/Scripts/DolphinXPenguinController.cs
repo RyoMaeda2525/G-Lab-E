@@ -32,7 +32,7 @@ public class DolphinXPenguinController : SlimeController
 
         if (Move != MoveWater)
         {
-            Morphing();
+            DoMorph();
 
             //床を足元から探す
             _IsFoundGround = false;

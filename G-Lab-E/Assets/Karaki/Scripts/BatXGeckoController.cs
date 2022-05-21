@@ -61,7 +61,7 @@ public class BatXGeckoController : SlimeController
 
         _IsFoundGround = Move == MoveGround;
 
-        Morphing();
+        DoMorph();
 
         //ジャンプ入力で壁張り付き、解除
         if (InputUtility.GetDownJump)
