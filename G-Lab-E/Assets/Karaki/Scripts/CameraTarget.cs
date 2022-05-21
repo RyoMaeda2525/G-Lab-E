@@ -6,7 +6,7 @@ using UnityEngine.Rendering.PostProcessing;
 using Cinemachine;
 using Cinemachine.PostFX;
 
-[RequireComponent(typeof(CinemachineFreeLook))]
+
 public class CameraTarget : MonoBehaviour
 {
     CinemachineFreeLook _Cfl = default;

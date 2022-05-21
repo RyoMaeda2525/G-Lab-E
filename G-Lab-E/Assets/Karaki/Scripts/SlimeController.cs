@@ -75,6 +75,8 @@ public class SlimeController : MonoBehaviour
     public KindOfMorph ThisMorph { get => _ThisMorph; }
     /// <summary>キャラクターの移動力</summary>
     public float MoveSpeed { get => _MoveSpeed; }
+    /// <summary> 現在の変身先 </summary>
+    public int Morphing { set => _Morphing = (KindOfMorph)value; }
     #endregion
 
     protected void Awake()
@@ -113,7 +115,7 @@ public class SlimeController : MonoBehaviour
     {
         if (PauseManager.IsPausing) return;
 
-        Morphing();
+        DoMorph();
 
         //床を足元から探す
         _IsFoundGround = false;
@@ -210,7 +212,7 @@ public class SlimeController : MonoBehaviour
     }
 
     /// <summary> 変身する </summary>
-    protected void Morphing()
+    protected void DoMorph()
     {
         //変身エフェクトが表示されている状態なら変身要求は不可
         if (_MorphEffectController.IsPlayingAnimation) return;
@@ -333,6 +335,6 @@ public class SlimeController : MonoBehaviour
 public enum KindOfMorph : byte
 {
     Slime = 0,
-    BatXGecko,
-    DolphinXPenguin,
+    BatXGecko = 1,
+    DolphinXPenguin = 2,
 }
