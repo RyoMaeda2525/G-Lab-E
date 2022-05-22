@@ -54,10 +54,10 @@ public class TestGameManager : MonoBehaviour
             SceneManager.LoadScene(6);
         }
 
-        //if (Input.GetKeyDown(KeyCode.Alpha7))
-        //{
-        //    SceneManager.LoadScene(6);
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            SceneManager.LoadScene(7);
+        }
     }
 
     public void Title()
