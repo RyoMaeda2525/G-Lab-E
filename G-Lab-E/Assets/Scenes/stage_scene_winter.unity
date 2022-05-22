@@ -29018,7 +29018,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970514288}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.94781244
   m_Height: 64.38161
@@ -31278,6 +31278,26 @@ MonoBehaviour:
   _defaultMaterial: {fileID: 13400000, guid: 74054c9949803a547b4b51eec8b69388, type: 2}
   _iceMaterial: {fileID: 13400000, guid: 7f1e993e7bfe3b644a09036a8ff6d19f, type: 2}
   _iceflote: 1
+--- !u!1 &1235551257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fbc9b1702bedc24ea110881196fb99f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1324695545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1235551258
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235551257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -819317070544764470, guid: 5fbc9b1702bedc24ea110881196fb99f, type: 3}
 --- !u!1 &1255666568
 GameObject:
   m_ObjectHideFlags: 0
@@ -42878,10 +42898,10 @@ MonoBehaviour:
   _cueSheet: Eteam_BGM_20220502
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
-  _use3dPositioning: 1
+  _use3dPositioning: 0
   _freezeOrientation: 0
-  _loop: 1
-  _volume: 1
+  _loop: 0
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
