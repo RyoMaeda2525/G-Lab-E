@@ -8,7 +8,7 @@ public class TestGameManager : MonoBehaviour
     [SerializeField] string _title, _stage1, _stage2;
     void Start()
     {
-        
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
