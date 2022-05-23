@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
+  m_XRTrackingOrigin: {fileID: 4611489574016481530}
   m_ActionsAsset: {fileID: -944628639613478452, guid: bdc98dfba43c9ee479969cf0bf9ca337,
     type: 3}
   m_PointAction: {fileID: 0}
@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 4611489574142732692}
   - component: {fileID: 4611489574142732693}
   - component: {fileID: 4611489574142732690}
-  - component: {fileID: 1631084100389996077}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -316,19 +315,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1631084100389996077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611489574142732688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Mouse>/leftButton
 --- !u!1 &4611489574204953427
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +468,6 @@ GameObject:
   - component: {fileID: 4611489574418062241}
   - component: {fileID: 4611489574418062254}
   - component: {fileID: 4611489574418062255}
-  - component: {fileID: 4611489574418062252}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -600,19 +585,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4611489574418062252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611489574418062253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Mouse>/leftButton
 --- !u!1 &4611489574626276739
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +850,6 @@ GameObject:
   - component: {fileID: 4611489575119204679}
   - component: {fileID: 4611489575119204676}
   - component: {fileID: 4611489575119204677}
-  - component: {fileID: 1631084100389996076}
   m_Layer: 5
   m_Name: ReStart
   m_TagString: Untagged
@@ -1008,16 +979,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1631084100389996076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611489575119204675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ControlPath: <Mouse>/leftButton

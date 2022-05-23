@@ -15,6 +15,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField, Tooltip("ポーズ解除時に実行するメソッド")]
     UnityEvent UnPaused = default;
 
+    
+
     /// <summary>timeScaleをinspecterからいじれるようにするためのプロパティ</summary>
     public float TimeScale { get => Time.timeScale; set => Time.timeScale = value; }
 
