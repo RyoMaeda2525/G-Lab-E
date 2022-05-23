@@ -54,6 +54,8 @@ public class EcholocationController1 : MonoBehaviour
     // 毎フレーム半径のセットおよび拡張を行う
     private void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         _DoneEcho = false;
         Vector3 _playerPos = _Player.transform.position;
         if (!_DoneEcho && !CameraTarget.IsEcho && InputUtility.GetDownJump)

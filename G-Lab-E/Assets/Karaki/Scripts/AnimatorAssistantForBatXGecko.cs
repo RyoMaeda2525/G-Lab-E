@@ -31,6 +31,8 @@ public class AnimatorAssistantForBatXGecko : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseManager.IsPausing) return;
+
         _Animator.SetFloat(_ParamNameSpeed, _Rb.velocity.sqrMagnitude);
         _Animator.SetBool(_ParamNameIsGliding, _Controller.IsGliding);
     }
