@@ -7,7 +7,7 @@ public class SnowFloor : MonoBehaviour
     /// <summary>デフォルトのdrag値</summary>
     float _defoltDrag = 2.0f;
     /// <summary>雪床のdrag値</summary>
-    [SerializeField] float _snowDrag = 5.0f;
+    [SerializeField] float _snowDrag = 4.0f;
     Rigidbody _rb;
 
     private void OnTriggerEnter(Collider other)
