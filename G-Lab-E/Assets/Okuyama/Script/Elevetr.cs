@@ -13,9 +13,20 @@ public class Elevetr : MonoBehaviour
     [SerializeField] UnityEvent _playerController;
     /// <summary>フェードアウト用アニメーション</summary>
     [SerializeField] Animator _anim;
-    /// <summary></summary>
-    float _animStartTime = 5.0f;
+    /// <summary>フェードアウト開始までの時間</summary>
+    float _animStartTime = 7.0f;
+    /// <summary>ゴールした時のフラグ</summary>
+    bool _goleFrag;
+    GameObject _player;
 
+    private void Update()
+    {
+        if(_goleFrag == true)
+        {
+            var _pos = _player.gameObject.transform.position;
+            _player.transform.position = new Vector3(_pos.x,_pos.y + 0.035f, _pos.z) ;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -24,6 +35,8 @@ public class Elevetr : MonoBehaviour
             _bGM.SetActive(true);
             _playerController.Invoke();
             StartCoroutine(AnimStart());
+            _goleFrag = true;
+            _player = other.gameObject;
         }
     }
     IEnumerator AnimStart()
