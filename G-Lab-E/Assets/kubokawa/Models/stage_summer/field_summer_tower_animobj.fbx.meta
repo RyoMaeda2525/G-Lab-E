@@ -5,18 +5,8 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: field_summer_gimmick_animClip
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: field_summer_bg01_MT
-    second: {fileID: 2100000, guid: 12fcf3885104cb742a5b21ea95144879, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: field_summer_bg02_MT
-    second: {fileID: 2100000, guid: 377a47667fef8644eb474945659ba84b, type: 2}
+    second: field_summer_tower_animobj_animClip
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -45,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: field_summer_gimmick_animClip
+      name: field_summer_tower_animobj_animClip
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 119
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -132,7 +122,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
