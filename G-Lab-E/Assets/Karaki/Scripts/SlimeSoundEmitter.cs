@@ -28,6 +28,9 @@ public class SlimeSoundEmitter : MonoBehaviour
     [SerializeField, Tooltip("タグ名 : 雪の上")]
     string _TagNameOnSnow = "Snow";
 
+    /// <summary>接触している地面のタグ名</summary>
+    string _GroundTag = null;
+
     /// <summary>true : １フレーム前は着地していた</summary>
     bool _IsGroundBefore = false;
 
@@ -60,17 +63,18 @@ public class SlimeSoundEmitter : MonoBehaviour
             }
             else
             {
-                if (_Controller.GroundTag == _TagNameOnGrass)
+                if (_GroundTag == _TagNameOnGrass)
                 {
                     playOrder = _SoundNameWalkOnGrass;
                 }
-                else if (_Controller.GroundTag == _TagNameOnSnow)
+                else if (_GroundTag == _TagNameOnSnow)
                 {
                     playOrder = _SoundNameWalkOnSnow;
                 }
                 else playOrder = _SoundNameWalk;
             }
         }
+        _GroundTag = null;
 
         _IsGroundBefore = _Controller.IsFoundGround;
 
@@ -107,6 +111,14 @@ public class SlimeSoundEmitter : MonoBehaviour
                 _AtomSource.Stop();
                 _AtomSource.cueName = null;
             }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag(_TagNameOnGrass) || other.CompareTag(_TagNameOnSnow))
+        {
+            _GroundTag = other.tag;
         }
     }
 }

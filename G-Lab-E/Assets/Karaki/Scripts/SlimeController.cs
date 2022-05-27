@@ -58,9 +58,6 @@ public class SlimeController : MonoBehaviour
     [SerializeField, Tooltip("地面を見つけている")]
     protected bool _IsFoundGround = false;
 
-    /// <summary>地面を見つけている場合のTag名</summary>
-    string _GroundTag = null;
-
     [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
     string _LayerNameWiremeshWall = "WireMeshWall";
 
@@ -87,8 +84,6 @@ public class SlimeController : MonoBehaviour
     public int Morphing { set => _Morphing = (KindOfMorph)value; }
     /// <summary>true : 地面を見つけている</summary>
     public bool IsFoundGround { get => _IsFoundGround; }
-    /// <summary>地面を見つけている場合のTag名</summary>
-    public string GroundTag { get => _GroundTag; }
     /// <summary>true : ジャンプした</summary>
     public bool IsJump { get => _IsJump; }
     #endregion
@@ -137,9 +132,7 @@ public class SlimeController : MonoBehaviour
         if (Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength, _LayerGround))
         {
             _IsFoundGround = true;
-            _GroundTag = hit.collider.tag;
         }
-        else _GroundTag = "";
 
         //ジャンプ入力
         _IsJump = false;
