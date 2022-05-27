@@ -10,7 +10,7 @@ public class CloseInformationWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputUtility.GetJump)
+        if (InputUtility.GetDownJump)
         {
             _RunMethod.Invoke();
             this.gameObject.SetActive(false);
