@@ -14,9 +14,11 @@ public class Elevetr : MonoBehaviour
     /// <summary>フェードアウト用アニメーション</summary>
     [SerializeField] Animator _anim;
     /// <summary>フェードアウト開始までの時間</summary>
-    float _animStartTime = 7.0f;
+    float _animStartTime = 3.0f;
     /// <summary>ゴールした時のフラグ</summary>
     bool _goleFrag;
+    /// <summary>最後のタイムライン</summary>
+    [SerializeField] UnityEvent _lastTimeline;
     GameObject _player;
 
     private void Update()
@@ -24,7 +26,7 @@ public class Elevetr : MonoBehaviour
         if(_goleFrag == true)
         {
             var _pos = _player.gameObject.transform.position;
-            _player.transform.position = new Vector3(_pos.x,_pos.y + 0.035f, _pos.z) ;
+            _player.transform.position = new Vector3(_pos.x,_pos.y + 0.02f, _pos.z) ;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -41,7 +43,9 @@ public class Elevetr : MonoBehaviour
     }
     IEnumerator AnimStart()
     {
-        yield return new WaitForSeconds(_animStartTime);
+        yield return new WaitForSeconds(3);
         _anim.Play("FadeOut");
+        yield return new WaitForSeconds(_animStartTime);
+        _lastTimeline.Invoke();
     }
 }
