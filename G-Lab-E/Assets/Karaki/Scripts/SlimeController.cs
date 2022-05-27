@@ -49,11 +49,17 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
+    /// <summary>true : ジャンプした</summary>
+    bool _IsJump = false;
+
     [SerializeField, Tooltip("地面を見つけるrayの長さ")]
     protected float _GroundRayLength = 0.45f;
 
     [SerializeField, Tooltip("地面を見つけている")]
     protected bool _IsFoundGround = false;
+
+    /// <summary>地面を見つけている場合のTag名</summary>
+    string _GroundTag = null;
 
     [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
     string _LayerNameWiremeshWall = "WireMeshWall";
@@ -75,8 +81,16 @@ public class SlimeController : MonoBehaviour
     public KindOfMorph ThisMorph { get => _ThisMorph; }
     /// <summary>キャラクターの移動力</summary>
     public float MoveSpeed { get => _MoveSpeed; }
+    /// <summary>移動方向面における速度</summary>
+    public Vector3 VelocityOnPlane { get => Vector3.ProjectOnPlane(_Rb.velocity, _PlaneNormal); }
     /// <summary> 現在の変身先 </summary>
     public int Morphing { set => _Morphing = (KindOfMorph)value; }
+    /// <summary>true : 地面を見つけている</summary>
+    public bool IsFoundGround { get => _IsFoundGround; }
+    /// <summary>地面を見つけている場合のTag名</summary>
+    public string GroundTag { get => _GroundTag; }
+    /// <summary>true : ジャンプした</summary>
+    public bool IsJump { get => _IsJump; }
     #endregion
 
     protected void Awake()
@@ -120,18 +134,22 @@ public class SlimeController : MonoBehaviour
         //床を足元から探す
         _IsFoundGround = false;
         RaycastHit hit;
-        if(Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength , _LayerGround))
+        if (Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength, _LayerGround))
         {
             _IsFoundGround = true;
+            _GroundTag = hit.collider.tag;
         }
+        else _GroundTag = "";
 
         //ジャンプ入力
+        _IsJump = false;
         if (InputUtility.GetDownJump)
         {
             //床を見つけている
             if (_IsFoundGround)
             {
                 _Rb.AddForce(Vector3.up * _JumpPower, ForceMode.Impulse);
+                _IsJump = true;
             }
         }
 
