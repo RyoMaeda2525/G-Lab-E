@@ -10,12 +10,35 @@ public class CriSoundPlay : MonoBehaviour
     GameObject soundSrcObject = default;
 
     [SerializeField , Tooltip("サウンド名登録するためのもの")]
-    string[] soundArray = default; 
+    string[] soundArray = default;
+
+    [SerializeField, Tooltip("1秒で減衰するサウンドの音量")]
+    float _fadeVolumeSpeed = 0.1f;
+
+    [SerializeField, Tooltip("減衰する音量")]
+    float _fadeVoume = 0;
+
+    [SerializeField]
+    bool _fadeIn = false;
+
+    float _soundVolume = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         _atomSrc = soundSrcObject.GetComponent<CriAtomSource>();
+
+        _soundVolume = _atomSrc.volume;
+    }
+
+    private void Update()
+    {
+        if (_fadeIn && _atomSrc.volume > _fadeVoume)
+        {
+            _soundVolume -= Time.deltaTime * _fadeVolumeSpeed;
+            _atomSrc.volume = _soundVolume;
+        }
+        else _fadeIn = false;
     }
 
     public void SoundPlay(int a) 
@@ -48,6 +71,12 @@ public class CriSoundPlay : MonoBehaviour
                 _atomSrc.Stop(); //再生中なので停止
             }
         }
+    }
+
+    public void FadeInSound(float a) 
+    {
+        _fadeVoume = a;
+        _fadeIn = true;
     }
 
 }
