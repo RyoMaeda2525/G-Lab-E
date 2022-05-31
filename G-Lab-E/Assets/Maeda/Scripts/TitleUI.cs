@@ -15,28 +15,29 @@ public class TitleUI : MonoBehaviour
     [SerializeField]
     EventSystem _es = default;
 
-    [SerializeField, Tooltip("最初に選択するボタンの要素数")]
-    int _startButtonNumber = 0;
+    [SerializeField, Tooltip("最初から選択するボタンの要素数")]
+    int _serectButtonNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (_Buttons[_startButtonNumber]) 
+        if (_Buttons[_serectButtonNumber]) 
         {
-            _es.SetSelectedGameObject(_Buttons[_startButtonNumber]);
+            _es.SetSelectedGameObject(_Buttons[_serectButtonNumber]);
         }
     }
 
     // Update is called once per frame
     void Update() //選択されているボタンに合った画像を出す
     {
-        if (InputUtility.GetDownMorphUp || InputUtility.GetDownMorphDown || InputUtility.GetAxis2DMove.y != 0)
+        if (_es.currentSelectedGameObject && _es.currentSelectedGameObject != _Buttons[_serectButtonNumber])
         {
             for (int i = 0; i < _Buttons.Length; i++)
             {
                 if (_es.currentSelectedGameObject == _Buttons[i])
                 {
                     _Buttons[i].GetComponent<Image>().enabled = true;
+                    _serectButtonNumber = i;
                 }
                 else
                 {
@@ -44,11 +45,15 @@ public class TitleUI : MonoBehaviour
                 }
             }
         }
+        else if (!_es.currentSelectedGameObject) 
+        {
+            _es.SetSelectedGameObject(_Buttons[_serectButtonNumber]);
+        }
     }
 
     public void StartUI()　//_startButtonNumberで決めたボタンを初めに選択
     {
-        _es.SetSelectedGameObject(_Buttons[_startButtonNumber]);
+        _es.SetSelectedGameObject(_Buttons[_serectButtonNumber]);
     }
 
 

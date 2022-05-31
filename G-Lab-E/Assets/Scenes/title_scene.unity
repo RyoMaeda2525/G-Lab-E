@@ -786,8 +786,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1418524424}
-        m_MethodName: GameQuit
+      - m_Target: {fileID: 440199144}
+        m_MethodName: PlayAndStopSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -797,8 +797,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 440199144}
-        m_MethodName: PlayAndStopSound
+      - m_Target: {fileID: 1418524424}
+        m_MethodName: GameQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2631,7 +2631,7 @@ MonoBehaviour:
   - {fileID: 1421815587}
   - {fileID: 333206758}
   _es: {fileID: 1928694487}
-  _startButtonNumber: 0
+  _serectButtonNumber: 0
 --- !u!1 &1395346593
 GameObject:
   m_ObjectHideFlags: 0
