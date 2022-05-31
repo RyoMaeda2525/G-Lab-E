@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MorphEffectController : MonoBehaviour
 {
+    [SerializeField, Tooltip("soundSourceが入っているオブジェクトを選択する")]
+    GameObject soundSrcObject = default;
+
     [SerializeField, Tooltip("スライムの液状化動作をするためのアニメーター")]
     Animator _AnimatorMorphSlimeMelting = default;
 
@@ -30,6 +33,7 @@ public class MorphEffectController : MonoBehaviour
     string _AnimNameShrinking = "Shrinking";
 
     [SerializeField, Tooltip("元の大きさに戻すアニメーションの名前")]
+
     string _AnimNameSizeReturn = "SizeReturn";
 
     /// <summary>true : 変身用アニメーションが再生中</summary>
@@ -41,7 +45,8 @@ public class MorphEffectController : MonoBehaviour
     /// <summary>_Timeカウント用タイマー</summary>
     float _Timer = 0f;
 
-
+    /// <summary>soundSrcObject用</summary>
+    CriAtomSource _atomSrc;
 
     /// <summary>変身を終えた後に変身先のプレイヤーをActiveにするメソッド</summary>
     public Action<bool> ForEndMorphing = default;
@@ -56,6 +61,7 @@ public class MorphEffectController : MonoBehaviour
     {
         _Timer = 0f;
         _IsPlayingAnimation = false;
+        _atomSrc = soundSrcObject.GetComponent<CriAtomSource>();
 
         //エフェクト用オブジェクトはまず表示しない
         _AnimatorMorphSlimeMelting.gameObject.SetActive(false);
@@ -95,6 +101,8 @@ public class MorphEffectController : MonoBehaviour
     public void PlayMorphEffect(KindOfMorph current, KindOfMorph target)
     {
         _IsPlayingAnimation = true;
+        PlayAndStopSound();
+
 
         //変身元のアニメーションを再生
         switch (current)
@@ -166,6 +174,21 @@ public class MorphEffectController : MonoBehaviour
                 }
                 break;
             default: break;
+        }
+    }
+    public void PlayAndStopSound()
+    {
+        if (_atomSrc != null)
+        {
+            CriAtomSource.Status status = _atomSrc.status; //CriAtomSource の状態を取得
+            if ((status == CriAtomSource.Status.Stop) || (status == CriAtomSource.Status.PlayEnd))
+            {
+                _atomSrc.Play(); //停止状態なので再生
+            }
+            else
+            {
+                _atomSrc.Stop(); //再生中なので停止
+            }
         }
     }
 }

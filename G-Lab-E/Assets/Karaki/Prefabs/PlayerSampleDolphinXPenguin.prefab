@@ -17,6 +17,10 @@ MonoBehaviour:
   - SE_penguinWalk
   - SE_echolocationSound
   - SE_diving
+  - SE_echolocationWater
+  _fadeVolumeSpeed: 3
+  _fadeVoume: 0
+  _fadeIn: 0
 --- !u!1 &7688966430606791227
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playOnStart: 0
   _cueName: 
-  _cueSheet: SE_Eteam0517
+  _cueSheet: SE_Eteam0531
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
   _use3dPositioning: 1
