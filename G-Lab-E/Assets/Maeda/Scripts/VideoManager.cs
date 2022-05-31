@@ -19,4 +19,9 @@ public class VideoManager : MonoBehaviour
     {
         vp.Play();
     }
+
+    public void VideoStop() 
+    {
+        vp.Stop();
+    }
 }

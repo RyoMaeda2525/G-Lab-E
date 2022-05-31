@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class MoveSkipControl : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class MoveSkipControl : MonoBehaviour
 
     bool _buttonActiv = false;
 
+    [SerializeField] UnityEvent _RunMethod = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,22 @@ public class MoveSkipControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (InputUtility.GetDownJump)
+        {
+            if (_buttonActiv) 
+            {
+                _RunMethod.Invoke();
+            }
+            else
+            {
+                timer = 0;
+                if (InputUtility.GetDownJump)
+                {
+                    ButtonActiv();
+                }
+            }
+        }
+
         if (_buttonActiv)
         {
             timer += Time.deltaTime;
@@ -33,14 +53,7 @@ public class MoveSkipControl : MonoBehaviour
                 _buttonActiv = false;
             }
         }
-        else 
-        {
-            timer = 0;
-            if (InputUtility.GetDownJump) 
-            {
-                ButtonActiv();
-            }
-        }
+       
     }
 
     public void ButtonActiv() 
