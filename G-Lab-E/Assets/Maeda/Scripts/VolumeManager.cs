@@ -19,7 +19,7 @@ public class VolumeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputUtility.GetDownMorphLeft ) 
+        if (InputUtility.GetDownMorphLeft || InputUtility.GetAxis2DMove.x < 0) 
         {
             if (_volumeLevel > 0) 
             {
@@ -27,7 +27,7 @@ public class VolumeManager : MonoBehaviour
                 ColorChange();
             }
         }
-        else if (InputUtility.GetDownMorphRight)
+        else if (InputUtility.GetDownMorphRight || InputUtility.GetAxis2DMove.x > 0)
         {
             if (_volumeLevel < 10) 
             {

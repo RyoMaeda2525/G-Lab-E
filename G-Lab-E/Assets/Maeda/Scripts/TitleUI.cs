@@ -30,6 +30,8 @@ public class TitleUI : MonoBehaviour
     // Update is called once per frame
     void Update() //選択されているボタンに合った画像を出す
     {
+        if (InputUtility.GetDownMorphUp || InputUtility.GetDownMorphDown || InputUtility.GetAxis2DMove.y != 0)
+        {
             for (int i = 0; i < _Buttons.Length; i++)
             {
                 if (_es.currentSelectedGameObject == _Buttons[i])
@@ -41,6 +43,7 @@ public class TitleUI : MonoBehaviour
                     _Buttons[i].GetComponent<Image>().enabled = false;
                 }
             }
+        }
     }
 
     public void StartUI()　//_startButtonNumberで決めたボタンを初めに選択
