@@ -33114,6 +33114,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1577770961906747076, guid: 31b52e371ddf08645b620f1b56836ba7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 568926872}
+    - target: {fileID: 1577770961906747076, guid: 31b52e371ddf08645b620f1b56836ba7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 1577770961929141248, guid: 31b52e371ddf08645b620f1b56836ba7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -33224,6 +33234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1577770962071625235, guid: 31b52e371ddf08645b620f1b56836ba7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 568926872}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31b52e371ddf08645b620f1b56836ba7, type: 3}
 --- !u!1 &1255666568
