@@ -57,6 +57,8 @@ public class BatXGeckoController : SlimeController
 
     void Update()
     {
+        Debug.Log(_CurrentSpeed);
+
         if (PauseManager.IsPausing) return;
 
         _IsFoundGround = Move == MoveGround;
