@@ -58,6 +58,11 @@ public class TestGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(7);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SceneManager.LoadScene(8);
+        }
     }
 
     public void Title()
