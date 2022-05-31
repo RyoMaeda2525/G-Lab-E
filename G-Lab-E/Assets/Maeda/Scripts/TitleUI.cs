@@ -9,8 +9,8 @@ public class TitleUI : MonoBehaviour
     [SerializeField, Tooltip("実際に押すボタン")]
     GameObject[] _Buttons = new GameObject[4];
 
-    [SerializeField, Tooltip("選択状態になったUI")]
-    GameObject[] _uiImages = new GameObject[4];
+    //[SerializeField, Tooltip("選択状態になったUI")]
+    //GameObject[] _uiImages = new GameObject[4];
 
     [SerializeField]
     EventSystem _es = default;
@@ -21,23 +21,26 @@ public class TitleUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (_Buttons[_startButtonNumber]) 
+        {
+            _es.SetSelectedGameObject(_Buttons[_startButtonNumber]);
+        }
     }
 
     // Update is called once per frame
     void Update() //選択されているボタンに合った画像を出す
     {
-        for (int i = 0; i < _Buttons.Length; i++) 
-        {
-            if (_es.currentSelectedGameObject == _Buttons[i])
+            for (int i = 0; i < _Buttons.Length; i++)
             {
-                _uiImages[i].SetActive(true);
+                if (_es.currentSelectedGameObject == _Buttons[i])
+                {
+                    _Buttons[i].GetComponent<Image>().enabled = true;
+                }
+                else
+                {
+                    _Buttons[i].GetComponent<Image>().enabled = false;
+                }
             }
-            else
-            {
-                _uiImages[i].SetActive(false);
-            }
-        }
     }
 
     public void StartUI()　//_startButtonNumberで決めたボタンを初めに選択
