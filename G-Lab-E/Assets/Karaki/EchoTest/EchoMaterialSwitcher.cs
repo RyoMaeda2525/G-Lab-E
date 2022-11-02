@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,14 +12,19 @@ public class EchoMaterialSwitcher : MonoBehaviour
     [SerializeField, Tooltip("制御対象のRenderer")]
     Renderer _Renderer = default;
 
-    [SerializeField, Tooltip("元のマテリアル")]
-    Material _MaterialOrigin = default;
+    [SerializeField, Tooltip("元のマテリアル(複数)")]
+    Material[] _MaterialOrigins = default;
 
     [SerializeField, Tooltip("Echo用マテリアル")]
     Material _MaterialEcho = default;
 
+    [SerializeField, Tooltip("Echo用マテリアル(複数)")]
+    Material[] _MaterialEchos = default;
+
     /// <summary> エコーロケーションを走らせているコルーチン格納メンバー </summary>
     Coroutine EchoProcess = null;
+
+    public static bool IsEcho { get => _IsEcho; }
 
     public static void DoEchoOrder()
     {
@@ -27,11 +33,11 @@ public class EchoMaterialSwitcher : MonoBehaviour
 
     IEnumerator RunEchoSystem()
     {
-        _Renderer.material = _MaterialEcho;
+        _Renderer.materials = _MaterialEchos;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
-        _Renderer.material = _MaterialOrigin;
+        _Renderer.materials = _MaterialOrigins;
 
         EchoProcess = null;
         _IsEcho = false;
@@ -41,7 +47,9 @@ public class EchoMaterialSwitcher : MonoBehaviour
     void Start()
     {
         _Renderer = GetComponent<Renderer>();
-        _MaterialOrigin = _Renderer.material;
+        _MaterialOrigins = _Renderer.materials;
+        _MaterialEchos = new Material[_MaterialOrigins.Length];
+        _MaterialEchos = _MaterialEchos.Select(m => m = _MaterialEcho).ToArray();
     }
 
     // Update is called once per frame

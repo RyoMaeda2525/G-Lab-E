@@ -67,7 +67,7 @@ Material:
     - _DstBlend: 0
     - _EmissionGain: 0
     - _Glossiness: 0.5
-    - _InvFade: 1
+    - _InvFade: 1.01
     - _MainRotation: 0
     - _Metallic: 0
     - _Mode: 0
@@ -85,4 +85,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.5}

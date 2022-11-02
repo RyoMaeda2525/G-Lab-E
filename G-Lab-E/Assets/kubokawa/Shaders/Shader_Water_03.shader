@@ -54,8 +54,8 @@
 				}
 
 				void disp(inout appdata v) {
-					fixed waveTex1 = tex2Dlod(_WaveTex1H, float4(v.texcoord.xy * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x), 0, 0)).a * _Displace.x;
-					fixed waveTex2 = tex2Dlod(_WaveTex2H, float4(v.texcoord.xy * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y), 0, 0)).a * _Displace.y;
+					fixed waveTex1 = tex2Dlod(_WaveTex1H, float4(v.texcoord.xy * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x * sin(_Time.x)), 0, 0)).a * _Displace.x;
+					fixed waveTex2 = tex2Dlod(_WaveTex2H, float4(v.texcoord.xy * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y * sin(-_Time.x)), 0, 0)).a * _Displace.y;
 					fixed displace = waveTex1 + waveTex2;
 
 					v.vertex.xyz += v.normal * displace;
@@ -67,8 +67,8 @@
 				};
 
 				void surf(Input IN, inout SurfaceOutputStandard o) {
-					fixed4 waveTex1 = tex2D(_WaveTex1, IN.uv_WaveTex1 * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x));
-					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y));
+					fixed4 waveTex1 = tex2D(_WaveTex1, IN.uv_WaveTex1 * _WaveTiling.x + float2(0, _Time.x * _FlowSpeed.x * sin(_Time.x)));
+					fixed4 waveTex2 = tex2D(_WaveTex2, IN.uv_WaveTex1 * _WaveTiling.y + float2(0, _Time.x * _FlowSpeed.y * sin(-_Time.x)));
 
 					fixed3 normal1 = UnpackNormal(waveTex1);
 					fixed3 normal2 = UnpackNormal(waveTex2);
@@ -83,7 +83,8 @@
 					half3 grab = tex2D(_GrabTexture, grabUV + distortion).rgb * _Color;
 
 
-					o.Albedo = fixed3(1, 1, 1);
+					//o.Albedo = fixed3(1, 1, 1);
+					o.Albedo = _Color;
 					//o.Emission = grab;
 					o.Metallic = 0;
 					o.Smoothness = _Glossiness;

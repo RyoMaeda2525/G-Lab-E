@@ -7,6 +7,9 @@ TagManager:
   - MoveFloor
   - PostProcessing
   - WalkableWall
+  - WireMesh
+  - Snow
+  - Grass
   layers:
   - Default
   - TransparentFX
@@ -23,12 +26,12 @@ TagManager:
   - WireMeshWall
   - PlayerSlime
   - ThroughDirLight
+  - Generator
   - 
   - 
   - 
   - 
-  - 
-  - 
+  - NoLighting
   - 
   - 
   - 

@@ -3,20 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class SlimeController : MonoBehaviour
 {
+    #region メンバ
     /// <summary> 操作対象になりうるコンポーネント群 </summary>
     static List<SlimeController> _Controllers = new List<SlimeController>();
 
     /// <summary> 現在の変身先 </summary>
     static KindOfMorph _Morphing = KindOfMorph.Slime;
 
+    /// <summary>変身エフェクトを制御するコンポーネント</summary>
+    MorphEffectController _MorphEffectController = default;
+
     [SerializeField, Tooltip("true : 変身可能である")]
     protected bool _IsAbleToMorph = true;
 
     /// <summary> 移動用Rigidbody </summary>
     protected Rigidbody _Rb = default;
+
+    /// <summary>当たり判定Collider</summary>
+    protected CapsuleCollider _CCol = default;
 
     [SerializeField, Tooltip("このキャラクターの変身の種類")]
     protected KindOfMorph _ThisMorph = KindOfMorph.Slime;
@@ -28,7 +35,7 @@ public class SlimeController : MonoBehaviour
     protected float _MoveSpeed = 30f;
 
     [SerializeField, Tooltip("キャラクターのジャンプ力")]
-    float _JumpPower = 10f;
+    protected float _JumpPower = 10f;
 
     [SerializeField, Tooltip("水中として認識するオブジェクトレイヤー名")]
     protected string _LayerNameWater = "Water";
@@ -42,8 +49,14 @@ public class SlimeController : MonoBehaviour
     /// <summary> 現在の移動力 </summary>
     protected float _CurrentSpeed = 0f;
 
+    /// <summary>true : ジャンプした</summary>
+    bool _IsJump = false;
+
+    [SerializeField, Tooltip("地面を見つけるrayの長さ")]
+    protected float _GroundRayLength = 0.45f;
+
     [SerializeField, Tooltip("地面を見つけている")]
-    bool _IsFoundGround = false;
+    protected bool _IsFoundGround = false;
 
     [SerializeField, Tooltip("金網として認識するオブジェクトレイヤー名")]
     string _LayerNameWiremeshWall = "WireMeshWall";
@@ -56,13 +69,23 @@ public class SlimeController : MonoBehaviour
 
     /// <summary>金網面の法線</summary>
     Vector3 _WiremeshNormal = Vector3.zero;
+    #endregion
 
     #region プロパティ
     /// <summary> true : 変身可能である </summary>
     public bool IsAbleToMorph { set => _IsAbleToMorph = value; }
-
     /// <summary> このキャラクターの変身の種類 </summary>
     public KindOfMorph ThisMorph { get => _ThisMorph; }
+    /// <summary>キャラクターの移動力</summary>
+    public float MoveSpeed { get => _MoveSpeed; }
+    /// <summary>移動方向面における速度</summary>
+    public Vector3 VelocityOnPlane { get => Vector3.ProjectOnPlane(_Rb.velocity, _PlaneNormal); }
+    /// <summary> 現在の変身先 </summary>
+    public int Morphing { set => _Morphing = (KindOfMorph)value; }
+    /// <summary>true : 地面を見つけている</summary>
+    public bool IsFoundGround { get => _IsFoundGround; }
+    /// <summary>true : ジャンプした</summary>
+    public bool IsJump { get => _IsJump; }
     #endregion
 
     protected void Awake()
@@ -74,11 +97,14 @@ public class SlimeController : MonoBehaviour
     protected virtual void Start()
     {
         _Rb = GetComponent<Rigidbody>();
+        _CCol = GetComponent<CapsuleCollider>();
 
         //現在の変身先のモノだけ有効化
         this.gameObject.SetActive(_Morphing == _ThisMorph);
 
         _CurrentSpeed = _MoveSpeed;
+
+        _MorphEffectController = FindObjectOfType<MorphEffectController>();
     }
 
     protected void OnDestroy()
@@ -98,23 +124,25 @@ public class SlimeController : MonoBehaviour
     {
         if (PauseManager.IsPausing) return;
 
-        Morphing();
+        DoMorph();
 
         //床を足元から探す
         _IsFoundGround = false;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.45f, _LayerGround))
+        if (Physics.SphereCast(transform.position + (_PlaneNormal * _CCol.radius), _CCol.radius, -_PlaneNormal, out hit, _GroundRayLength, _LayerGround))
         {
             _IsFoundGround = true;
         }
 
         //ジャンプ入力
+        _IsJump = false;
         if (InputUtility.GetDownJump)
         {
             //床を見つけている
             if (_IsFoundGround)
             {
                 _Rb.AddForce(Vector3.up * _JumpPower, ForceMode.Impulse);
+                _IsJump = true;
             }
         }
 
@@ -165,7 +193,7 @@ public class SlimeController : MonoBehaviour
             }
         }
 
-        //接地状態
+        //接地状態か否かで移動処理を分岐
         if (_IsFoundGround)
         {
             _Rb.AddForce(forceForPb);
@@ -195,19 +223,27 @@ public class SlimeController : MonoBehaviour
     }
 
     /// <summary> 変身する </summary>
-    protected void Morphing()
+    protected void DoMorph()
     {
+        //変身エフェクトが表示されている状態なら変身要求は不可
+        if (_MorphEffectController.IsPlayingAnimation) return;
+        //空中にいるときはの変身要求は不可
+        if (!_IsFoundGround) return;
+
         //スライムに戻る
         if (InputUtility.GetDownMorphUp)
         {
+            _MorphEffectController.transform.position = transform.position;
+            _MorphEffectController.transform.rotation = transform.rotation;
             if (_ThisMorph != KindOfMorph.Slime)
             {
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.Slime).First();
                 sc.transform.position = transform.position;
                 sc.transform.rotation = transform.rotation;
-                sc.gameObject.SetActive(true);
-                this.gameObject.SetActive(false);
+                _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                 _Morphing = KindOfMorph.Slime;
+                _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                this.gameObject.SetActive(false);
             }
         }
 
@@ -216,45 +252,41 @@ public class SlimeController : MonoBehaviour
         {
             if (_ThisMorph != KindOfMorph.BatXGecko)
             {
+                _MorphEffectController.transform.position = transform.position;
+                _MorphEffectController.transform.rotation = transform.rotation;
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.BatXGecko).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
-                    sc.gameObject.SetActive(true);
-                    this.gameObject.SetActive(false);
+                    _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                     _Morphing = KindOfMorph.BatXGecko;
+                    _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                    this.gameObject.SetActive(false);
                 }
             }
         }
 
-        //イルカ×ワニに変身
+        //イルカ×ペンギンに変身
         if (InputUtility.GetDownMorphRight)
         {
             if (_ThisMorph != KindOfMorph.DolphinXPenguin)
             {
+                _MorphEffectController.transform.position = transform.position;
+                _MorphEffectController.transform.rotation = transform.rotation;
                 SlimeController sc = _Controllers.Where(c => c.ThisMorph == KindOfMorph.DolphinXPenguin).FirstOrDefault();
                 if (sc && sc._IsAbleToMorph)
                 {
                     sc.transform.position = transform.position;
                     sc.transform.rotation = transform.rotation;
-                    sc.gameObject.SetActive(true);
-                    this.gameObject.SetActive(false);
+                    _MorphEffectController.ForEndMorphing += sc.gameObject.SetActive;
                     _Morphing = KindOfMorph.DolphinXPenguin;
+                    _MorphEffectController.PlayMorphEffect(_ThisMorph, _Morphing);
+                    this.gameObject.SetActive(false);
                 }
             }
         }
     }
-
-    /// <summary> 変身する種類 </summary>
-    public enum KindOfMorph : byte
-    {
-        Slime,
-        BatXGecko,
-        DolphinXPenguin,
-    }
-
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -308,4 +340,12 @@ public class SlimeController : MonoBehaviour
             _Rb.useGravity = true;
         }
     }
+}
+
+/// <summary> 変身する種類 </summary>
+public enum KindOfMorph : byte
+{
+    Slime = 0,
+    BatXGecko = 1,
+    DolphinXPenguin = 2,
 }

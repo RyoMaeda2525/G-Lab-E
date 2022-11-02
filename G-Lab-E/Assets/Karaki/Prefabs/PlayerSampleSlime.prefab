@@ -123,10 +123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764c1f8926ace684eb31eb4d5f58406b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MorphEffect: {fileID: 0}
+  _IsAbleToMorph: 1
   _ThisMorph: 0
   _CameraTransform: {fileID: 0}
   _MoveSpeed: 15
+  _JumpPower: 10
   _LayerNameWater: Water
   _LayerGround:
     serializedVersion: 2
     m_Bits: 512
+  _IsFoundGround: 0
+  _LayerNameWiremeshWall: WireMeshWall
+  _ThroughWiremeshTime: 0.5

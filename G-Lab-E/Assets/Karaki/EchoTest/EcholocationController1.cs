@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EcholocationController1 : MonoBehaviour
 {
@@ -22,6 +23,21 @@ public class EcholocationController1 : MonoBehaviour
     /// <summary>現在の半径</summary>
     float _Radius;
 
+    /// <summary>True : エコーロケーションを行った</summary>
+    bool _DoneEcho = false;
+
+    [SerializeField, Tooltip("エコー開始時に実行するメソッドを指定")]
+    UnityEvent _MethodForStartEcho = default;
+
+    [SerializeField, Tooltip("エコー終了時に実行するメソッドを指定")]
+    UnityEvent _MethodForEndEcho = default;
+
+    /// <summary>True : エコー終了時に実行するメソッドを実行した</summary>
+    bool _DoneEndEchoMethod = true;
+
+    /// <summary>True : エコーロケーションを行った。取得後Falseになる</summary>
+    public bool DoneEcho { get => _DoneEcho; }
+
     
     private void Start()
     {
@@ -38,11 +54,22 @@ public class EcholocationController1 : MonoBehaviour
     // 毎フレーム半径のセットおよび拡張を行う
     private void Update()
     {
+        if (PauseManager.IsPausing) return;
+
+        _DoneEcho = false;
         Vector3 _playerPos = _Player.transform.position;
-        if (InputUtility.GetDownJump)
+        if (!_DoneEcho && !CameraTarget.IsEcho && InputUtility.GetDownJump)
         {
-            EchoMaterialSwitcher.DoEchoOrder();
+            CameraTarget.DoEchoOrder();
             EmitCall(_playerPos);
+            _MethodForStartEcho.Invoke();
+            _DoneEndEchoMethod = false;
+            _DoneEcho = true;
+        }
+        else if(!_DoneEndEchoMethod && !CameraTarget.IsEcho)
+        {
+            _MethodForEndEcho.Invoke();
+            _DoneEndEchoMethod = true;
         }
 
         _Material.SetFloat(IDRadius, _Radius);

@@ -1,18 +1,18 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IceEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject _ice;
+    [SerializeField] float _setOnIceTime = 1.2f;
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        StartCoroutine("SetOn");
+    }
+    IEnumerator SetOn()
+    {
+        yield return new WaitForSeconds(_setOnIceTime);
+        _ice.SetActive(true);
     }
 }
