@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: 842fbdadb78200c498470f82451a8aa9
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: field_winter_elevator1_animClip
+  - first:
+      74: -3826563842421942221
+    second: field_winter_elevator2_animClip
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: field_winter_tilling_outsidewall_MT
+    second: {fileID: 2100000, guid: 639783977dd370d4cbfb78b8f754c8fe, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - field_winter_elevator1
+    - field_winter_elevator2
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: field_winter_elevator1_animClip
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: field_winter_elevator1
+        weight: 1
+      - path: field_winter_elevator1/locator1
+        weight: 1
+      - path: field_winter_elevator1/locator1/pGear4
+        weight: 1
+      - path: field_winter_elevator1/locator2
+        weight: 1
+      - path: field_winter_elevator1/locator2/pGear4 1
+        weight: 1
+      - path: field_winter_elevator1/locator3
+        weight: 1
+      - path: field_winter_elevator1/locator3/pGear4 2
+        weight: 1
+      - path: field_winter_elevator1/locator4
+        weight: 1
+      - path: field_winter_elevator1/locator4/pGear4 3
+        weight: 1
+      - path: field_winter_elevator1/locator5
+        weight: 1
+      - path: field_winter_elevator1/locator5/pGear4 4
+        weight: 1
+      - path: field_winter_elevator1/locator6
+        weight: 1
+      - path: field_winter_elevator1/locator6/pGear4 5
+        weight: 1
+      - path: field_winter_elevator2
+        weight: 0
+      - path: field_winter_elevator2/locator1 1
+        weight: 1
+      - path: field_winter_elevator2/locator1 1/pGear4 6
+        weight: 1
+      - path: field_winter_elevator2/locator2 1
+        weight: 1
+      - path: field_winter_elevator2/locator2 1/pGear4 7
+        weight: 1
+      - path: field_winter_elevator2/locator3 1
+        weight: 1
+      - path: field_winter_elevator2/locator3 1/pGear4 8
+        weight: 1
+      - path: field_winter_elevator2/locator4 1
+        weight: 1
+      - path: field_winter_elevator2/locator4 1/pGear4 9
+        weight: 1
+      - path: field_winter_elevator2/locator5 1
+        weight: 1
+      - path: field_winter_elevator2/locator5 1/pGear4 10
+        weight: 1
+      - path: field_winter_elevator2/locator6 1
+        weight: 1
+      - path: field_winter_elevator2/locator6 1/pGear4 11
+        weight: 1
+      - path: field_winter_elevator2/locator7
+        weight: 1
+      - path: field_winter_elevator2/locator7/pGear4 12
+        weight: 1
+      - path: field_winter_elevator2/locator8
+        weight: 1
+      - path: field_winter_elevator2/locator8/pGear4 13
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: field_winter_elevator2_animClip
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: field_winter_elevator1
+        weight: 0
+      - path: field_winter_elevator1/locator1
+        weight: 1
+      - path: field_winter_elevator1/locator1/pGear4
+        weight: 1
+      - path: field_winter_elevator1/locator2
+        weight: 1
+      - path: field_winter_elevator1/locator2/pGear4 1
+        weight: 1
+      - path: field_winter_elevator1/locator3
+        weight: 1
+      - path: field_winter_elevator1/locator3/pGear4 2
+        weight: 1
+      - path: field_winter_elevator1/locator4
+        weight: 1
+      - path: field_winter_elevator1/locator4/pGear4 3
+        weight: 1
+      - path: field_winter_elevator1/locator5
+        weight: 1
+      - path: field_winter_elevator1/locator5/pGear4 4
+        weight: 1
+      - path: field_winter_elevator1/locator6
+        weight: 1
+      - path: field_winter_elevator1/locator6/pGear4 5
+        weight: 1
+      - path: field_winter_elevator2
+        weight: 1
+      - path: field_winter_elevator2/locator1 1
+        weight: 1
+      - path: field_winter_elevator2/locator1 1/pGear4 6
+        weight: 1
+      - path: field_winter_elevator2/locator2 1
+        weight: 1
+      - path: field_winter_elevator2/locator2 1/pGear4 7
+        weight: 1
+      - path: field_winter_elevator2/locator3 1
+        weight: 1
+      - path: field_winter_elevator2/locator3 1/pGear4 8
+        weight: 1
+      - path: field_winter_elevator2/locator4 1
+        weight: 1
+      - path: field_winter_elevator2/locator4 1/pGear4 9
+        weight: 1
+      - path: field_winter_elevator2/locator5 1
+        weight: 1
+      - path: field_winter_elevator2/locator5 1/pGear4 10
+        weight: 1
+      - path: field_winter_elevator2/locator6 1
+        weight: 1
+      - path: field_winter_elevator2/locator6 1/pGear4 11
+        weight: 1
+      - path: field_winter_elevator2/locator7
+        weight: 1
+      - path: field_winter_elevator2/locator7/pGear4 12
+        weight: 1
+      - path: field_winter_elevator2/locator8
+        weight: 1
+      - path: field_winter_elevator2/locator8/pGear4 13
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
