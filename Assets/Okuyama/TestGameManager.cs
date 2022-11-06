@@ -17,7 +17,7 @@ public class TestGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             //SceneManager.LoadScene(0);
@@ -66,6 +66,7 @@ public class TestGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(8);
         }
+#endif
     }
 
     public void Title()
