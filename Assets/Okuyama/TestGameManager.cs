@@ -9,7 +9,6 @@ public class TestGameManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Debug.Log(VolumeManager._volumeLevel);
         CriAtom.SetCategoryVolume("BGM", 0.1f * VolumeManager._volumeLevel);
         CriAtom.SetCategoryVolume("SE", 0.1f * VolumeManager._volumeLevel);
     }
@@ -17,7 +16,7 @@ public class TestGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             //SceneManager.LoadScene(0);
@@ -66,6 +65,7 @@ public class TestGameManager : MonoBehaviour
         {
             SceneManager.LoadScene(8);
         }
+#endif
     }
 
     public void Title()

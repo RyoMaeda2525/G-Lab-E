@@ -34,6 +34,8 @@ public class TitleUI : MonoBehaviour
         {
             for (int i = 0; i < _Buttons.Length; i++)
             {
+                Debug.Log(i);
+
                 if (_es.currentSelectedGameObject == _Buttons[i])
                 {
                     _Buttons[i].GetComponent<Image>().enabled = true;
