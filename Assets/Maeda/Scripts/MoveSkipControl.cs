@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.Events;
 
 public class MoveSkipControl : MonoBehaviour
@@ -10,36 +11,42 @@ public class MoveSkipControl : MonoBehaviour
     [SerializeField, Tooltip("ムービースキップのボタン")]
     GameObject _movieSkipButton = default;
 
-    [SerializeField, Tooltip("ムービースキップのボタン")]
+    [SerializeField, Tooltip("ムービースキップのボタンが表示されている時間")]
     int _buttonHideTime = 5;
+
+    [SerializeField] UnityEvent _RunMethod = default;
 
     float timer = 0;
 
     bool _buttonActiv = false;
 
-    [SerializeField] UnityEvent _RunMethod = default;
+    VideoPlayer vp;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        vp = GetComponent<VideoPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (InputUtility.GetDownJump)
+        if (vp.isPlaying)
         {
-            if (_buttonActiv) 
+            if (InputUtility.GetDownJump)
             {
-                _RunMethod.Invoke();
-            }
-            else
-            {
-                timer = 0;
-                if (InputUtility.GetDownJump)
+
+                if (_buttonActiv)
                 {
-                    ButtonActiv();
+                    _RunMethod.Invoke();
+                }
+                else
+                {
+                    timer = 0;
+                    if (InputUtility.GetDownJump)
+                    {
+                        ButtonActiv();
+                    }
                 }
             }
         }
@@ -53,13 +60,13 @@ public class MoveSkipControl : MonoBehaviour
                 _buttonActiv = false;
             }
         }
-       
+
     }
 
-    public void ButtonActiv() 
+    public void ButtonActiv()
     {
         _movieSkipButton.SetActive(true);
         _buttonActiv = true;
-    } 
+    }
 
 }
