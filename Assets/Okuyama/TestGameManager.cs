@@ -9,7 +9,6 @@ public class TestGameManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Debug.Log(VolumeManager._volumeLevel);
         CriAtom.SetCategoryVolume("BGM", 0.1f * VolumeManager._volumeLevel);
         CriAtom.SetCategoryVolume("SE", 0.1f * VolumeManager._volumeLevel);
     }
