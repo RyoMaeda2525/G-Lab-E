@@ -1,4 +1,4 @@
-# Meety ~Escape from the laboratory~
+# Meety Escape from the laboratory
 ゲーム大賞2022アマチュア部門に応募するために制作した3Dアクションゲーム
 ## 開発環境
 
